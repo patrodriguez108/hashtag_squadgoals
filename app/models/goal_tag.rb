@@ -1,0 +1,2 @@
+class GoalTag < ApplicationRecord
+end
