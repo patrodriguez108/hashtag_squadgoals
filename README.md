@@ -8,7 +8,7 @@ We are Squad TeamGoals.
 
 ## Schema
 
-![SquadGoalsSchema](schema.png)
+![SquadGoalsSchema](schema_updated.png)
 
 ## User Stories
 
