@@ -8,7 +8,7 @@ class ApplicationController < ActionController::Base
   def about
   end
 
-  #  before_action :configure_permitted_parameters, :only => [:create, :edit]
+ before_action :configure_permitted_parameters, if: :devise_controller?, :only => [:create, :edit]
 
   # protected
 
