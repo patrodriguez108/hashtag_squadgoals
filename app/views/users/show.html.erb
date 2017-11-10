@@ -27,11 +27,7 @@
     <h3>Your Squad</h3>
     <ul class="champ-ul">
     <% @user.champs.each do |champ|%>
-
-      <strong><li class="champ-li-name"><%= champ.username %></li></strong>
-      <% if champ.goals.last != nil %>
-        <li class="champ-li-goal"><%= champ.goals.last.content %></li>
-      <% end %>
+      <%= render partial: 'champ', locals: {champ: champ} %>
     <% end %>
     </ul>
   </div>
