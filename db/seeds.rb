@@ -37,5 +37,5 @@ ConnectionStatus.create(name: "Denied")
 end
 
 20.times do
-	Goal.create(content: Faker::HarryPotter.quote, by_when: Faker::Date.between(Date.today, 10.years.from_now), private: false, user_id: rand(1..10), category_id: rand(1..3))
+	Goal.create(content: Faker::HarryPotter.quote, by_when: Faker::Date.between(Date.today, 10.years.from_now), user_id: rand(1..10), category_id: rand(1..3))
 end
