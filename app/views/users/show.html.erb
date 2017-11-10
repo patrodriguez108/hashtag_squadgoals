@@ -1,6 +1,12 @@
 <div class="page-wraper">
   <h1>Hi <%= current_user.username %></h1>
 
+  <%= image_tag @user.profile_pic.url %>
+
+  <div class="user-vision">
+    <p><%= @user.visions.last %></p>
+  </div>
+
   <div class="tab-content" id="vision"></div>
     <div class="user-vision">
       <h3>Your Vision:</h3>

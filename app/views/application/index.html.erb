@@ -1,6 +1,7 @@
 <section class="goals-sample">
   <% @goals_sample.each do |goal| %>
     <div class="goal">
+      <%= image_tag goal.user.profile_pic(:square) %>
       <p><%= goal.content %></p>
       <p>by <%= goal.by_when.strftime("%b %d, %Y") %></p>
       <p><%= goal.user.username %></p>
