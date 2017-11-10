@@ -3,5 +3,7 @@ Rails.application.routes.draw do
 
   get '/about', to: 'application#about'
 
+  get '/goals/new', to: 'goals#new', as: 'new_goal'
+
   devise_for :users
 end
