@@ -1,2 +1,2 @@
-<p><%= check_box_tag(:tag) %>
+<p><%= check_box_tag "tag-#{tag.id}", "#{tag.id}" %>
 	<%= label_tag(:tag, tag.name) %></p>
