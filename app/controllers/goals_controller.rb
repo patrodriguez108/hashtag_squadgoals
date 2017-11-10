@@ -5,19 +5,17 @@ class GoalsController < ApplicationController
 	end
 
 	def create
-		p params[:tag]
 		goal = Goal.new(content: params[:goal][:content], by_when: Date.new(params[:goal][:by_when].to_i, Date.today.month, Date.today.day), user_id: current_user.id, category_id: params[:goal][:category_id].to_i)
-		# goal.tags << 
-		# if goal.save
+		params[:tag].each { |tag| goal.tags << Tag.find(tag) }
+		if goal.save
 			if params[:private].to_i == 1
 				goal.private = true
-				# goal.save
+				goal.save
 			end
 			redirect_to "/users/#{current_user.id}"
+		else
 
-		# else
-
-		# end
+		end
 	end
 
 	def show

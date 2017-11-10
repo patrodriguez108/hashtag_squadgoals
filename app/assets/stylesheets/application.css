@@ -22,3 +22,7 @@ h1 {
 .page-wrapper {
 	padding: 80px;
 }
+
+li {
+  list-style-type: none;
+}
