@@ -4,4 +4,6 @@ Rails.application.routes.draw do
   get '/about', to: 'application#about'
 
   devise_for :users
+
+  resources :tags
 end

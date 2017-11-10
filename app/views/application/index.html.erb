@@ -1,10 +1,10 @@
-<section id="goals-sample">
+<section class="goals-sample">
   <% @goals_sample.each do |goal| %>
     <div class="goal">
       <p><%= goal.content %></p>
-      <p><%= goal.by_when %></p>
+      <p>by <%= goal.by_when.strftime("%b %d, %Y") %></p>
       <p><%= goal.user.username %></p>
-      <div id=tags-sample>
+      <div class=tags-sample>
         <ul>
           <%= render goal.tags %>
         </ul>
