@@ -13,7 +13,7 @@
 	<%= label_tag(:private, "Make this a private goal?") %></p>
 
 	<p><%= label_tag(:tags, "Tags") %>
-	<%= text_field_tag :tags, "#{Tag.first.name},#{Tag.second.name},#{Tag.last.name}" %></p>
+	<%= render partial: 'goals/tag_for_goal', collection: @tags, as: :tag %>
 
 	<%= f.submit %>
 <% end %>
