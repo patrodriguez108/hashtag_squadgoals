@@ -9,6 +9,25 @@
   </head>
 
   <body>
+    <ul>
+      <% if user_signed_in? %>
+        <div class="">
+            <li class="user-name-link"><%= link_to "#{current_user.given_name}", "/users/#{current_user.id}" %></li>
+
+        </div>
+
+        <li  class="user category"><%= link_to "Logout", destroy_user_session_path, method: :delete %></li>
+      <% end %>
+      <% if !user_signed_in? %>
+        <li class="user"><%= link_to 'Login', '/users/sign_in' %></li>
+        <li class="user"><%= link_to 'Signup', '/users/sign_up' %></li>
+      <% end %>
+    </ul>
+
+    </div>
+    <p class="notice"><%= notice %></p>
+    <p class="alert"><%= alert %></p>
+
     <%= yield %>
   </body>
 </html>

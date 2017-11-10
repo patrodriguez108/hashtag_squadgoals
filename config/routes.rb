@@ -7,4 +7,8 @@ Rails.application.routes.draw do
   post '/goals', to: 'goals#create'
 
   devise_for :users
+
+  resources :users, only: [:show]
+
+  resources :tags
 end

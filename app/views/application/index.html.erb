@@ -1,1 +1,14 @@
-<h1>Hello</h1>
+<section class="goals-sample">
+  <% @goals_sample.each do |goal| %>
+    <div class="goal">
+      <p><%= goal.content %></p>
+      <p>by <%= goal.by_when.strftime("%b %d, %Y") %></p>
+      <p><%= goal.user.username %></p>
+      <div class=tags-sample>
+        <ul>
+          <%= render goal.tags %>
+        </ul>
+      </div>
+    </div>
+  <% end %>
+</section>
