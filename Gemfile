@@ -39,7 +39,7 @@ group :development, :test do
   gem 'faker'
   gem 'figaro'
   gem 'paperclip'
-  gem 'aws-sdk', '<2.0'
+  gem 'aws-sdk', '<3.0'
 end
 
 group :development do
