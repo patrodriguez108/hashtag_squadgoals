@@ -2,7 +2,19 @@
   <h1>Hi <%= current_user.username %></h1>
 
   <div class="user-vision">
-    <p><%= @user.visions.last %></p>
+    <p><%= @user.visions.last.statement %></p>
+  </div>
+
+  <div class="user-goals-div">
+    <ul class="user-goals-ul">
+      <% @user.goals.each do |goal| %>
+        <%= render partial: 'goal', locals: {goal: goal} %>
+      <%end %>
+    </ul>
+  </div>
+
+  <div class="create-new-goal">
+    <%= link_to 'New Goal', new_goal_path %>
   </div>
 
 </div>
