@@ -5,4 +5,12 @@
     <p><%= @user.visions.last %></p>
   </div>
 
+  <div class="user-goals-div">
+    <ul class="user-goals-ul">
+      <% @user.goals.each do |goal| %>
+        <%= render goal %>
+      <%end %>
+    </ul>
+  </div>
+
 </div>
