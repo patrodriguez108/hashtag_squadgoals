@@ -9,11 +9,13 @@
 		<%= label_tag(:health, "Health") %></p>
 
 		<p><%= f.text_area :content %></p>
+		<p><%= label_tag(:by_when, "By when?") %>
+		<%= f.text_field :by_when %></p>
 		<p><%= check_box_tag(:private) %>
 		<%= label_tag(:private, "Make this a private goal?") %></p>
 
 		<p><%= label_tag(:tags, "Tags") %>
-		<%= f.text_field :tags %></p>
+		<%= text_field_tag :tags %></p>
 
 		<%= f.submit %>
 	<% end %>
