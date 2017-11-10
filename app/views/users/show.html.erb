@@ -9,9 +9,12 @@
     <ul class="user-goals-ul">
       <% @user.goals.each do |goal| %>
         <%= render partial: 'goal', locals: {goal: goal} %>
-
       <%end %>
     </ul>
+  </div>
+
+  <div class="create-new-goal">
+    <%= link_to 'New Goal', new_goal_path %>
   </div>
 
 </div>
