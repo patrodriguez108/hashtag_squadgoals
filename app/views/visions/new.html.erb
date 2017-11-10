@@ -1,8 +1,10 @@
 <div class="page-wrapper">
 
-	<p>in <%= text_field_tag(:timeframe) %> years time</p>
+	<%= form_for :vision, url: '/visions', method: 'post' do |f| %>
+		<p>in <%= f.text_field :timeframe %> years time</p>
 
-	<%= text_area_tag(:statement) %>
+		<p><%= f.text_area :statement %></p>
 
-
+		<%= f.submit %>
+	<% end %>
 </div>
