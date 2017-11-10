@@ -3,7 +3,9 @@ Rails.application.routes.draw do
 
   get '/about', to: 'application#about'
 
-  devise_for :users
+  devise_for :users, controllers: {
+        sessions: 'users/sessions'
+      }
 
   resources :users, only: [:show]
 
