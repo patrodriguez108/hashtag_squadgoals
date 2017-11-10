@@ -4,6 +4,11 @@
   <%= devise_error_messages! %>
 
   <div class="field">
+    <%= f.label :profile_pic %><br />
+    <%= f.file_field :profile_pic %>
+  </div>
+
+  <div class="field">
     <%= f.label :given_name %><br />
     <%= f.text_field :given_name, autofocus: true %>
   </div>

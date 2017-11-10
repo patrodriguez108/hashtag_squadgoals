@@ -10,6 +10,7 @@
 
   <body>
     <ul>
+      <%= link_to "About", about_path %>
       <% if user_signed_in? %>
         <div class="">
             <li class="user-name-link"><%= link_to "#{current_user.given_name}", "/users/#{current_user.id}" %></li>
