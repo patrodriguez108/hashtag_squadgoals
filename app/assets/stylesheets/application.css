@@ -4,7 +4,6 @@
 
 .goal {
   border: 1px solid black;
-  /*height: 200px;*/
   width: 500px;
   margin: 5px;
   padding: 0 5px;
@@ -13,4 +12,8 @@
 #tags-sample ul {
   list-style: none;
   padding: 0;
+}
+
+.page-wrapper {
+	padding: 80px;
 }
