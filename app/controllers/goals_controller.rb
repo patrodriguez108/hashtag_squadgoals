@@ -12,6 +12,7 @@ class GoalsController < ApplicationController
 				goal.save
 			end
 
+			redirect_to "/users/#{current_user.id}"
 		else
 
 		end
