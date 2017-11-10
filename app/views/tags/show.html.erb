@@ -1,0 +1,9 @@
+<h1><%= @tag.name %></h1>
+
+<% @goals_sample.each do |goal| %>
+  <div class="goal">
+    <p><%= goal.content %></p>
+    <p>by <%= goal.by_when.strftime("%b %d, %Y") %></p>
+    <p><%= goal.user.username %></p>
+  </div>
+<% end %>
