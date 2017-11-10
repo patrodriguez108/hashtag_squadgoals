@@ -37,6 +37,9 @@ group :development, :test do
   gem 'rspec-rails'
   gem 'rails-controller-testing'
   gem 'faker'
+  gem 'figaro'
+  gem 'paperclip'
+  gem 'aws-sdk', '<2.0'
 end
 
 group :development do
