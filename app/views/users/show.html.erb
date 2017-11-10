@@ -1,20 +1,39 @@
 <div class="page-wraper">
   <h1>Hi <%= current_user.username %></h1>
 
-  <div class="user-vision">
-    <p><%= @user.visions.last.statement %></p>
+  <div class="tab-content" id="vision"></div>
+    <div class="user-vision">
+      <h3>Your Vision:</h3>
+      <p><%= @user.visions.last.statement %></p>
+    </div>
+
+    <div class="user-goals-div">
+      <h3>Your Goals</h3>
+      <ul class="user-goals-ul">
+        <% @user.goals.each do |goal| %>
+          <%= render partial: 'goal', locals: {goal: goal} %>
+        <%end %>
+      </ul>
+    </div>
+
+    <div class="create-new-goal">
+      <%= link_to 'New Goal', new_goal_path %>
+    </div>
   </div>
 
-  <div class="user-goals-div">
-    <ul class="user-goals-ul">
-      <% @user.goals.each do |goal| %>
-        <%= render partial: 'goal', locals: {goal: goal} %>
-      <%end %>
+  <p class="delete-this-later">------------------------------</p>
+
+  <div class="tab-content" id="squad">
+    <h3>Your Squad</h3>
+    <ul class="champ-ul">
+    <% @user.champs.each do |champ|%>
+
+      <strong><li class="champ-li-name"><%= champ.username %></li></strong>
+      <% if champ.goals.last != nil %>
+        <li class="champ-li-goal"><%= champ.goals.last.content %></li>
+      <% end %>
+    <% end %>
     </ul>
-  </div>
-
-  <div class="create-new-goal">
-    <%= link_to 'New Goal', new_goal_path %>
   </div>
 
 </div>
