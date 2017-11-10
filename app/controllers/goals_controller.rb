@@ -1,6 +1,7 @@
 class GoalsController < ApplicationController
 
 	def new
+		@tags = Tag.grab_random_tags
 	end
 
 	def create
