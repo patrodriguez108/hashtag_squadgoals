@@ -11,10 +11,15 @@ class GoalsController < ApplicationController
 				goal.private = true
 				goal.save
 			end
-			
+
+			redirect_to "/users/#{current_user.id}"
 		else
 
 		end
+	end
+
+	def show
+		@goal = Goal.find(params[:id])
 	end
 
 end

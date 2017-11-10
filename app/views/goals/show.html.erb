@@ -1,0 +1,7 @@
+<div class="page-wraper">
+  <h2>Goal</h2>
+  <%= @goal.content %>
+  <%= @goal.tags.each do |goal| %>
+    <%= render goal.tags %>
+  <% end %>
+</div>
