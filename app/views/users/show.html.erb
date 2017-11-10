@@ -1,1 +1,8 @@
-<h1>Hi <%= current_user.username %></h1>
+<div class="page-wraper">
+  <h1>Hi <%= current_user.username %></h1>
+
+  <div class="user-vision">
+    <p><%= @user.visions.last %></p>
+  </div>
+
+</div>
