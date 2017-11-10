@@ -59,9 +59,9 @@ ActiveRecord::Schema.define(version: 20171110000421) do
   end
 
   create_table "users", force: :cascade do |t|
-    t.string "given_name"
-    t.string "family_name"
-    t.string "username"
+    t.string "given_name", null: false
+    t.string "family_name", null: false
+    t.string "username", null: false
     t.string "email", default: "", null: false
     t.string "encrypted_password", default: "", null: false
     t.string "reset_password_token"
