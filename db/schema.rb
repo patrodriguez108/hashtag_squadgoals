@@ -45,7 +45,7 @@ ActiveRecord::Schema.define(version: 20171110000421) do
   create_table "goals", force: :cascade do |t|
     t.text "content"
     t.date "by_when"
-    t.boolean "private"
+    t.boolean "private", default: false
     t.integer "user_id"
     t.integer "category_id"
     t.datetime "created_at", null: false
