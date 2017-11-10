@@ -11,10 +11,14 @@ class GoalsController < ApplicationController
 				goal.private = true
 				goal.save
 			end
-			
+
 		else
 
 		end
+	end
+
+	def show
+		@goal = Goal.find(params[:id])
 	end
 
 end

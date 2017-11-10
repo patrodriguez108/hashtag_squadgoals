@@ -8,6 +8,7 @@ Rails.application.routes.draw do
 
   get '/goals/new', to: 'goals#new', as: 'new_goal'
   post '/goals', to: 'goals#create'
+  get '/goals/:id/show', to: 'goals#show', as: 'goals_show'
 
   devise_for :users, controllers: {
         sessions: 'users/sessions'
