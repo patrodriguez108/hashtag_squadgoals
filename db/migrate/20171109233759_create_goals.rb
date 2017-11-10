@@ -3,7 +3,7 @@ class CreateGoals < ActiveRecord::Migration[5.1]
     create_table :goals do |t|
       t.text :content
       t.date :by_when
-      t.boolean :private
+      t.boolean :private, default: false
       t.integer :user_id
       t.integer :category_id
 
