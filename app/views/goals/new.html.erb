@@ -1,11 +1,11 @@
 <div class="page-wrapper">
 	<h3>How do you want to acheive this?</h3>
 	<%= form_for :goal, url: '/goals', method: 'post' do |f| %>
-		<p><%= f.radio_button :category_personal, 'Category_1' %>
+		<p><%= f.radio_button :category_id, '1' %>
 		<%= label_tag(:personal, "Personal") %></p>
-		<p><%= f.radio_button :category_career, 'Category_2' %>
+		<p><%= f.radio_button :category_id, '2' %>
 		<%= label_tag(:career, "Career") %></p>
-		<p><%= f.radio_button :category_health, 'Category_3' %>
+		<p><%= f.radio_button :category_id, '3' %>
 		<%= label_tag(:health, "Health") %></p>
 
 		<p><%= f.text_area :content %></p>
