@@ -13,7 +13,11 @@
   <div class="tab-content" id="vision-goals">
     <div class="user-vision">
       <h3>Your Vision:</h3>
-      <p><%= @user.visions.last.statement %></p>
+      <% if @user.visions.any? %>
+        <p><%= @user.visions.last.statement %></p>
+      <% else %>
+        <%= link_to "Create new vision", new_vision_path %>
+      <% end %>
     </div>
 
     <div class="user-goals-div">
