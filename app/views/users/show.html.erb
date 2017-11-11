@@ -16,6 +16,7 @@
       <% if @user.visions.any? %>
         <p>In <%= @user.visions.last.timeframe.year - DateTime.now.year %> years</p>
         <p><%= @user.visions.last.statement %></p>
+        <p><%= link_to "Update Vision", new_vision_path %></p>
       <% else %>
         <%= link_to "Create new vision", new_vision_path %>
       <% end %>
