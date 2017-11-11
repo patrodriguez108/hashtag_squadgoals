@@ -1,5 +1,6 @@
 <h1>Users!!!</h1>
-
+<ul>
 <% @users.each do |user|  %>
-  <%= user.username %>
+  <li>Username: <%= user.username %>, Given Name: <%= user.given_name %>, Family Name: <%= user.family_name %></li>
 <% end %>
+</ul>
