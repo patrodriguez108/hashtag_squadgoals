@@ -29,10 +29,6 @@ class GoalsController < ApplicationController
 	end
 
 	def update
-		# p params
-		p "================"
-		p params[:tag]
-		p "================"
 		@goal = Goal.find(params[:id])
 		@goal.assign_attributes(goal_params)
 		params[:tag].each do |tag_id|
