@@ -1,7 +1,6 @@
 class VisionsController < ApplicationController
 
 	def new
-		@vision = Vision.new
 	end
 
 	def create

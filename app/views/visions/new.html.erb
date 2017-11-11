@@ -2,9 +2,9 @@
 
 	<%= form_for :vision, url: '/visions', method: 'post' do |f| %>
 		<% if current_user.visions.any? %>
-			<p>in <%= f.text_field :timeframe, value: (current_user.visions.last.timeframe.year - Date.today.year) %> years time</p>
+			<p>in <%= f.text_field :timeframe, value: current_user.current_vision_time_frame_in_years_from_now %> years time</p>
 
-			<p><%= f.text_area :statement, value: current_user.visions.last.statement %></p>
+			<p><%= f.text_area :statement, value: current_user.current_vision_statement %></p>
 		<% else %>
 			<p>in <%= f.text_field :timeframe %> years time</p>
 

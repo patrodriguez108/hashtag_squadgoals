@@ -20,4 +20,12 @@ class User < ApplicationRecord
   }
 
   validates_attachment_content_type :profile_pic, :content_type => /\Aimage\/.*\Z/
+
+  def current_vision_time_frame_in_years_from_now
+    self.visions.last.most_recent_time_frame_in_years_from_now
+  end
+
+  def current_vision_statement
+    self.visions.last.statement
+  end
 end
