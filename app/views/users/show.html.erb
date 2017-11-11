@@ -14,6 +14,7 @@
     <div class="user-vision">
       <h3>Your Vision:</h3>
       <% if @user.visions.any? %>
+        <p>In <%= @user.visions.last.timeframe.year - DateTime.now.year %> years</p>
         <p><%= @user.visions.last.statement %></p>
       <% else %>
         <%= link_to "Create new vision", new_vision_path %>
@@ -25,6 +26,7 @@
       <ul class="user-goals-ul">
         <% @user.goals.each do |goal| %>
           <%= render partial: 'goal', locals: {goal: goal} %>
+          <%= link_to "Edit", edit_goal_path(goal.id) %>
         <%end %>
       </ul>
     </div>

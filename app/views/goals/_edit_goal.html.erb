@@ -1,0 +1,19 @@
+<%= form_for :goal, url: '/goals', method: 'patch' do |f| %>
+  <p><%= f.radio_button :category_id, '1' %>
+  <%= label_tag(:personal, "Personal") %></p>
+  <p><%= f.radio_button :category_id, '2' %>
+  <%= label_tag(:career, "Career") %></p>
+  <p><%= f.radio_button :category_id, '3' %>
+  <%= label_tag(:health, "Health") %></p>
+
+  <p><%= f.text_area :content %></p>
+  <p><%= label_tag(:by_when, "By when?") %>
+  <%= f.date_field :by_when %></p>
+  <p><%= check_box_tag(:private, goal.id, goal.private) %>
+  <%= label_tag(:private, "Make this a private goal?") %></p>
+
+  <p><%= label_tag(:tags, "Tags") %>
+  <%= render partial: 'goals/tag_for_goal', collection: @tags, as: :tag %>
+
+  <%= f.submit %>
+<% end %>
