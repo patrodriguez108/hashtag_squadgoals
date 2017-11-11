@@ -6,6 +6,11 @@ class Users::RegistrationsController < Devise::RegistrationsController
 
   def create
     @user = User.create(params)
+
+    respond_to do |f|
+      f.html { redirect_to root_path }
+      f.js
+    end
   end
 
 

@@ -30,8 +30,8 @@
           </div>
         <% end %>
         <% if !user_signed_in? %>
-          <li class="user"><%= link_to 'Login', '/users/sign_in' %></li>
-          <li class="user"><%= link_to 'Signup', '/users/sign_up' %></li>
+          <li class="user-login-link"><%= link_to 'Login', '/users/sign_in' %></li>
+          <li class="user-signup-link"><%= link_to 'Signup', '/users/sign_up' %></li>
         <% end %>
       </ul>
     </nav>
