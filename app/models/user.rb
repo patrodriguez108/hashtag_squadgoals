@@ -20,4 +20,8 @@ class User < ApplicationRecord
   }
 
   validates_attachment_content_type :profile_pic, :content_type => /\Aimage\/.*\Z/
+
+  def self.search(search)
+    where("username ILIKE ? OR given_name ILIKE ? OR family_name ILIKE ?", "%#{search}%", "%#{search}%", "%#{search}%")
+  end
 end
