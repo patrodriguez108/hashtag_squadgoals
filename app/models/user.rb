@@ -21,6 +21,10 @@ class User < ApplicationRecord
 
   validates_attachment_content_type :profile_pic, :content_type => /\Aimage\/.*\Z/
 
+  def self.search(search)
+    where("username ILIKE ? OR given_name ILIKE ? OR family_name ILIKE ?", "%#{search}%", "%#{search}%", "%#{search}%")
+  end
+  
   def current_vision_time_frame_in_years_from_now
     self.visions.last.most_recent_time_frame_in_years_from_now
   end
