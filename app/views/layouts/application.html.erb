@@ -26,7 +26,10 @@
               <%= text_field_tag :search, params[:search], placeholder: "Search users" %>
               <%= submit_tag "Search", name: nil %>
             <% end %>
-
+            <% if current_user.squad_connections.any? && current_user.requests? %>
+              <p>You have <%= current_user.requests_count %> requests</p>
+              <%= link_to "view requests", user_connections_path(current_user.id) %>
+            <% end %>
           </div>
         <% end %>
         <% if !user_signed_in? %>

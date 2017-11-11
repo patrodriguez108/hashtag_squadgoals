@@ -32,4 +32,12 @@ class User < ApplicationRecord
   def current_vision_statement
     self.visions.last.statement
   end
+
+  def requests?
+    self.squad_connections.each { |connection| connection.status_id == 1 }
+  end
+
+  def requests_count
+    self.squad_connections.select { |connection| connection.status_id == 1 }.length
+  end
 end

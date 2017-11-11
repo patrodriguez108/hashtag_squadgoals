@@ -19,6 +19,8 @@ Rails.application.routes.draw do
     resources :connections
   end
 
+  post '/users/:user_id/connections/accept', to: 'connections#accept'
+
   resources :tags
 
 

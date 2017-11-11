@@ -1,0 +1,11 @@
+<p>hey</p>
+
+<%= link_to User.find(connection.champ_id).username, user_path(connection.champ_id) %> is a champ who wants you to be in their squad
+
+<% if User.find(connection.champ_id).goals.any? %>
+
+	<p>Most recent goal: <%= User.find(connection.champ_id).goals.last.content %></p>
+
+<% end %>
+
+<%= link_to 'view connection', user_connection_path(connection.champ_id, connection.id) %>
