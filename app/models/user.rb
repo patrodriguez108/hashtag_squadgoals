@@ -1,12 +1,4 @@
 class User < ApplicationRecord
-  has_attached_file :profile_pic, styles: {
-    thumb: '100x100>',
-    square: '200x200#',
-    medium: '300x300>'
-  }
-
-  validates_attachment_content_type :profile_pic, :content_type => /\Aimage\/.*\Z/
-
   # Include default devise modules. Others available are:
   # :confirmable, :lockable, :timeoutable and :omniauthable
   devise :database_authenticatable, :registerable,
@@ -20,4 +12,12 @@ class User < ApplicationRecord
 
   has_many :squad_connections, class_name: :Connection, foreign_key: :squad_member_id
   has_many :champs, through: :squad_connections
+
+  has_attached_file :profile_pic, styles: {
+    thumb: '100x100>',
+    square: '200x200#',
+    medium: '300x300>'
+  }
+
+  validates_attachment_content_type :profile_pic, :content_type => /\Aimage\/.*\Z/
 end
