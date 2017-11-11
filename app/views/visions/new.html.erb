@@ -1,10 +1,15 @@
 <div class="page-wrapper">
 
 	<%= form_for :vision, url: '/visions', method: 'post' do |f| %>
-		<p>in <%= f.text_field :timeframe %> years time</p>
+		<% if current_user.visions.any? %>
+			<p>in <%= f.text_field :timeframe, value: (current_user.visions.last.timeframe.year - Date.today.year) %> years time</p>
 
-		<p><%= f.text_area :statement %></p>
+			<p><%= f.text_area :statement, value: current_user.visions.last.statement %></p>
+		<% else %>
+			<p>in <%= f.text_field :timeframe %> years time</p>
 
+			<p><%= f.text_area :statement %></p>
+		<% end %>
 		<%= f.submit %>
 	<% end %>
 </div>
