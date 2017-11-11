@@ -1,2 +1,2 @@
-<p><%= check_box_tag "tag[]", "#{tag.id}" %>
+<p><%= check_box_tag "tag[]", "#{tag.id}", @goal.tags.include?(tag) %>
 	<%= label_tag(:tag, tag.name) %></p>

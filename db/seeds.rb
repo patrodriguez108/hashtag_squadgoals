@@ -25,9 +25,24 @@ Category.create(name: "Personal")
 	Goal.create(content: Faker::HarryPotter.quote, by_when: Faker::Date.between(Date.today, 10.years.from_now), private: false, user_id: rand(1..10), category_id: rand(1..3))
 end
 
+Tag.create(name: "design")
+Tag.create(name: "business")
+Tag.create(name: "technology")
+Tag.create(name: "photography")
+Tag.create(name: "film")
+Tag.create(name: "writing")
+Tag.create(name: "crafts")
+Tag.create(name: "culinary")
+Tag.create(name: "music")
+Tag.create(name: "athletics")
+Tag.create(name: "running")
+Tag.create(name: "swimming")
+Tag.create(name: "mindfulness")
+Tag.create(name: "dance")
+Tag.create(name: "volunteering")
+
 70.times do
-	tag = Tag.create(name: Faker::Food.dish.downcase)
-	GoalTag.create(tag_id: tag.id, goal_id: rand(1..20))
+	GoalTag.create(tag_id: rand(1..15), goal_id: rand(1..20))
 end
 
 ConnectionStatus.create(name: "Requested")
