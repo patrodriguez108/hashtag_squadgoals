@@ -14,9 +14,12 @@ Rails.application.routes.draw do
         sessions: 'users/sessions'
       }
 
-  resources :users, only: [:show, :index]
+  resources :users, only: [:show, :index] do
+    resources :connections
+  end
 
   resources :tags
 
+  # get '/connections/new', to: 'connections#new', as: 'new_connection'
 
 end
