@@ -3,11 +3,14 @@
 
   <%= image_tag @user.profile_pic.url %>
 
-  <div class="user-vision">
-    <p><%= @user.visions.last %></p>
-  </div>
 
-  <div class="tab-content" id="vision"></div>
+  <ul class="tabs">
+        <li class="active"><a href="#vision-goals"></a><%= @user.username %></li>
+        <li><a href="#squad">Squad</a></li>
+    </ul>
+
+
+  <div class="tab-content" id="vision-goals">
     <div class="user-vision">
       <h3>Your Vision:</h3>
       <p><%= @user.visions.last.statement %></p>
@@ -27,7 +30,7 @@
     </div>
   </div>
 
-  <p class="delete-this-later">------------------------------</p>
+
 
   <div class="tab-content" id="squad">
     <h3>Your Squad</h3>
