@@ -1,8 +1,7 @@
 class User < ApplicationRecord
   # Include default devise modules. Others available are:
   # :confirmable, :lockable, :timeoutable and :omniauthable
-  devise :database_authenticatable, :registerable,
-         :recoverable, :rememberable, :trackable, :validatable
+  has_secure_password
 
   has_many :goals
   has_many :visions
@@ -24,7 +23,7 @@ class User < ApplicationRecord
   def self.search(search)
     where("username ILIKE ? OR given_name ILIKE ? OR family_name ILIKE ?", "%#{search}%", "%#{search}%", "%#{search}%")
   end
-  
+
   def current_vision_time_frame_in_years_from_now
     self.visions.last.most_recent_time_frame_in_years_from_now
   end
@@ -33,11 +32,8 @@ class User < ApplicationRecord
     self.visions.last.statement
   end
 
-  def requests?
-    self.squad_connections.each { |connection| connection.status_id == 1 }
-  end
+   # def authenticate(submitted_password)
+   #  self.password == submitted_password
+   # end
 
-  def requests_count
-    self.squad_connections.select { |connection| connection.status_id == 1 }.length
-  end
 end
