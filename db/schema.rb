@@ -56,6 +56,7 @@ ActiveRecord::Schema.define(version: 20171112022235) do
     t.text "content"
     t.date "by_when"
     t.integer "goal_id"
+    t.boolean "completed", default: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
