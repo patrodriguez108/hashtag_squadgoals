@@ -1,6 +1,6 @@
 <div class="page-wrapper">
   <h2>Sign Up</h2>
-  <%= form_for(:user, url: '/users', html: {id: "user-registration-form"}, remote: true) do |f| %>
+  <%= form_for(:user, url: '/users', html: {id: "user-registration-form"}, remote: true, authenticity_token: true) do |f| %>
 
 
     <div class="field">
