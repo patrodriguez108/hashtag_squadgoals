@@ -3,6 +3,11 @@ class ApplicationController < ActionController::Base
 
  before_action :configure_permitted_parameters, if: :devise_controller?, :only => [:create, :edit]
 
+ def find_requester(requester_id)
+ 		User.find(requester_id)
+ end
+ helper_method :find_requester
+
   protected
 
     def configure_permitted_parameters
