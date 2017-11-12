@@ -3,3 +3,4 @@ class AddProfilePicToUsers < ActiveRecord::Migration[5.1]
     add_attachment :users, :profile_pic
   end
 end
+

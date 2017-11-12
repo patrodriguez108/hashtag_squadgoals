@@ -1,8 +1,7 @@
 class User < ApplicationRecord
   # Include default devise modules. Others available are:
   # :confirmable, :lockable, :timeoutable and :omniauthable
-  devise :database_authenticatable, :registerable,
-         :recoverable, :rememberable, :trackable, :validatable
+  has_secure_password
 
   has_many :goals
   has_many :visions
@@ -33,7 +32,7 @@ class User < ApplicationRecord
     self.visions.last.statement
   end
 
-   def authenticate(submitted_password)
-    self.password == submitted_password
-   end
+   # def authenticate(submitted_password)
+   #  self.password == submitted_password
+   # end
 end
