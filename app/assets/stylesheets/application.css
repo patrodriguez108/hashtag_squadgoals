@@ -7,6 +7,11 @@ html, body {
   padding: 0;
 }
 
+h3 {
+  text-align: center;
+  color: #4F6284;
+}
+
 /* ------------------------- */
 /* ---------- NAV ---------- */
 /* ------------------------- */
@@ -71,15 +76,34 @@ nav a:hover {
 }
 
 /* ------------------------- */
+/* -------- RESULTS -------- */
+/* ------------------------- */
+
+.found-users {
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+}
+
+.user {
+  width: 25%;
+  margin: 5px;
+  padding: 5px;
+  border: 5px solid #92A8D1;
+}
+
+/* ------------------------- */
 /* ---- HOME PAGE GOALS ---- */
 /* ------------------------- */
 
 .goals-sample {
   display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
 }
 
 .goal {
-  width: 300px;
+  width: 25%;
   margin: 5px;
   padding: 5px;
   border: 5px solid #92A8D1;
@@ -96,13 +120,30 @@ nav a:hover {
   color: #92A8D1;
 }
 
+.tags {
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+}
+
 .tags ul {
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+  margin: 0;
   padding: 0;
   list-style: none;
 }
 
+.tags li {
+  border-radius: 5px;
+  background-color: #92A8D1;
+  margin: 5px;
+  padding: 5px;
+}
+
 .tags a:hover {
-  color: #92A8D1;
+  color: #CCDEFF;
 }
 
 /* ------------------------- */
@@ -150,11 +191,6 @@ a:visited {
 /* -------- SIGN-UP -------- */
 /* ------------------------- */
 
-.sign-up-header {
-  text-align: center;
-  color: #4F6284;
-}
-
 .sign-up-form {
   text-align: center;
 }
@@ -179,11 +215,6 @@ a:visited {
 /* ------------------------- */
 /* --------- LOGIN --------- */
 /* ------------------------- */
-
-.login-header {
-  text-align: center;
-  color: #4F6284;
-}
 
 .login-form {
   text-align: center;

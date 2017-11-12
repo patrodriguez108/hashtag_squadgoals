@@ -24,9 +24,25 @@
         <% else %>
           <%= render partial: 'layouts/logged_out_links' %>
         <% end %>
-        <li><div class="login-container"></div></li>
       </ul>
     </nav>
+
+    <li><div class="login-container"></div></li>
+
+    <% if current_user %>
+      <div class="search-form">
+        <%= form_tag(users_path, method: "get") do %>
+          <%= text_field_tag :search, params[:search], placeholder: "Search" %>
+          <%= submit_tag "Search", name: nil %>
+        <% end %>
+      </div>
+      <div class="connection-request-notification">
+        <% if current_user.squad_connections.any? && current_user.requests? %>
+          <p>You have <%= current_user.requests_count %> requests</p>
+          <%= link_to "View Requests", user_connections_path(current_user.id) %>
+        <% end %>
+      </div>
+    <% end %>
 
     <div class="main">
 
