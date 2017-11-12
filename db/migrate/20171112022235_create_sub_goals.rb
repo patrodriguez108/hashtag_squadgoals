@@ -4,6 +4,7 @@ class CreateSubGoals < ActiveRecord::Migration[5.1]
       t.text :content
       t.date :by_when
       t.integer :goal_id
+      t.boolean :completed, default: false
 
       t.timestamps
     end

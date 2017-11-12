@@ -27,6 +27,7 @@
       <ul class="user-goals-ul">
         <% @user.goals.each do |goal| %>
           <%= render partial: 'goal', locals: {goal: goal} %>
+
           <%= link_to "Edit", edit_goal_path(goal.id) %>
         <%end %>
       </ul>
