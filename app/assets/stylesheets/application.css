@@ -1,3 +1,5 @@
+/* ------- NAV STUFF ------- */
+
 nav {
   display: flex;
   align-items: center;
@@ -14,6 +16,8 @@ nav ul {
 nav li {
   margin: 5px;
 }
+
+/* ------------------------- */
 
 .goals-sample {
   display: flex;
