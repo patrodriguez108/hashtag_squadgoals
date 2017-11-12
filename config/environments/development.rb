@@ -65,4 +65,9 @@ Rails.application.configure do
     url: ':s3_domain_url',
     path: '/:class/:attachment/:id_partition/:style/:filename'
   }
+
+  cronofy = Cronofy::Client.new(
+    client_id:     'Wj0KpQ2hZIKAxpn8K6oX70M-Ghwnwj6N',
+    client_secret: '2rERNcmA1hIxiKAV60vc5mjL4BFJrUlPLz37hJuwMMwRF0_N_qQGp0oz8Bv9kr-yFh6HGhRZlWTRLvxqiR4izw'
+  )
 end
