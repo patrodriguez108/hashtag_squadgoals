@@ -1,45 +1,26 @@
-<h2>Sign Up</h2>
+<h3 class="sign-up-header">Sign-up</h3>
 
-<%= form_for(:user, url: '/users') do |f| %>
+<%= form_for @user, url: { action: "create" }, html: { class: "sign-up-form" } do |f| %>
+    <%= f.label "Profile Pic" %><br>
+    <%= f.file_field :profile_pic %><br>
 
+    <%= f.label "Given Name" %><br>
+    <%= f.text_field :given_name %><br>
 
-  <div class="field">
-    <%= f.label :profile_pic %><br />
-    <%= f.file_field :profile_pic %>
-  </div>
+    <%= f.label "Family Name" %><br>
+    <%= f.text_field :family_name%><br>
 
-  <div class="field">
-    <%= f.label :given_name %><br />
-    <%= f.text_field :given_name, autofocus: true %>
-  </div>
+    <%= f.label "Username" %><br>
+    <%= f.text_field :username %><br>
 
+    <%= f.label "E-mail" %><br>
+    <%= f.email_field :email %><br>
 
-  <div class="field">
-    <%= f.label :family_name %><br />
-    <%= f.text_field :family_name%>
-  </div>
+    <%= f.label "Password" %><br>
+    <%= f.password_field :password %><br>
 
-   <div class="field">
-    <%= f.label :username %><br />
-    <%= f.text_field :username %>
-  </div>
+    <%= f.label "Confirm Password" %><br>
+    <%= f.password_field :password_confirmation %><br>
 
-  <div class="field">
-    <%= f.label :email %><br />
-    <%= f.email_field :email, autofocus: true %>
-  </div>
-
-  <div class="field">
-    <%= f.label :password %><br />
-    <%= f.password_field :password, autocomplete: "off" %>
-  </div>
-
-  <div class="field">
-    <%= f.label :password_confirmation %><br />
-    <%= f.password_field :password_confirmation, autocomplete: "off" %>
-  </div>
-
-  <div class="actions">
-    <%= f.submit "Sign up" %>
-  </div>
+    <%= f.submit "Sign-up" %>
 <% end %>

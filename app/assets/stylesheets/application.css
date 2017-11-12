@@ -129,7 +129,7 @@ a:visited {
 }
 
 .about h3 {
-  color: #92A8D1;
+  color: #4F6284;
 }
 
 .about h5 {
@@ -144,6 +144,60 @@ a:visited {
 .your-goals {
   width: 60%;
   margin: 5px;
+}
+
+/* ------------------------- */
+/* -------- SIGN-UP -------- */
+/* ------------------------- */
+
+.sign-up-header {
+  text-align: center;
+  color: #4F6284;
+}
+
+.sign-up-form {
+  text-align: center;
+}
+
+.sign-up-form label {
+  color: #92A8D1;
+}
+
+.sign-up-form input[type=file] {
+  margin: 5px;
+  padding: 5px;
+}
+
+.sign-up-form input[type=text],
+.sign-up-form input[type=email],
+.sign-up-form input[type=password] {
+  width: 300px;
+  margin: 5px;
+  padding: 5px;
+}
+
+/* ------------------------- */
+/* --------- LOGIN --------- */
+/* ------------------------- */
+
+.login-header {
+  text-align: center;
+  color: #4F6284;
+}
+
+.login-form {
+  text-align: center;
+}
+
+.login-form label {
+  color: #92A8D1;
+}
+
+.login-form input[type=email],
+.login-form input[type=password] {
+  width: 300px;
+  margin: 5px;
+  padding: 5px;
 }
 
 /* ------------------------- */
