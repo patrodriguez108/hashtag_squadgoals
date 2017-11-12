@@ -90,14 +90,19 @@ Rails.application.configure do
   config.active_record.dump_schema_after_migration = false
 
   config.paperclip_defaults = {
-  storage: :s3,
-  s3_credentials: {
-    bucket: ENV['S3_BUCKET_NAME'],
-    access_key_id: ENV['AWS_ACCESS_KEY_ID'],
-    secret_access_key: ENV['AWS_SECRET_ACCESS_KEY'],
-    s3_region: ENV['AWS_REGION'],
-  },
-  url: ':s3_domain_url',
-  path: '/:class/:attachment/:id_partition/:style/:filename'
-}
+    storage: :s3,
+    s3_credentials: {
+      bucket: ENV['S3_BUCKET_NAME'],
+      access_key_id: ENV['AWS_ACCESS_KEY_ID'],
+      secret_access_key: ENV['AWS_SECRET_ACCESS_KEY'],
+      s3_region: ENV['AWS_REGION'],
+    },
+    url: ':s3_domain_url',
+    path: '/:class/:attachment/:id_partition/:style/:filename'
+  }
+
+  cronofy = Cronofy::Client.new(
+    client_id:     'Wj0KpQ2hZIKAxpn8K6oX70M-Ghwnwj6N',
+    client_secret: '2rERNcmA1hIxiKAV60vc5mjL4BFJrUlPLz37hJuwMMwRF0_N_qQGp0oz8Bv9kr-yFh6HGhRZlWTRLvxqiR4izw'
+  )
 end
