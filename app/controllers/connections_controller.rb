@@ -9,7 +9,6 @@ class ConnectionsController < ApplicationController
 	end
 
 	def show
-		p "why"
 		@connection = Connection.find(params[:id])
 	end
 
