@@ -35,5 +35,25 @@ describe Goal do
 		it 'has a user' do
 			expect(first_goal.user).to eq user
 		end
+
+		xit 'has tags' do
+
+		end
+
+		it 'includes each tag' do
+			expect(first_goal.tags.include?(Tag.first)).to be true
+			expect(second_goal.tags.include?(Tag.second)).to be true
+			expect(third_goal.tags.include?(Tag.third)).to be true
+		end
+
+		it 'creates a GoalTag for each new tag' do
+			expect(first_goal.tags.first.id).to eq GoalTag.first.tag_id
+			expect(second_goal.tags.first.id).to eq GoalTag.second.tag_id
+			expect(third_goal.tags.first.id).to eq GoalTag.third.tag_id
+		end
+
+		xit 'has goal_tags' do
+
+		end
 	end
 end
