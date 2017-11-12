@@ -1,7 +1,10 @@
 Rails.application.routes.draw do
-  root to: "application#index"
+  get '/pages', to: 'pages#index'
+  get '/pages/about', to: 'pages#about'
 
-  get '/about', to: 'application#about'
+  root "pages#index"
+
+  get '/about', to: 'pages#about'
 
   get '/visions/new', to: 'visions#new', as: 'new_vision'
   post '/visions', to: 'visions#create'

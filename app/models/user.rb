@@ -35,4 +35,5 @@ class User < ApplicationRecord
    # def authenticate(submitted_password)
    #  self.password == submitted_password
    # end
+
 end

@@ -42,9 +42,7 @@
   <div class="tab-content" id="squad">
     <h3>Your Squad</h3>
     <ul class="champ-ul">
-    <% @user.champs.each do |champ|%>
-      <%= render partial: 'champ', locals: {champ: champ} %>
-    <% end %>
+      <%= render partial: 'connections/squad_connections', collection: @user.squad_connections %>
     </ul>
   </div>
 
