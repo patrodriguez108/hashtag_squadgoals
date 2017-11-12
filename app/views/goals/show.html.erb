@@ -4,7 +4,7 @@
   <p>Steps to your goal:</p>
   <ul>
     <% @goal.sub_goals.each do |sub_goal| %>
-      <li><%= sub_goal.content %></li>
+    <li><%= check_box_tag(:completed)  %><%= sub_goal.content %></li>
     <% end %>
   </ul>
   <div class="create-new-sub-goal">
