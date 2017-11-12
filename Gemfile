@@ -32,6 +32,7 @@ gem 'paperclip'
 gem 'aws-sdk', '<3.0'
 gem 'cronofy'
 gem 'omniauth-cronofy'
+gem 'faker'
 
 # Use Capistrano for deployment
 # gem 'capistrano-rails', group: :development
@@ -41,7 +42,6 @@ group :development, :test do
   gem 'byebug', platforms: [:mri, :mingw, :x64_mingw]
   gem 'rspec-rails'
   gem 'rails-controller-testing'
-  gem 'faker'
 end
 
 group :development do
