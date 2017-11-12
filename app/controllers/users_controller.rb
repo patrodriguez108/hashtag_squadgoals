@@ -2,10 +2,10 @@ class UsersController < ApplicationController
 
   def new
     @user = User.new
+    @tags = Tag.all
   end
 
   def create
-    p user_params
     @user = User.new(user_params)
     if @user.save
       session[:user_id] = @user.id
