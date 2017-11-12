@@ -24,7 +24,7 @@ class User < ApplicationRecord
   def self.search(search)
     where("username ILIKE ? OR given_name ILIKE ? OR family_name ILIKE ?", "%#{search}%", "%#{search}%", "%#{search}%")
   end
-  
+
   def current_vision_time_frame_in_years_from_now
     self.visions.last.most_recent_time_frame_in_years_from_now
   end
@@ -32,4 +32,8 @@ class User < ApplicationRecord
   def current_vision_statement
     self.visions.last.statement
   end
+
+   def authenticate(submitted_password)
+    self.password == submitted_password
+   end
 end

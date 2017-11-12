@@ -8,13 +8,20 @@ Rails.application.routes.draw do
 
   resources :goals
 
-  devise_for :users, controllers: {
-        sessions: 'users/sessions'
-      }
+  # devise_for :users, controllers: {
+  #       sessions: 'users/sessions'
+  #     }
 
-  resources :users, only: [:show, :index]
+  resources :users
 
   resources :tags
+
+  get '/sign_up' => 'users#new'
+  post '/users' => 'users#create'
+
+  get '/login' => 'sessions#new'
+  post '/login' => 'sessions#create'
+  get '/logout' => 'sessions#destroy'
 
 
 end
