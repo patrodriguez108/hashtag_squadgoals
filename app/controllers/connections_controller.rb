@@ -9,7 +9,6 @@ class ConnectionsController < ApplicationController
 	end
 
 	def show
-		p "why"
 		@connection = Connection.find(params[:id])
 	end
 
@@ -23,6 +22,12 @@ class ConnectionsController < ApplicationController
 	def accept
 		connection = Connection.where(champ_id: params[:user_id], squad_member_id: current_user.id)
 		connection.update_all(status_id: 2)
+		redirect_to user_path(current_user.id)
+	end
+
+	def decline
+		connection = Connection.where(champ_id: params[:user_id], squad_member_id: current_user.id)
+		connection.update_all(status_id: 3)
 		redirect_to user_path(current_user.id)
 	end
 
