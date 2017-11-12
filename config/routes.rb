@@ -15,7 +15,11 @@ Rails.application.routes.draw do
   #       sessions: 'users/sessions'
   #     }
 
-  resources :users
+  resources :users do
+    resources :connections
+  end
+
+  post '/users/:user_id/connections/accept', to: 'connections#accept'
 
   post '/users/:user_id/connections/decline', to: 'connections#decline'
 
