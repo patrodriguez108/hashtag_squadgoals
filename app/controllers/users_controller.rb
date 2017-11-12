@@ -21,9 +21,9 @@ class UsersController < ApplicationController
   end
 
   def index
-    @users = User.all
     if params[:search]
-      @users = User.search(params[:search])
+      @search = params[:search]
+      @found_users = User.search(@search)
     else
       flash[:notice] = "There are no users matching your search."
     end
