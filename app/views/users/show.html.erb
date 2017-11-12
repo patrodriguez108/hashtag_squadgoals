@@ -3,14 +3,23 @@
 
   <%= image_tag @user.profile_pic.url %>
 
-  <div class="user-vision">
-    <p><%= @user.visions.last %></p>
-  </div>
 
-  <div class="tab-content" id="vision"></div>
+  <ul class="tabs">
+        <li class="active"><a href="#vision-goals"></a><%= @user.username %></li>
+        <li><a href="#squad">Squad</a></li>
+    </ul>
+
+
+  <div class="tab-content" id="vision-goals">
     <div class="user-vision">
       <h3>Your Vision:</h3>
-      <p><%= @user.visions.last.statement %></p>
+      <% if @user.visions.any? %>
+        <p>In <%= @user.visions.last.timeframe.year - DateTime.now.year %> years</p>
+        <p><%= @user.visions.last.statement %></p>
+        <p><%= link_to "Update Vision", new_vision_path %></p>
+      <% else %>
+        <%= link_to "Create new vision", new_vision_path %>
+      <% end %>
     </div>
 
     <div class="user-goals-div">
@@ -18,6 +27,7 @@
       <ul class="user-goals-ul">
         <% @user.goals.each do |goal| %>
           <%= render partial: 'goal', locals: {goal: goal} %>
+          <%= link_to "Edit", edit_goal_path(goal.id) %>
         <%end %>
       </ul>
     </div>
@@ -27,14 +37,12 @@
     </div>
   </div>
 
-  <p class="delete-this-later">------------------------------</p>
+
 
   <div class="tab-content" id="squad">
     <h3>Your Squad</h3>
     <ul class="champ-ul">
-    <% @user.champs.each do |champ|%>
-      <%= render partial: 'champ', locals: {champ: champ} %>
-    <% end %>
+      <%= render partial: 'connections/squad_connections', collection: @user.squad_connections %>
     </ul>
   </div>
 

@@ -3,27 +3,41 @@
   <head>
     <title>HashtagSquadgoals</title>
     <%= csrf_meta_tags %>
-
+    <%= stylesheet_link_tag    'normalize', media: 'all' %>
     <%= stylesheet_link_tag    'application', media: 'all' %>
+    <script type="text/javascript" src="http://code.jquery.com/jquery-1.9.1.js"></script>
     <%= javascript_include_tag 'application' %>
   </head>
 
   <body>
-    <ul>
-      <%= link_to "About", about_path %>
-      <% if user_signed_in? %>
-        <div class="">
-            <li class="user-name-link"><%= link_to "#{current_user.given_name}", "/users/#{current_user.id}" %></li>
+    <nav>
+      <ul>
+        <%= link_to "Home", root_path %>
+        <%= link_to "About", about_path %>
+        <% if user_signed_in? %>
+          <div class="">
+              <li class="user-name-link"><%= link_to "#{current_user.given_name}", "/users/#{current_user.id}" %></li>
 
-        </div>
+          </div>
 
-        <li  class="user category"><%= link_to "Logout", destroy_user_session_path, method: :delete %></li>
-      <% end %>
-      <% if !user_signed_in? %>
-        <li class="user"><%= link_to 'Login', '/users/sign_in' %></li>
-        <li class="user"><%= link_to 'Signup', '/users/sign_up' %></li>
-      <% end %>
-    </ul>
+          <li  class="user category"><%= link_to "Logout", destroy_user_session_path, method: :delete %></li>
+           <div class="search-form">
+            <%= form_tag(users_path, method: "get") do %>
+              <%= text_field_tag :search, params[:search], placeholder: "Search users" %>
+              <%= submit_tag "Search", name: nil %>
+            <% end %>
+            <% if current_user.squad_connections.any? && current_user.requests? %>
+              <p>You have <%= current_user.requests_count %> requests</p>
+              <%= link_to "view requests", user_connections_path(current_user.id) %>
+            <% end %>
+          </div>
+        <% end %>
+        <% if !user_signed_in? %>
+          <li class="user-login-link"><%= link_to 'Login', '/users/sign_in' %></li>
+          <li class="user-signup-link"><%= link_to 'Signup', '/users/sign_up' %></li>
+        <% end %>
+      </ul>
+    </nav>
 
     </div>
     <p class="notice"><%= notice %></p>

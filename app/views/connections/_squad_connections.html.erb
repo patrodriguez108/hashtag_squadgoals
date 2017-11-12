@@ -1,0 +1,6 @@
+<% if squad_connections.status_id == 2 %>
+	<strong><li class="champ-li-name"><%= User.find(squad_connections.champ_id).username %></li></strong>
+	<% if User.find(squad_connections.champ_id).goals.last != nil %>
+	  <li class="champ-li-goal"><%= User.find(squad_connections.champ_id).goals.last.content %></li><br>
+	<% end %>
+<% end %>
