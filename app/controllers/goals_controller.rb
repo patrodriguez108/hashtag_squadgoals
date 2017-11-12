@@ -6,7 +6,8 @@ class GoalsController < ApplicationController
 	end
 
 	def create
-		goal = Goal.new(content: params[:goal][:content], by_when: Date.new(params[:goal][:by_when].to_i, Date.today.month, Date.today.day), user_id: current_user.id, category_id: params[:goal][:category_id].to_i)
+		goal = Goal.new(goal_params)
+		goal.user_id = current_user.id
 		params[:tag].each { |tag| goal.tags << Tag.find(tag) }
 		if goal.save
 			if params[:private].to_i == 1
