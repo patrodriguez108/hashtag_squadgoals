@@ -3,7 +3,6 @@
   <head>
     <title>HashtagSquadgoals</title>
     <%= csrf_meta_tags %>
-    <%= stylesheet_link_tag    'normalize', media: 'all' %>
     <%= stylesheet_link_tag    'application', media: 'all' %>
     <script type="text/javascript" src="http://code.jquery.com/jquery-1.9.1.js"></script>
     <%= javascript_include_tag 'application' %>
@@ -14,13 +13,13 @@
       <ul>
         <%= link_to "Home", root_path %>
         <%= link_to "About", about_path %>
-        <% if user_signed_in? %>
+        <% if current_user %>
           <div class="">
               <li class="user-name-link"><%= link_to "#{current_user.given_name}", "/users/#{current_user.id}" %></li>
 
           </div>
 
-          <li  class="user category"><%= link_to "Logout", destroy_user_session_path, method: :delete %></li>
+          <li  class="user category"><%= link_to "Logout", '/logout' %></li>
            <div class="search-form">
             <%= form_tag(users_path, method: "get") do %>
               <%= text_field_tag :search, params[:search], placeholder: "Search users" %>
@@ -32,9 +31,9 @@
             <% end %>
           </div>
         <% end %>
-        <% if !user_signed_in? %>
-          <li class="user-login-link"><%= link_to 'Login', '/users/sign_in' %></li>
-          <li class="user-signup-link"><%= link_to 'Signup', '/users/sign_up' %></li>
+        <% if !current_user %>
+          <li class="user-login-link"><%= link_to 'Login', '/login' %></li>
+          <li class="user-signup-link"><%= link_to 'Signup', '/sign_up' %></li>
         <% end %>
       </ul>
     </nav>
