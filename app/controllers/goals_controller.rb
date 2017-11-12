@@ -30,6 +30,7 @@ class GoalsController < ApplicationController
 	end
 
 	def update
+		p params[:private]
 		@goal = Goal.find(params[:id])
 		@goal.assign_attributes(goal_params)
 		params[:tag].each do |tag_id|
@@ -37,6 +38,11 @@ class GoalsController < ApplicationController
 			if !@goal.tags.include?(tag)
 				@goal.tags << tag
 			end
+		end
+		if params[:private].to_i == 1
+			@goal.private = true
+		else
+			@goal.private = false
 		end
 		if @goal.save
 			redirect_to "/users/#{current_user.id}"
