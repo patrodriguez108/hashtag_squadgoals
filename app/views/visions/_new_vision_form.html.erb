@@ -1,0 +1,9 @@
+<%= form_for :vision, url: '/visions', html: {id: "new-vision-form"}, method: 'post' do |f| %>
+			<p>Now let's take the time to think of a long term vision. What do you see for yourself in the future?</p>
+			<p>In how many years do you expect to find yourself acheiving your vision?</p>
+			<p>in <%= f.text_field :timeframe %> years time</p>
+			<p>In the simplest terms, state your vision. For example: "I will live in a cottage along a small lake in Wisonsin."</p>
+			<p>Don't worry if you can't find the right words yet. You can always update your vision.</p>
+			<p><%= f.text_area :statement %></p>
+		<%= f.submit %>
+	<% end %>

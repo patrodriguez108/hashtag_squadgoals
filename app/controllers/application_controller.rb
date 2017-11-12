@@ -24,6 +24,11 @@ class ApplicationController < ActionController::Base
     redirect_to '/login' unless current_user
   end
 
+  def logged_in?
+    session[:user_id] != nil
+  end
+  helper_method :logged_in?
+
  # before_action :configure_permitted_parameters, if: :devise_controller?, :only => [:create, :edit]
 
  #  protected
