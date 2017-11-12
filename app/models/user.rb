@@ -34,10 +34,15 @@ class User < ApplicationRecord
   end
 
   def requests?
-    self.squad_connections.each { |connection| connection.status_id == 1 }
+    self.squad_connections.each { |connection| return true if connection.status_id == 1 }
+    false
   end
 
   def requests_count
     self.squad_connections.select { |connection| connection.status_id == 1 }.length
+  end
+
+  def accepted_squad
+    self.squad_connections.select { |connection| connection.status_id == 2 }
   end
 end
