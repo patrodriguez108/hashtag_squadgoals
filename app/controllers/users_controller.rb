@@ -5,6 +5,7 @@ class UsersController < ApplicationController
   end
 
   def create
+    p user_params
     @user = User.new(user_params)
     if @user.save
       p "WTF"
@@ -32,7 +33,7 @@ class UsersController < ApplicationController
   private
 
   def user_params
-    params.require(:user).permit(:given_name, :family_name, :username, :email, :password, :password_confirmation)
+    params.require(:user).permit(:profile_pic, :given_name, :family_name, :username, :email, :password, :password_confirmation)
   end
 
 
