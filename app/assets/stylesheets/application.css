@@ -2,8 +2,9 @@
   font-family: sans-serif;
 }
 
-body {
+html, body {
   margin: 0;
+  padding: 0;
 }
 
 /* ------------------------- */
@@ -119,12 +120,35 @@ a:visited {
 }
 
 /* ------------------------- */
-/* ------------------------- */
+/* --------- ABOUT --------- */
 /* ------------------------- */
 
-.page-wrapper {
-	padding: 80px;
+.about {
+  display: flex;
+  padding: 25px;
 }
+
+.about h3 {
+  color: #92A8D1;
+}
+
+.about h5 {
+  color: #92A8D1;
+}
+
+.our-goals {
+  width: 40%;
+  margin: 5px;
+}
+
+.your-goals {
+  width: 60%;
+  margin: 5px;
+}
+
+/* ------------------------- */
+/* ------------------------- */
+/* ------------------------- */
 
 li {
   list-style-type: none;
