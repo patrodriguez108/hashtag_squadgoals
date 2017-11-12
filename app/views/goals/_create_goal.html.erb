@@ -1,4 +1,6 @@
-<%= form_for :goal, url: '/goals', method: 'post' do |f| %>
+<h3>How do you want to acheive this?</h3>
+
+<%= form_for :goal, url: '/goals', html: {id: 'new-goal-form'}, method: 'post' do |f| %>
 	<p><%= f.radio_button :category_id, '1' %>
 	<%= label_tag(:personal, "Personal") %></p>
 	<p><%= f.radio_button :category_id, '2' %>
@@ -12,7 +14,7 @@
 	<p><%= check_box_tag(:private) %>
 	<%= label_tag(:private, "Make this a private goal?") %></p>
 
-	<p><%= label_tag(:tags, "Tags") %>
+	<p><%= label_tag(:tags, "Tags") %></p>
 	<%= render partial: 'goals/tag_for_goal', collection: @tags, as: :tag %>
 
 	<%= f.submit %>
