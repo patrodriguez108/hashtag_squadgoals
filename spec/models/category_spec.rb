@@ -28,13 +28,18 @@ describe Category do
 		expect(categories.class).to eq(Category::ActiveRecord_Relation)
 	end
 
-	describe 'catergory's association with goals' do
+	describe "catergory's association with goals" do
 
 		xit 'has a collection of goals' do
 			expect(health_category.goals.class).to eq(Goal::ActiveRecord_Associations_CollectionProxy)
 		end
 
-		
+		it 'includes each goal' do
+			expect(health_category.goals.include?(Goal.first)).to be true
+			expect(health_category.goals.include?(Goal.second)).to be true
+			expect(health_category.goals.include?(Goal.third)).to be true
+		end
+
 	end
 
 end
