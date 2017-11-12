@@ -1,9 +1,6 @@
 <%= form_for([@goal, @goal.sub_goals.build]) do |f| %>
 
   <p><%= f.text_area :content %></p>
-  <p><%= label_tag(:by_when, "By when?") %>
-  <%= f.date_field :by_when %></p>
-
   <%= f.submit %>
 
 <% end %>
