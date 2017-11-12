@@ -1,5 +1,5 @@
-<strong><li class="champ-li-name"><%= link_to User.find(squad_connections.champ_id).username, user_path(squad_connections.champ_id) %></li></strong>
-<% if User.find(squad_connections.champ_id).goals.last != nil %>
-  <li class="champ-li-goal"><%= User.find(squad_connections.champ_id).goals.last.content %></li><br>
+<strong><li class="champ-li-name"><%= link_to find_requester(squad_connections.champ_id).username, user_path(squad_connections.champ_id) %></li></strong>
+<% if find_requester(squad_connections.champ_id).goals.last != nil %>
+  <li class="champ-li-goal"><%= find_requester(squad_connections.champ_id).goals.last.content %></li><br>
 <% end %>
 
