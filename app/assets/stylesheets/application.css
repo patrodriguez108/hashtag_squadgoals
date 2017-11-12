@@ -1,27 +1,208 @@
-h1 {
-  margin: 5px;
-  padding: 5px;
+* {
+  font-family: sans-serif;
 }
+
+html, body {
+  margin: 0;
+  padding: 0;
+}
+
+/* ------------------------- */
+/* ---------- NAV ---------- */
+/* ------------------------- */
+
+nav {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 10px;
+  padding: 10px;
+  background-color: #CCDEFF;
+}
+
+nav ul {
+  display: flex;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+nav li {
+  margin: 5px;
+}
+
+nav a:hover {
+  text-decoration: none;
+  color: #92A8D1;
+}
+
+/* ------------------------- */
+/* ------ USER SEARCH ------ */
+/* ------------------------- */
+
+.search-form {
+  margin: 5px;
+}
+
+.search-form input::-webkit-input-placeholder {
+  color: white;
+}
+
+.search-form input[type=text] {
+  width: 300px;
+  margin-right: 5px;
+  padding: 5px;
+  border: none;
+  background-color: #92A8D1;
+  color: white;
+}
+
+.search-form input[type=submit] {
+  width: 100px;
+  padding: 5px;
+  border: none;
+  border-radius: 0;
+  background-color: #92A8D1;
+  color: white;
+}
+
+.search-form input[type=submit]:hover {
+  background-color: #CCDEFF;
+}
+
+/* ------------------------- */
+/* ---- HOME PAGE GOALS ---- */
+/* ------------------------- */
 
 .goals-sample {
   display: flex;
 }
 
 .goal {
-  border: 1px solid black;
   width: 300px;
   margin: 5px;
-  padding: 0 5px;
+  padding: 5px;
+  border: 5px solid #92A8D1;
 }
 
-.tags-sample ul {
-  list-style: none;
+.profile-pic {
+  display: block;
+  margin: 0 auto;
+  border: 5px solid #92A8D1;
+  border-radius: 100%;
+}
+
+.goal a:hover {
+  color: #92A8D1;
+}
+
+.tags ul {
   padding: 0;
+  list-style: none;
 }
 
-.page-wrapper {
-	padding: 80px;
+.tags a:hover {
+  color: #92A8D1;
 }
+
+/* ------------------------- */
+/* --------- LINKS --------- */
+/* ------------------------- */
+
+a {
+  color: #4F6284;
+  text-decoration: none;
+}
+
+a:visited {
+  color: #4F6284;
+  text-decoration: none;
+}
+
+/* ------------------------- */
+/* --------- ABOUT --------- */
+/* ------------------------- */
+
+.about {
+  display: flex;
+  padding: 25px;
+}
+
+.about h3 {
+  color: #4F6284;
+}
+
+.about h5 {
+  color: #92A8D1;
+}
+
+.our-goals {
+  width: 40%;
+  margin: 5px;
+}
+
+.your-goals {
+  width: 60%;
+  margin: 5px;
+}
+
+/* ------------------------- */
+/* -------- SIGN-UP -------- */
+/* ------------------------- */
+
+.sign-up-header {
+  text-align: center;
+  color: #4F6284;
+}
+
+.sign-up-form {
+  text-align: center;
+}
+
+.sign-up-form label {
+  color: #92A8D1;
+}
+
+.sign-up-form input[type=file] {
+  margin: 5px;
+  padding: 5px;
+}
+
+.sign-up-form input[type=text],
+.sign-up-form input[type=email],
+.sign-up-form input[type=password] {
+  width: 300px;
+  margin: 5px;
+  padding: 5px;
+}
+
+/* ------------------------- */
+/* --------- LOGIN --------- */
+/* ------------------------- */
+
+.login-header {
+  text-align: center;
+  color: #4F6284;
+}
+
+.login-form {
+  text-align: center;
+}
+
+.login-form label {
+  color: #92A8D1;
+}
+
+.login-form input[type=email],
+.login-form input[type=password] {
+  width: 300px;
+  margin: 5px;
+  padding: 5px;
+}
+
+/* ------------------------- */
+/* ------------------------- */
+/* ------------------------- */
 
 li {
   list-style-type: none;

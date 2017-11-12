@@ -1,11 +1,13 @@
 <section class="goals-sample">
   <% @goals_sample.each do |goal| %>
     <div class="goal">
-      <%= image_tag goal.user.profile_pic(:square) %>
+      <% if goal.user.profile_pic_updated_at != nil %>
+        <%= image_tag goal.user.profile_pic(:thumb), class: "profile-pic" %>
+      <% end %>
+      <p><%= link_to "#{goal.user.given_name.capitalize}", user_path("#{goal.user.id}") %></p>
       <p><%= goal.content %></p>
       <p>by <%= goal.by_when.strftime("%b %d, %Y") %></p>
-      <p><%= goal.user.username %></p>
-      <div class=tags-sample>
+      <div class=tags>
         <ul>
           <%= render goal.tags %>
         </ul>

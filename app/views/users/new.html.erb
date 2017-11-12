@@ -1,46 +1,28 @@
 <div class="page-wrapper">
-  <h2>Sign Up</h2>
-  <%= form_for(:user, url: '/users', html: {id: "user-registration-form"}, remote: true, authenticity_token: true) do |f| %>
 
+<h3 class="sign-up-header">Sign-up</h3>
 
-    <div class="field">
-      <%= f.label :profile_pic %><br />
-      <%= f.file_field :profile_pic %>
-    </div>
+<%= form_for @user, url: { action: "create" }, html: { id: "user-registration-form", class: "sign-up-form" }, remote: true, authenticity_token: true do |f| %>
+    <%= f.label "Profile Pic" %><br>
+    <%= f.file_field :profile_pic %><br>
 
-    <div class="field">
-      <%= f.label :given_name %><br />
-      <%= f.text_field :given_name, autofocus: true %>
-    </div>
+    <%= f.label "Given Name" %><br>
+    <%= f.text_field :given_name %><br>
 
+    <%= f.label "Family Name" %><br>
+    <%= f.text_field :family_name%><br>
 
-    <div class="field">
-      <%= f.label :family_name %><br />
-      <%= f.text_field :family_name%>
-    </div>
+    <%= f.label "Username" %><br>
+    <%= f.text_field :username %><br>
 
-     <div class="field">
-      <%= f.label :username %><br />
-      <%= f.text_field :username %>
-    </div>
+    <%= f.label "E-mail" %><br>
+    <%= f.email_field :email %><br>
 
-    <div class="field">
-      <%= f.label :email %><br />
-      <%= f.email_field :email, autofocus: true %>
-    </div>
+    <%= f.label "Password" %><br>
+    <%= f.password_field :password %><br>
 
-    <div class="field">
-      <%= f.label :password %><br />
-      <%= f.password_field :password, autocomplete: "off" %>
-    </div>
+    <%= f.label "Confirm Password" %><br>
+    <%= f.password_field :password_confirmation %><br>
 
-    <div class="field">
-      <%= f.label :password_confirmation %><br />
-      <%= f.password_field :password_confirmation, autocomplete: "off" %>
-    </div>
-
-    <div class="actions">
-      <%= f.submit "Sign up" %>
-    </div>
-  <% end %>
-</div>
+    <%= f.submit "Sign-up" %>
+<% end %>
