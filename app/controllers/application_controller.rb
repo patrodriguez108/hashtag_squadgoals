@@ -2,7 +2,6 @@ class ApplicationController < ActionController::Base
   protect_from_forgery with: :exception
 
   def index
-    session[:user_id] = nil
     @goals_sample = Goal.where(private: false).sample(5)
   end
 
@@ -15,6 +14,7 @@ class ApplicationController < ActionController::Base
  helper_method :find_requester
 
   protected
+
   def current_user
     @current_user ||= User.find(session[:user_id]) if session[:user_id]
   end
