@@ -1,4 +1,4 @@
-<%= form_for :vision, url: '/visions', remote: true, html: {id: "new-vision-form"}, authenticity_token: true, method: 'post' do |f| %>
+<%= form_for :vision, url: '/visions', html: {id: "new-vision-form"}, method: 'post' do |f| %>
 			<p>Now let's take the time to think of a long term vision. What do you see for yourself in the future?</p>
 			<p>In how many years do you expect to find yourself acheiving your vision?</p>
 			<p>in <%= f.text_field :timeframe %> years time</p>

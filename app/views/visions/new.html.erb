@@ -1,6 +1,6 @@
 <div class="page-wrapper">
 
-<% if current_user.visions.length > 1 %>
+<% if current_user.visions.any? %>
 
 	<%= form_for :vision, url: '/visions', html: {id: "new-vision-form"}, authenticity_token: true, method: 'post' do |f| %>
 			<p>So you want to update your vision. Re-evaluation is important. Maybe you want to build your vision in a different timeframe. Maybe you want to rephrase your vision. That's comepletely understandable.</p> 
