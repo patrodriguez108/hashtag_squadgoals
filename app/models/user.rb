@@ -32,8 +32,20 @@ class User < ApplicationRecord
     self.visions.last.statement
   end
 
+  def requests?
+    self.squad_connections.each { |connection| return true if connection.status_id == 1 }
+    false
+  end
+
+  def requests_count
+    self.squad_connections.select { |connection| connection.status_id == 1 }.length
+  end
+
+  def accepted_squad
+    self.squad_connections.select { |connection| connection.status_id == 2 }
+  end
+
    # def authenticate(submitted_password)
    #  self.password == submitted_password
    # end
-
 end

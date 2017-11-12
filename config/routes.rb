@@ -17,6 +17,8 @@ Rails.application.routes.draw do
 
   resources :users
 
+  post '/users/:user_id/connections/decline', to: 'connections#decline'
+
   resources :tags
 
   get '/sign_up' => 'users#new'
