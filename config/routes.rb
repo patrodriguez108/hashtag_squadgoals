@@ -9,7 +9,9 @@ Rails.application.routes.draw do
   get '/visions/new', to: 'visions#new', as: 'new_vision'
   post '/visions', to: 'visions#create'
 
-  resources :goals
+  resources :goals do
+    resources :sub_goals
+  end
 
   # devise_for :users, controllers: {
   #       sessions: 'users/sessions'
