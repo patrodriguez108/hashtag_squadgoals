@@ -10,7 +10,7 @@ class UsersController < ApplicationController
     if @user.save
       p "WTF"
       session[:user_id] = @user.id
-      redirect_to root_path
+      redirect_to new_vision_path
     else
       render 'new'
     end
