@@ -5,12 +5,15 @@ class SessionsController < ApplicationController
 
   def create
     @user = User.find_by_email(params[:email])
+
     if @user && @user.authenticate(params[:password])
-      p @user
       session[:user_id] = @user.id
-      redirect_to root_path
+
+      respond_to do |format|
+        format.html { redirect_to root_path }
+        format.js
+      end
     else
-      p "WTF"
       @errors = @user.errors.full_messages
       render 'new'
     end
@@ -20,5 +23,4 @@ class SessionsController < ApplicationController
     session[:user_id] = nil
     redirect_to '/'
   end
-
 end
