@@ -6,13 +6,18 @@ class GoalsController < ApplicationController
 	end
 
 	def create
-		goal = Goal.new(content: params[:goal][:content], by_when: Date.new(params[:goal][:by_when].to_i, Date.today.month, Date.today.day), user_id: current_user.id, category_id: params[:goal][:category_id].to_i)
+		goal = Goal.new(goal_params)
+		goal.user_id = current_user.id
+
 		params[:tag].each { |tag| goal.tags << Tag.find(tag) }
+
 		if goal.save
+
 			if params[:private].to_i == 1
 				goal.private = true
 				goal.save
 			end
+
 			redirect_to "/users/#{current_user.id}"
 		else
 
@@ -29,14 +34,23 @@ class GoalsController < ApplicationController
 	end
 
 	def update
+		p params[:private]
 		@goal = Goal.find(params[:id])
 		@goal.assign_attributes(goal_params)
+
 		params[:tag].each do |tag_id|
 			tag = Tag.find(tag_id)
 			if !@goal.tags.include?(tag)
 				@goal.tags << tag
 			end
 		end
+
+		if params[:private].to_i == 1
+			@goal.private = true
+		else
+			@goal.private = false
+		end
+		
 		if @goal.save
 			redirect_to "/users/#{current_user.id}"
 		else

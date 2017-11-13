@@ -1,0 +1,8 @@
+<span class="js--logged-in-links">
+	<li class="user-profile-link">
+	  <%= link_to "#{current_user.given_name.capitalize}", user_path(current_user.id) %>
+	</li>
+	<li class="logout-link">
+	  <%= link_to "Logout", logout_path %>
+	</li>
+</span>

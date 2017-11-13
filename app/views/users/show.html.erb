@@ -1,9 +1,16 @@
 <div class="page-wraper">
 
-  <h1>Hi <%= current_user.username %></h1>
+  <% if @user.id == current_user.id %>
+    <h3>Hello <%= @user.given_name %></h3>
+  <% else %>
+    <h3><%= @user.full_name %></h3>
+  <% end %>
 
   <%= image_tag @user.profile_pic.url %>
 
+  <% unless current_user == @user || current_user.squad_members.include?(@user) %>
+    <%= link_to "Add #{@user.given_name} to Squad", new_user_connection_path(@user.id) %>
+  <% end %>
 
   <ul class="tabs">
         <li class="active"><a href="#vision-goals"></a><%= @user.username %></li>

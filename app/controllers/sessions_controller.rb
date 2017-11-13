@@ -13,6 +13,7 @@ class SessionsController < ApplicationController
         format.html { redirect_to root_path }
         format.js
       end
+      
     else
       @errors = @user.errors.full_messages
       render 'new'

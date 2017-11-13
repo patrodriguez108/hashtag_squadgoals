@@ -1,20 +1,5 @@
 <div class="page-wrapper">
 
-	<%= form_for :vision, url: '/visions', method: 'post' do |f| %>
-		<% if current_user.visions.any? %>
-			<p>So you want to update your vision. Re-evaluation is important. Maybe you want to build your vision in a different timeframe. Maybe you want to rephrase your vision. That's comepletely understandable.</p> 
-			<p>However, let's try to keep the same spirit of your vision. Let's take some time to think about how you want to phrase your vision this time around.</p>
-			<p>in <%= f.text_field :timeframe, value: current_user.current_vision_time_frame_in_years_from_now %> years time</p>
+	<%= render partial: 'visions/new_vision_form' %>
 
-			<p><%= f.text_area :statement, value: current_user.current_vision_statement %></p>
-		<% else %>
-			<p>Now let's take the time to think of a long term vision. What do you see for yourself in the future?</p>
-			<p>In how many years do you expect to find yourself acheiving your vision?</p>
-			<p>in <%= f.text_field :timeframe %> years time</p>
-			<p>In the simplest terms, state your vision. For example: "I will live in a cottage along a small lake in Wisonsin."</p>
-			<p>Don't worry if you can't find the right words yet. You can always update your vision.</p>
-			<p><%= f.text_area :statement %></p>
-		<% end %>
-		<%= f.submit %>
-	<% end %>
 </div>

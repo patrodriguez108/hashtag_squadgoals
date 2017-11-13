@@ -34,6 +34,4 @@ class SubGoalsController < ApplicationController
   def update_params
     params.require(:sub_goal).permit(:completed)
   end
-
-
 end

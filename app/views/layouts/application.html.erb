@@ -20,23 +20,14 @@
         </li>
 
         <% if current_user %>
-          <li class="user-profile-link">
-            <%= link_to "#{current_user.given_name.capitalize}", user_path(current_user.id) %>
-          </li>
-          <li class="logout-link">
-            <%= link_to "Logout", logout_path %>
-          </li>
+          <%= render partial: 'layouts/logged_in_links' %>
         <% else %>
-          <li class="login-link">
-            <%= link_to 'Login', login_path, remote: true %>
-          </li>
-          <li class="signup-link">
-            <%= link_to 'Sign-up', sign_up_path %>
-          </li>
+          <%= render partial: 'layouts/logged_out_links' %>
         <% end %>
-        <li><div class="login-container"></div></li>
       </ul>
     </nav>
+
+    <li><div class="login-container"></div></li>
 
     <% if current_user %>
       <div class="search-form">
@@ -53,9 +44,12 @@
       </div>
     <% end %>
 
-    <p class="alert"><%= alert %></p>
-    <p class="notice"><%= notice %></p>
+    <div class="main">
 
-    <%= yield %>
+      <p class="alert"><%= alert %></p>
+      <p class="notice"><%= notice %></p>
+
+      <%= yield %>
+    </div>
   </body>
 </html>
