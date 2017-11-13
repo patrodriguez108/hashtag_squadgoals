@@ -22,6 +22,7 @@ Rails.application.routes.draw do
 
   resources :users do
     resources :connections
+    resources :collaborations
   end
 
   post '/users/:user_id/connections/accept', to: 'connections#accept'
@@ -36,7 +37,6 @@ Rails.application.routes.draw do
   get '/login' => 'sessions#new'
   post '/login' => 'sessions#create'
   get '/logout' => 'sessions#destroy'
-
 
 
 
