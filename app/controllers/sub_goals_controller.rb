@@ -3,6 +3,11 @@ class SubGoalsController < ApplicationController
   def index
     @goal = Goal.find(params[:goal_id])
     @sub_goals = SubGoal.all
+    if @goal.sub_goals.where(completed: true).count > 0
+      @progress = @goal.progress
+    else
+      @progress = 0
+    end
   end
 
   def new

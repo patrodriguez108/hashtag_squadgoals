@@ -11,5 +11,10 @@
   <%= link_to 'New Sub-Goal', new_goal_sub_goal_path(@goal), id: "new_sub_goal_link", remote: true %>
 
   </div>
+
+  <div class="progress-bar-outer">
+    <div class="progress-bar-inner" style="width:<%= @progress %>%"></div>
+  </div>
+
   <%= render @goal.tags %>
 </div>
