@@ -46,6 +46,6 @@ class Goal < ApplicationRecord
   end
 
   def progress
-    (self.sub_goals.where(completed: true).count.to_f / self.sub_goals.count.to_f) * 100
+    (self.sub_goals.where(complete: true).count.to_f / self.sub_goals.count.to_f) * 100
   end
 end
