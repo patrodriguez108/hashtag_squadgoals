@@ -18,6 +18,8 @@ class User < ApplicationRecord
     medium: '300x300>'
   }
 
+  validates :given_name, :family_name, :username, :email, presence: true
+  validates :username, :email, uniqueness: true
   validates_attachment_content_type :profile_pic, :content_type => /\Aimage\/.*\Z/
 
   def self.search(search)

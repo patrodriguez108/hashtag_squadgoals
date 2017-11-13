@@ -47,7 +47,11 @@
     <div class="main">
 
       <p class="alert"><%= alert %></p>
-      <p class="notice"><%= notice %></p>
+      <% if notice %>
+        <% notice.each do |message| %>
+          <p class="notice"><%= message %></p>
+        <% end %>
+      <% end %>
 
       <%= yield %>
     </div>

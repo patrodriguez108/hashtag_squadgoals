@@ -15,7 +15,7 @@ class SessionsController < ApplicationController
       end
       
     else
-      @errors = @user.errors.full_messages
+      # @errors = @user.errors.full_messages
       render 'new'
     end
   end

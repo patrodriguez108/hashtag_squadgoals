@@ -6,6 +6,7 @@ Rails.application.routes.draw do
 
   get '/about', to: 'pages#about'
 
+  get '/visions', to: 'visions#index', as: 'visions'
   get '/visions/new', to: 'visions#new', as: 'new_vision'
   post '/visions', to: 'visions#create'
 

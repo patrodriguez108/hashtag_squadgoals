@@ -9,7 +9,9 @@ class GoalsController < ApplicationController
 		goal = Goal.new(goal_params)
 		goal.user_id = current_user.id
 
-		params[:tag].each { |tag| goal.tags << Tag.find(tag) }
+		if params[:tag]
+			params[:tag].each { |tag| goal.tags << Tag.find(tag) }
+		end
 
 		if goal.save
 
@@ -20,7 +22,10 @@ class GoalsController < ApplicationController
 
 			redirect_to "/users/#{current_user.id}"
 		else
-
+			flash[:notice] = goal.errors.full_messages
+			@goal = Goal.new
+			@tags = Tag.all
+			render 'new'
 		end
 	end
 
@@ -34,17 +39,18 @@ class GoalsController < ApplicationController
 	end
 
 	def update
-		p params[:private]
 		@goal = Goal.find(params[:id])
 		@goal.assign_attributes(goal_params)
 
-		params[:tag].each do |tag_id|
-			tag = Tag.find(tag_id)
-			if !@goal.tags.include?(tag)
-				@goal.tags << tag
+		if params[:tag]
+			params[:tag].each do |tag_id|
+				tag = Tag.find(tag_id)
+				if !@goal.tags.include?(tag)
+					@goal.tags << tag
+				end
 			end
 		end
-
+		
 		if params[:private].to_i == 1
 			@goal.private = true
 		else
@@ -54,8 +60,10 @@ class GoalsController < ApplicationController
 		if @goal.save
 			redirect_to "/users/#{current_user.id}"
 		else
-			flash[notice] = "Try again"
-			render "goal#edit"
+			flash[:notice] = @goal.errors.full_messages
+			@goal = Goal.find(params[:id])
+			@tags = Tag.all
+			render "edit"
 		end
 	end
 
