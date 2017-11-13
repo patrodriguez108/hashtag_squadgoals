@@ -1,1 +1,32 @@
-$(".incomplete").click().addClass("completed-strike").removeClass("incomplete");("button").remove();
+
+  $("#<%= @sub_goal.id%>").on("ajax:success", function(){
+    console.log("arrggghh");
+    console.log($(this))
+    $(this).children("button").hide();
+    $(this).children(".incomplete").css("text-decoration", "line-through");
+  });
+
+
+
+
+
+
+
+// $("#<%= @sub_goal.id%>").on("click", function(){
+//   console.log("arrggghh")
+//   $("button:first-of-type").hide();
+// })
+
+
+
+// $(".incomplete").click().css("text-decoration", "line-through");
+// $(".incomplete").click("<%= j render;
+
+
+// $(".incomplete").click().addClass("completed-strike").removeClass("incomplete");
+// $(".complete-button").on("click", function() {
+//   console.log($(this))
+//   // $(this).addClass("completed-strike").removeClass("incomplete")
+
+// });
+// $(".complete-button").hide();

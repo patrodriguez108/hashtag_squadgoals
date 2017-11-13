@@ -2,7 +2,7 @@ class SubGoalsController < ApplicationController
 
   def index
     @goal = Goal.find(params[:goal_id])
-    if @goal.sub_goals.where(completed: true).count > 0
+    if @goal.sub_goals.where(complete: true).count > 0
       @progress = @goal.progress
     else
       @progress = 0
@@ -33,8 +33,10 @@ class SubGoalsController < ApplicationController
     @goal = Goal.find(params[:goal_id])
     @sub_goal = SubGoal.find(params[:id])
     if @sub_goal.update(complete: true)
+      p "+++++++++++"
+      p @sub_goal
       respond_to do |format|
-        format.js {render layout: false }
+        format.js
         format.html { render 'index'}
       end
     end
@@ -43,6 +45,6 @@ class SubGoalsController < ApplicationController
   private
 
   def update_params
-    params.require(:sub_goal).permit(:completed)
+    params.require(:sub_goal).permit(:complete)
   end
 end
