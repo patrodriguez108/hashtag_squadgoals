@@ -28,7 +28,7 @@ describe Category do
 	end
 
 	it 'returns a collection of categories' do
-		categories.each { |catergory| expect(category).to be_instance_of(Category) }
+		categories.each { |category| expect(category).to be_instance_of(Category) }
 	end
 
 	describe "catergory's association with goals" do
