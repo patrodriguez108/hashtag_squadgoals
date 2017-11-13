@@ -1,7 +1,7 @@
 class CollaborationsController < ApplicationController
 
 	def index
-		@collaboration_requests = current_user.collaborations.where(status_id: 1)
+		@collaborations = current_user.collaborations.where(status_id: 1)
 	end
 
 	def new
@@ -13,7 +13,7 @@ class CollaborationsController < ApplicationController
 
 		current_user_collaboration = Collaboration.new(
 			collaborator_id: current_user.id, 
-			project: project)
+			project: project, sent_request: true)
 		current_user_collaboration.status = RequestStatus.find(1)
 
 		requested_collaboration = Collaboration.create(

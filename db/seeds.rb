@@ -68,6 +68,6 @@ end
 	project = Project.find(rand(1..10))
 	collaborator_one = User.find(rand(1..5))
 	collaborator_two = User.find(rand(6..10))
-	collab_one = Collaboration.create(status_id: 2, project: project, collaborator: collaborator_one)
+	collab_one = Collaboration.create(status_id: 2, project: project, collaborator: collaborator_one, sent_request: true)
 	collab_two = Collaboration.create(status_id: 2, project: project, collaborator: collaborator_two)
 end
