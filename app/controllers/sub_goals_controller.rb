@@ -1,6 +1,7 @@
 class SubGoalsController < ApplicationController
 
   def index
+    @goal = Goal.find(params[:goal_id])
     @sub_goals = SubGoal.all
   end
 
@@ -19,12 +20,19 @@ class SubGoalsController < ApplicationController
   def update
     @goal = Goal.find(params[:goal_id])
     @sub_goal = SubGoal.find(params[:id])
-    respond_to do |format|
-    if @sub_goal.update_attributes(params[:sub_goal])
-      format.js
-    else
-
+    p "i'm the update in the controller"
+    if @sub_goal.update_attributes(update_params)
+      respond_to do |format|
+        format.js
+        format.html { render 'index'}
+      end
     end
+  end
+
+  private
+
+  def update_params
+    params.require(:sub_goal).permit(:completed)
   end
 
 

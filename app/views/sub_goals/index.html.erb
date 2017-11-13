@@ -1,0 +1,13 @@
+<div class="page-wraper">
+  <h2>Goal</h2>
+  <%= @goal.content %>
+  <p>Steps to your goal:</p>
+  <ul>
+  <li><%= render @goal.sub_goals %>
+  </ul>
+  <div class="create-new-sub-goal">
+  <%= link_to 'Add a Sub-Goal', new_goal_sub_goal_path(@goal) %>
+
+  </div>
+  <%= render @goal.tags %>
+</div>
