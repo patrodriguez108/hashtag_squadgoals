@@ -55,12 +55,42 @@ describe Goal do
 
 		it 'is valid when it is placed in a category' do
 			goal.category = category
-			expect(goal.errors[:category_id]).to be_empty
+			expect(goal.errors[:category]).to be_empty
 		end
 
 		it 'is valid when it is tagged' do
 			goal.tags << Tag.first
 			expect(goal.errors[:tags]).to be_empty
+		end
+
+		it 'is not valid when no content is entered' do
+			goal.content = nil
+			goal.valid?
+			expect(goal.errors[:content]).to_not be_empty
+		end
+
+		it 'is not valid when no date by when the goal will be accomplished is defined' do
+			goal.by_when = nil
+			goal.valid?
+			expect(goal.errors[:by_when]).to_not be_empty
+		end
+
+		it 'is not valid when it is not placed in a category' do
+			goal.category = nil
+			goal.valid?
+			expect(goal.errors[:category]).to_not be_empty
+		end
+
+		it 'is not valid when it is not tagged' do
+			goal.tags = []
+			goal.valid?
+			expect(goal.errors[:tags]).to_not be_empty
+		end
+
+		it 'is not valid when the date for by when the goal will be accomplished is set as a past date' do
+			goal.by_when = Date.new(1998, 10, 6)
+			goal.valid?
+			expect(goal.errors[:date]).to_not be_empty
 		end
 	end
 
