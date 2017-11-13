@@ -12,6 +12,8 @@ class User < ApplicationRecord
   has_many :squad_connections, class_name: :Connection, foreign_key: :squad_member_id
   has_many :champs, through: :squad_connections
 
+  has_many :collaborations, foreign_key: :collaborator_id
+
   has_attached_file :profile_pic, styles: {
     thumb: '100x100>',
     square: '200x200#',
