@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20171112022235) do
+ActiveRecord::Schema.define(version: 20171113205248) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -55,7 +55,7 @@ ActiveRecord::Schema.define(version: 20171112022235) do
   create_table "sub_goals", force: :cascade do |t|
     t.text "content"
     t.integer "goal_id"
-    t.boolean "complete", default: false
+    t.boolean "completed", default: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
@@ -78,6 +78,7 @@ ActiveRecord::Schema.define(version: 20171112022235) do
     t.string "profile_pic_content_type"
     t.integer "profile_pic_file_size"
     t.datetime "profile_pic_updated_at"
+    t.string "auth_hash"
   end
 
   create_table "visions", force: :cascade do |t|
