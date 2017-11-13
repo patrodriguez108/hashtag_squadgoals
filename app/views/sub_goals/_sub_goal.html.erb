@@ -1,4 +1,9 @@
 <%= form_for :sub_goal, url: "/goals/#{@goal.id}/sub_goals/#{sub_goal.id}", html: {method: 'patch'} do |f| %>
-  <%= f.button :completed %>
-  <%= f.label :completed, sub_goal.content %>
+  <% if sub_goal.completed == false %>
+    <%= f.button :completed, class: "complete-button" %>
+    <%= f.label :completed, sub_goal.content %>
+  <% else %>
+    <%= f.label :completed, sub_goal.content, class: "completed-strike"%>
+  <% end %>
+
 <% end %>

@@ -299,3 +299,18 @@ li {
     text-decoration: none;
     border-bottom: none;
 }
+
+/* ------------------------- */
+/* ---- COMPLETE BUTTON ---- */
+/* ------------------------- */
+
+.complete-button {
+  border-radius: 7px;
+  background: #CBDFFC;
+  box-shadow: #91a8cd;
+  border: none;
+}
+
+.completed-strike {
+  text-decoration: line-through;
+}
