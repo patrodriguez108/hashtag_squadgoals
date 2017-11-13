@@ -13,7 +13,7 @@ class UsersController < ApplicationController
         f.html { redirect_to new_vision_path }
         f.js
       end
-      
+
     else
       flash[:notice] = @user.errors.full_messages
       respond_to do |f|
@@ -35,6 +35,10 @@ class UsersController < ApplicationController
       flash[:notice] = "There are no users matching your search."
     end
     render
+  end
+
+  def cronofy
+    p params
   end
 
   private
