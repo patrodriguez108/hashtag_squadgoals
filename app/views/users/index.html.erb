@@ -3,13 +3,16 @@
 <div class="found-users">
   <% @found_users.each do |user|  %>
     <div class="user">
-    <% if user.profile_pic_updated_at != nil %>
-      <%= image_tag user.profile_pic(:thumb), class: "profile-pic" %>
-    <% end %>
-    <p><%= link_to "#{user.full_name}", user_path(user.id) %> (<%= link_to "#{'@' + user.username}", user_path(user.id) %>)</p>
-    <% if user.goals.any? %>
-      <p>Recent Goal: <%= user.goals.last.content %></p>
-    <% end %>
+      <% if user.profile_pic_updated_at != nil %>
+        <%= image_tag user.profile_pic(:thumb), class: "profile-pic" %>
+      <% end %>
+      <p><%= link_to "#{user.full_name}", user_path(user.id) %> (<%= link_to "#{'@' + user.username}", user_path(user.id) %>)</p>
+      <% if user.goals.any? %>
+        <p>Recent Goal: <%= user.goals.last.content %></p>
+      <% end %>
+      <% unless current_user == user || current_user.squad_members.include?(user) %>
+        <%= link_to "Add #{user.given_name} to Squad", new_user_connection_path(user.id) %>
+      <% end %>
     </div>
   <% end %>
 </div>
