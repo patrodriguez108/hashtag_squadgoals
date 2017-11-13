@@ -48,9 +48,9 @@ Tag.create(name: "volunteering")
 end
 
 
-ConnectionStatus.create(name: "Requested")
-ConnectionStatus.create(name: "Accepted")
-ConnectionStatus.create(name: "Denied")
+RequestStatus.create(name: "Requested")
+RequestStatus.create(name: "Accepted")
+RequestStatus.create(name: "Denied")
 
 5.times do
 	Connection.create(champ_id: rand(1..10), squad_member_id: rand(1..10), status_id: rand(1..3))
