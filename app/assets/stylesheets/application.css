@@ -41,6 +41,14 @@ nav a:hover {
   color: #92A8D1;
 }
 
+.js--logged-out-links {
+  display: flex;
+}
+
+.js--logged-in-links {
+  display: flex;
+}
+
 /* ------------------------- */
 /* ------ USER SEARCH ------ */
 /* ------------------------- */

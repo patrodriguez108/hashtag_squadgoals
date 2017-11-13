@@ -1,0 +1,15 @@
+<div class="page-wraper">
+  <h2>Goal</h2>
+  <%= @goal.content %>
+  <p>Steps to your goal:</p>
+  <ul>
+    <div id="sub-goals-list">
+      <li><%= render @goal.sub_goals, locals: { goal: @goal }%></li>
+    </div>
+  </ul>
+  <div class="create-new-sub-goal">
+  <%= link_to 'New Sub-Goal', new_goal_sub_goal_path(@goal), id: "new_sub_goal_link", remote: true %>
+
+  </div>
+  <%= render @goal.tags %>
+</div>

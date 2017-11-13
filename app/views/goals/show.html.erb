@@ -1,10 +1,16 @@
-<div class="page-wraper">
+<!-- <div class="page-wraper">
   <h2>Goal</h2>
   <%= @goal.content %>
   <p>Steps to your goal:</p>
   <ul>
     <% @goal.sub_goals.each do |sub_goal| %>
-      <li><%= sub_goal.content %></li>
+
+      <li><%= check_box_tag 'completed', sub_goal.id, sub_goal.completed,
+      data: {
+        remote: true,
+        url: url_for(action: :update, id: sub_goal.id),
+        method: "PUT"
+      } %>  <%= sub_goal.content %></li>
     <% end %>
   </ul>
   <div class="create-new-sub-goal">
@@ -12,4 +18,4 @@
 
   </div>
   <%= render @goal.tags %>
-</div>
+</div> -->
