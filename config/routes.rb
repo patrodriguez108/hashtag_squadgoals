@@ -9,6 +9,8 @@ Rails.application.routes.draw do
   get '/visions/new', to: 'visions#new', as: 'new_vision'
   post '/visions', to: 'visions#create'
 
+  patch 'goals/:goal_id/sub_goals/:id', to: 'sub_goals#update'
+
   resources :goals do
     resources :sub_goals
   end
@@ -33,6 +35,8 @@ Rails.application.routes.draw do
   get '/login' => 'sessions#new'
   post '/login' => 'sessions#create'
   get '/logout' => 'sessions#destroy'
+
+
 
 
 end
