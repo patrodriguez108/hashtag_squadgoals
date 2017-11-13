@@ -8,7 +8,7 @@
 
   <%= image_tag @user.profile_pic.url %>
 
-  <% unless current_user == @user || current_user.squad_members.include?(@user) %>
+  <% unless current_user == @user || current_user.request_made?(@user) %>
     <%= link_to "Add #{@user.given_name} to Squad", new_user_connection_path(@user.id) %>
   <% end %>
 

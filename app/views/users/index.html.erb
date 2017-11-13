@@ -10,7 +10,7 @@
       <% if user.goals.any? %>
         <p>Recent Goal: <%= user.goals.last.content %></p>
       <% end %>
-      <% unless current_user == user || current_user.squad_members.include?(user) %>
+      <% unless current_user == user || current_user.request_made?(user) %>
         <%= link_to "Add #{user.given_name} to Squad", new_user_connection_path(user.id) %>
       <% end %>
     </div>
