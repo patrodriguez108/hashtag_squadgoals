@@ -1,4 +1,4 @@
 $("#new_sub_goal").remove();
 $("#new_sub_goal_link").show();
 $("#sub-goals-list").append('<%= j render(@sub_goal) %>');
-
+$(".progress-bar-inner").css("width", "<%= @progress %>%")
