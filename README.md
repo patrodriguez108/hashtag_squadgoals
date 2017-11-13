@@ -8,7 +8,7 @@ We are Squad TeamGoals.
 
 ## Schema
 
-![SquadGoalsSchema](schema_updated_02.png)
+![SquadGoalsSchema](schema_withprojects.png)
 
 ## User Stories
 
@@ -18,5 +18,6 @@ We are Squad TeamGoals.
 - As a current user, I want to log in to see my profile page so I can review my vision and list of goals.
 - As a current user, I want to make new goals so I work towards fulfilling my vision.
 - As a current user making a new goal, I want to determine if the goal is private or public.
-- As a current user making a goal, I want to add tags to my goal so that I may connect with other users who have similar goals
 - As a current user, I want to log in and select one of my goals so I can view details about that goal.
+- As a current user making a goal, I want to add tags to my goal so that I may connect with other users who have similar goals
+- As a current user, I want to collaborate with other users that have a similar goal
