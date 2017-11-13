@@ -1,0 +1,16 @@
+<div class="page-wrapper">
+	<h1><%= @project.name %></h1>
+
+	<p><%= @project.description %></p>
+
+	<h3>Collaborators</h3>
+	<ul>
+		<%= render partial: 'projects/collaborator', collection: @project.collaborators %>
+	</ul>
+
+	<h3>Objectives</h3>
+		<%= render @project.project_objectives %>
+	<ul>
+
+	</ul>
+</div>
