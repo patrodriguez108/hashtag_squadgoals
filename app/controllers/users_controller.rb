@@ -37,9 +37,9 @@ class UsersController < ApplicationController
     render
   end
 
-  def cronofy
-    p params
-  end
+  # def cronofy
+  #   render json: params.to_json
+  # end
 
   private
 
