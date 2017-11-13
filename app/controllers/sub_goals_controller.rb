@@ -2,6 +2,11 @@ class SubGoalsController < ApplicationController
 
   def index
     @goal = Goal.find(params[:goal_id])
+    if @goal.sub_goals.where(completed: true).count > 0
+      @progress = @goal.progress
+    else
+      @progress = 0
+    end
   end
 
   def new
@@ -17,9 +22,6 @@ class SubGoalsController < ApplicationController
     @goal = Goal.find(params[:goal_id])
     @sub_goal = @goal.sub_goals.new(params[:sub_goal].permit(:content))
     if @sub_goal.save
-      p "=========="
-      p "The sub-goal saved!"
-      p "=========="
       respond_to do |f|
         f.html { redirect_to goal_path(@goal) }
         f.js
@@ -28,8 +30,6 @@ class SubGoalsController < ApplicationController
   end
 
   def update
-    p "I'M IN UPDATE."
-    p params
     @goal = Goal.find(params[:goal_id])
     @sub_goal = SubGoal.find(params[:id])
     if @sub_goal.update(completed: true)

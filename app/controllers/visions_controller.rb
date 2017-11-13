@@ -1,5 +1,9 @@
 class VisionsController < ApplicationController
 
+	def index
+		@visions = current_user.visions.order("timeframe DESC")
+	end
+
 	def new
 		@tags = Tag.all
 	end
@@ -17,7 +21,10 @@ class VisionsController < ApplicationController
 			end
 
 		else
+			flash[:notice] = vision.errors.full_messages
 
+			@tags = Tag.all
+			render 'new'
 		end
 	end
 end
