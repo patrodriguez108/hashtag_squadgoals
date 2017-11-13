@@ -17,7 +17,10 @@ class VisionsController < ApplicationController
 			end
 
 		else
+			flash[:notice] = vision.errors.full_messages
 
+			@tags = Tag.all
+			render 'new'
 		end
 	end
 end
