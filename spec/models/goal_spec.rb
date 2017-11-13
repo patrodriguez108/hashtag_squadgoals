@@ -42,6 +42,28 @@ describe Goal do
 		end
 	end
 
+	describe "a goal's validations" do
+		it 'is valid when content is defined' do
+			goal.content = 'I want to catch a fish and wish it luck in finding its son Nemo'
+			expect(goal.errors[:content]).to be_empty
+		end
+
+		it 'is valid when a date by when the goal will be accomplished is defined' do
+			goal.by_when = Date.new(3008, 3, 4)
+			expect(goal.errors[:by_when]).to be_empty
+		end
+
+		it 'is valid when it is placed in a category' do
+			goal.category = category
+			expect(goal.errors[:category_id]).to be_empty
+		end
+
+		it 'is valid when it is tagged' do
+			goal.tags << Tag.first
+			expect(goal.errors[:tags]).to be_empty
+		end
+	end
+
 	describe "a goal's associations" do
 		it 'has a category' do
 			expect(first_goal.category).to be_instance_of(Category)
