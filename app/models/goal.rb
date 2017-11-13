@@ -44,4 +44,8 @@ class Goal < ApplicationRecord
   		errors.add(:date, "must be a future date")
   	end
   end
+
+  def progress
+    (self.sub_goals.where(completed: true).count.to_f / self.sub_goals.count.to_f) * 100
+  end
 end
