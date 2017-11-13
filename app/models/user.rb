@@ -43,8 +43,17 @@ class User < ApplicationRecord
     false
   end
 
+  def collab_requests?
+    self.collaborations.each { |collaboration| return true if collaboration.status_id == 1 }
+    false
+  end
+
   def requests_count
     self.squad_connections.select { |connection| connection.status_id == 1 }.length
+  end
+
+  def collab_requests_count
+    self.collaborations.select { |collaboration| collaboration.status_id == 1 }.length
   end
 
   def accepted_squad
