@@ -54,7 +54,6 @@ ActiveRecord::Schema.define(version: 20171112022235) do
 
   create_table "sub_goals", force: :cascade do |t|
     t.text "content"
-    t.date "by_when"
     t.integer "goal_id"
     t.boolean "completed", default: false
     t.datetime "created_at", null: false
