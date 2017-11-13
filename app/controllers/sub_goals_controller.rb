@@ -2,7 +2,6 @@ class SubGoalsController < ApplicationController
 
   def index
     @goal = Goal.find(params[:goal_id])
-    @sub_goals = SubGoal.all
   end
 
   def new
