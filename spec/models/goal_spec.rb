@@ -6,12 +6,15 @@ describe Goal do
 	before(:each) do
 		Category.create(name: "Health")
 		User.create(given_name: "Georgi", family_name: "Wiesel", username: "i_m_wiesel", email: "g.wiesel@email.org", password: "password")
-		Goal.create(content: "I will have ripped abs", by_when: Date.new(2020, 2, 20), category_id: Category.first.id, user_id: User.first.id)
-		Goal.create(content: "I will stop eating a whole box of cookies", by_when: Date.new(2019, 4, 20), category_id: Category.first.id, user_id: User.first.id)
-		Goal.create(content: "I will start exercising more often", by_when: Date.new(2018, 1, 20), category_id: Category.first.id, user_id: User.first.id)
-		Goal.first.tags << Tag.create(name: "body goals")
-		Goal.second.tags << Tag.create(name: "dieting")
-		Goal.third.tags << Tag.create(name: "exercising")
+		first_goal = Goal.new(content: "I will have ripped abs", by_when: Date.new(2020, 2, 20), category_id: Category.first.id, user_id: User.first.id)
+		first_goal.tags << Tag.create(name: "body goals")
+		first_goal.save
+		second_goal = Goal.new(content: "I will stop eating a whole box of cookies", by_when: Date.new(2019, 4, 20), category_id: Category.first.id, user_id: User.first.id)
+		second_goal.tags << Tag.create(name: "dieting")
+		second_goal.save
+		third_goal = Goal.new(content: "I will start exercising more often", by_when: Date.new(2018, 1, 20), category_id: Category.first.id, user_id: User.first.id)
+		third_goal.tags << Tag.create(name: "exercising")
+		third_goal.save
 	end
 
 	let(:category) { Category.first }
@@ -23,38 +26,49 @@ describe Goal do
 	let(:second_goal) { Goal.second }
 	let(:third_goal) { Goal.third }
 
-	xit 'returns a collection of goals' do
-		expect(goals.class).to eq(Goal::ActiveRecord_Relation)
+	it 'returns a collection of goals' do
+		goals.each { |goal| expect(goal).to be_instance_of(Goal) }
+	end
+
+	describe "a goal's attributes" do
+		it 'has content' do
+			goal.content = 'I will live life to the fullest'
+			expect(goal.content).to eq 'I will live life to the fullest'
+		end
+
+		it 'has a date by when it will be accomplished' do
+			goal.by_when = Date.new(2019, 6, 28)
+			expect(goal.by_when).to be_instance_of(Date)
+		end
 	end
 
 	describe "a goal's associations" do
-		xit 'has a category' do
-			p first_goal
-			expect(first_goal.category).to eq category
+		it 'has a category' do
+			expect(first_goal.category).to be_instance_of(Category)
 		end
 
-		xit 'has a user' do
-			expect(first_goal.user).to eq user
+		it 'has a user' do
+			expect(first_goal.user).to eq(user)
 		end
 
-		xit 'has tags' do
-
+		it 'has tags' do
+			first_goal.tags.each { |tag| expect(tag).to be_instance_of(Tag) }
 		end
 
-		xit 'includes each tag' do
+		it 'includes each tag' do
 			expect(first_goal.tags.include?(Tag.first)).to be true
 			expect(second_goal.tags.include?(Tag.second)).to be true
 			expect(third_goal.tags.include?(Tag.third)).to be true
 		end
 
-		xit 'creates a GoalTag for each new tag' do
+		it 'creates a GoalTag for each new tag' do
 			expect(first_goal.tags.first.id).to eq GoalTag.first.tag_id
 			expect(second_goal.tags.first.id).to eq GoalTag.second.tag_id
 			expect(third_goal.tags.first.id).to eq GoalTag.third.tag_id
 		end
 
-		xit 'has goal_tags' do
-
+		it 'has goal_tags' do
+			first_goal.goal_tags.each { |goal_tag| expect(goal_tag).to be_instance_of(GoalTag) }
 		end
 	end
 end
