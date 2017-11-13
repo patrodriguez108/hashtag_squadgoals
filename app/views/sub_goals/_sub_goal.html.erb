@@ -1,4 +1,4 @@
-<%= form_for goal_sub_goals_path, method: 'patch' do |f| %>
-  <%= f.check_box :completed %>
+<%= form_for :sub_goal, url: "/goals/#{@goal.id}/sub_goals/#{sub_goal.id}", html: {method: 'patch'} do |f| %>
+  <%= f.button :completed %>
   <%= f.label :completed, sub_goal.content %>
 <% end %>

@@ -9,7 +9,7 @@ Rails.application.routes.draw do
   get '/visions/new', to: 'visions#new', as: 'new_vision'
   post '/visions', to: 'visions#create'
 
-  patch 'goals/:goal_id/sub_goals/:id', to: 'posts#update'
+  patch 'goals/:goal_id/sub_goals/:id', to: 'sub_goals#update'
 
   resources :goals do
     resources :sub_goals

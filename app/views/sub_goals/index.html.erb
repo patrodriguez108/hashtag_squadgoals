@@ -3,10 +3,12 @@
   <%= @goal.content %>
   <p>Steps to your goal:</p>
   <ul>
-  <li><%= render @goal.sub_goals %></li>
+    <div id="sub-goals-list">
+      <li><%= render @goal.sub_goals, locals: { goal: @goal }%></li>
+    </div>
   </ul>
   <div class="create-new-sub-goal">
-  <%= link_to 'Add a Sub-Goal', new_goal_sub_goal_path(@goal) %>
+  <%= link_to 'New Sub-Goal', new_goal_sub_goal_path(@goal), id: "new_sub_goal_link", remote: true %>
 
   </div>
   <%= render @goal.tags %>

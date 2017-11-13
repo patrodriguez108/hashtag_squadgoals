@@ -7,21 +7,33 @@ class SubGoalsController < ApplicationController
 
   def new
     @goal = Goal.find(params[:goal_id])
+    @sub_goal = SubGoal.new
+    respond_to do |f|
+      f.html { redirect_to new_goal_sub_goal_path(@goal) }
+      f.js
+    end
   end
 
   def create
     @goal = Goal.find(params[:goal_id])
     @sub_goal = @goal.sub_goals.new(params[:sub_goal].permit(:content))
     if @sub_goal.save
-      redirect_to goal_path(@goal)
+      p "=========="
+      p "The sub-goal saved!"
+      p "=========="
+      respond_to do |f|
+        f.html { redirect_to goal_path(@goal) }
+        f.js
+      end
     end
   end
 
   def update
+    p "I'M IN UPDATE."
+    p params
     @goal = Goal.find(params[:goal_id])
     @sub_goal = SubGoal.find(params[:id])
-    p "i'm the update in the controller"
-    if @sub_goal.update(params.require(:sub_goal))
+    if @sub_goal.update(completed: true)
       respond_to do |format|
         format.js
         format.html { render 'index'}
