@@ -13,6 +13,8 @@ class User < ApplicationRecord
   has_many :champs, through: :squad_connections
 
   has_many :collaborations, foreign_key: :collaborator_id
+  has_many :projects, through: :collaborations, source: :project
+  has_many :project_objectives, through: :projects, source: :project_objectives
 
   has_attached_file :profile_pic, styles: {
     thumb: '100x100>',
