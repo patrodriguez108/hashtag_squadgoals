@@ -1,6 +1,8 @@
+<div class="page-wrapper">
+
 <h3 class="sign-up-header">Sign-up</h3>
 
-<%= form_for @user, url: { action: "create" }, html: { class: "sign-up-form" } do |f| %>
+<%= form_for @user, url: { action: "create" }, html: { id: "user-registration-form", class: "sign-up-form" }, remote: true, authenticity_token: true do |f| %>
     <%= f.label "Profile Pic" %><br>
     <%= f.file_field :profile_pic %><br>
 

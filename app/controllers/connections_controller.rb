@@ -30,5 +30,4 @@ class ConnectionsController < ApplicationController
 		connection.update_all(status_id: 3)
 		redirect_to user_path(current_user.id)
 	end
-
 end

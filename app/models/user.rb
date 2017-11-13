@@ -45,7 +45,7 @@ class User < ApplicationRecord
     self.squad_connections.select { |connection| connection.status_id == 2 }
   end
 
-   # def authenticate(submitted_password)
-   #  self.password == submitted_password
-   # end
+  def full_name
+    self.given_name + " " + self.family_name
+  end
 end
