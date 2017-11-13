@@ -4,7 +4,7 @@
   <p>Steps to your goal:</p>
   <ul>
     <div id="sub-goals-list">
-      <li><%= render @goal.sub_goals.order("created_at"), locals: { goal: @goal }%></li>
+      <li><%= render @goal.sub_goals.order("created_at"), locals: { goal: @goal }, remote: true %></li>
     </div>
   </ul>
   <div class="create-new-sub-goal">
