@@ -9,7 +9,11 @@
   <p><%= f.text_area :content %></p>
   <p><%= label_tag(:by_when, "By when?") %>
   <%= f.date_field :by_when %></p>
-  <p><%= check_box_tag(:private, goal.id, goal.private) %>
+  <% if goal.private %>
+  <p><%= check_box_tag(:private, checked = true, value = "1") %>
+  <% else %>
+  <p><%= check_box_tag(:private) %>
+  <% end %>
   <%= label_tag(:private, "Make this a private goal?") %></p>
 
   <p><%= label_tag(:tags, "Tags") %>

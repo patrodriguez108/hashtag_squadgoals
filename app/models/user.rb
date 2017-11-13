@@ -48,8 +48,4 @@ class User < ApplicationRecord
   def full_name
     self.given_name + " " + self.family_name
   end
-
-   # def authenticate(submitted_password)
-   #  self.password == submitted_password
-   # end
 end

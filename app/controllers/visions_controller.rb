@@ -5,17 +5,17 @@ class VisionsController < ApplicationController
 	end
 
 	def create
-		vision = Vision.new(statement: params[:vision][:statement], timeframe: Date.new(params[:vision][:timeframe].to_i + Date.today.year, Date.today.month, Date.today.day), user_id: current_user.id)
+		vision = Vision.new(statement: params[:statement], user_id: current_user.id)
+		vision.set_timeframe(params[:timeframe])
+		
 		if vision.save
+
 			if current_user.visions.length > 1
 				redirect_to user_path(current_user.id)
 			else
-				# respond_to do |f|
-				# 	f.html { redirect_to new_goal_path }
-				# 	f.js
-				# end
 				redirect_to new_goal_path
 			end
+
 		else
 
 		end
