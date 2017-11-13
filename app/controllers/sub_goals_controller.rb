@@ -21,7 +21,7 @@ class SubGoalsController < ApplicationController
     @goal = Goal.find(params[:goal_id])
     @sub_goal = SubGoal.find(params[:id])
     p "i'm the update in the controller"
-    if @sub_goal.update_attributes(update_params)
+    if @sub_goal.update(params.require(:sub_goal))
       respond_to do |format|
         format.js
         format.html { render 'index'}

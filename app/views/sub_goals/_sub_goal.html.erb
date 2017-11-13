@@ -1,4 +1,4 @@
-<%= form_for goal_sub_goals_path, remote: true do |f| %>
+<%= form_for goal_sub_goals_path, method: 'patch' do |f| %>
   <%= f.check_box :completed %>
   <%= f.label :completed, sub_goal.content %>
 <% end %>

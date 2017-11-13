@@ -1,15 +1,5 @@
-$(document).ready(function () {
-// $(".sub-goal-check").on('click', function(){
-//   if (this.checked){
-//     $.ajax({
-//       url: ,
-//       type: 'PuT',
-//       data: {"completed": this.checked}
-//     });
-//   }
-//   else {
-//      alert("no");
-//   }
-// });
-
+$(function() {
+    $('.goal_sub_goals_path input[type=checkbox]').click(function() {
+        console.log('clicked');
+    });
 });

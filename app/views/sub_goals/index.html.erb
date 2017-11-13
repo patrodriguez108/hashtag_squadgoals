@@ -3,7 +3,7 @@
   <%= @goal.content %>
   <p>Steps to your goal:</p>
   <ul>
-  <li><%= render @goal.sub_goals %>
+  <li><%= render @goal.sub_goals %></li>
   </ul>
   <div class="create-new-sub-goal">
   <%= link_to 'Add a Sub-Goal', new_goal_sub_goal_path(@goal) %>
