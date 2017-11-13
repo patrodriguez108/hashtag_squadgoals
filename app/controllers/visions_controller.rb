@@ -10,10 +10,6 @@ class VisionsController < ApplicationController
 			if current_user.visions.length > 1
 				redirect_to user_path(current_user.id)
 			else
-				# respond_to do |f|
-				# 	f.html { redirect_to new_goal_path }
-				# 	f.js
-				# end
 				redirect_to new_goal_path
 			end
 		else
