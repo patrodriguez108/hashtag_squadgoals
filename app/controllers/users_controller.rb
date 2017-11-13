@@ -2,7 +2,6 @@ class UsersController < ApplicationController
 
   def new
     @user = User.new
-    @tags = Tag.all
   end
 
   def create
@@ -16,7 +15,11 @@ class UsersController < ApplicationController
       end
       
     else
-      render 'new'
+      flash[:notice] = @user.errors.full_messages
+      respond_to do |f|
+        f.html { render 'new' }
+        f.json { render json: flash[:notice] }
+      end
     end
   end
 
