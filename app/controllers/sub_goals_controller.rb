@@ -32,9 +32,9 @@ class SubGoalsController < ApplicationController
   def update
     @goal = Goal.find(params[:goal_id])
     @sub_goal = SubGoal.find(params[:id])
-    if @sub_goal.update(completed: true)
+    if @sub_goal.update(complete: true)
       respond_to do |format|
-        format.js
+        format.js {render layout: false }
         format.html { render 'index'}
       end
     end
