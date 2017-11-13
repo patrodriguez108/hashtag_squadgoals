@@ -25,6 +25,10 @@ Rails.application.routes.draw do
     resources :collaborations
   end
 
+  get '/projects', to: 'projects#index', as: 'projects'
+  get '/projects/:id', to: 'projects#show', as: 'project'
+
+
   post '/users/:user_id/connections/accept', to: 'connections#accept'
 
   post '/users/:user_id/connections/decline', to: 'connections#decline'

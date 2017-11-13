@@ -68,4 +68,10 @@ class User < ApplicationRecord
   def full_name
     self.given_name + " " + self.family_name
   end
+
+  def current_projects
+    projects = []
+    self.collaborations.where(status_id: 2).each { |collaboration| projects << Project.find(collaboration.project_id) }
+    projects
+  end
 end
