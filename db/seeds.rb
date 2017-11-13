@@ -21,10 +21,6 @@ Category.create(name: "Health")
 Category.create(name: "Career")
 Category.create(name: "Personal")
 
-20.times do
-	Goal.create(content: Faker::HarryPotter.quote, by_when: Faker::Date.between(Date.today, 10.years.from_now), private: false, user_id: rand(1..10), category_id: rand(1..3))
-end
-
 Tag.create(name: "design")
 Tag.create(name: "business")
 Tag.create(name: "technology")
@@ -41,9 +37,16 @@ Tag.create(name: "mindfulness")
 Tag.create(name: "dance")
 Tag.create(name: "volunteering")
 
-70.times do
-	GoalTag.create(tag_id: rand(1..15), goal_id: rand(1..20))
+20.times do
+	goal = Goal.new(content: Faker::HarryPotter.quote, by_when: Faker::Date.between(Date.today, 10.years.from_now), private: false, user_id: rand(1..10), category_id: rand(1..3))
+
+	5.times do
+		goal.tags << Tag.find(rand(1..15))
+	end
+
+	goal.save
 end
+
 
 ConnectionStatus.create(name: "Requested")
 ConnectionStatus.create(name: "Accepted")
