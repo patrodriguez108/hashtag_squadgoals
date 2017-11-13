@@ -55,3 +55,19 @@ RequestStatus.create(name: "Denied")
 5.times do
 	Connection.create(champ_id: rand(1..10), squad_member_id: rand(1..10), status_id: rand(1..3))
 end
+
+10.times do
+	project = Project.create(name: Faker::GameOfThrones.house, description: Faker::Hipster.sentence)
+
+	5.times do
+		ProjectObjective.create(content: Faker::TheFreshPrinceOfBelAir.quote, by_when: Faker::Date.between(Date.today, 5.months.from_now), project: project)
+	end
+end
+
+15.times do
+	project = Project.find(rand(1..10))
+	collaborator_one = User.find(rand(1..5))
+	collaborator_two = User.find(rand(6..10))
+	collab_one = Collaboration.create(status_id: 2, project: project, collaborator: collaborator_one)
+	collab_two = Collaboration.create(status_id: 2, project: project, collaborator: collaborator_two)
+end
