@@ -9,4 +9,39 @@ class Goal < ApplicationRecord
   validates :content, presence: {message: ": Please enter your goal"}
   validates :by_when, presence: {message: ": When do you see yourself accomplishing this goal?"}
   validates :tags, presence: {message: ": Please tag your goal"}
+  validate :valid_date
+
+  def later_year?
+    self.by_when.year > Date.today.year
+  end
+
+  def current_year?
+  	self.by_when.year == Date.today.year
+  end
+
+  def current_month?
+  	self.by_when.month == Date.today.month
+  end
+
+  def later_this_month?
+  	later_date? && current_month? && current_year?
+  end
+
+  def later_date?
+  	self.by_when.day > Date.today.day
+  end
+
+  def later_month?
+    self.by_when.month > Date.today.month
+  end
+
+  def is_upcoming?
+    later_year? || later_month? || later_this_month?
+  end
+
+  def valid_date
+  	if by_when && !is_upcoming?
+  		errors.add(:date, "must be a future date")
+  	end
+  end
 end
