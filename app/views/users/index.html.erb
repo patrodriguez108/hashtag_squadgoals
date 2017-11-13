@@ -9,6 +9,10 @@
       <p><%= link_to "#{user.full_name}", user_path(user.id) %> (<%= link_to "#{'@' + user.username}", user_path(user.id) %>)</p>
       <% if user.goals.any? %>
         <p>Recent Goal: <%= user.goals.last.content %></p>
+        <p class="progress-italic">Goal Progress:</p>
+        <div class="progress-bar-outer" style="width: 90%">
+          <div class="progress-bar-inner" style="width:<%= user.goals.last.progress %>%"></div>
+        </div>
       <% end %>
       <% unless current_user == user || current_user.request_made?(user) %>
         <%= link_to "Add #{user.given_name} to Squad", new_user_connection_path(user.id) %>

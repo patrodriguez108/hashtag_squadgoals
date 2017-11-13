@@ -36,6 +36,9 @@
       <ul class="user-goals-ul">
         <% @user.goals.each do |goal| %>
           <%= render partial: 'goal', locals: {goal: goal} %>
+          <div class="progress-bar-outer" style="width: 90%">
+          <div class="progress-bar-inner" style="width:<%= goal.progress %>%"></div>
+        </div>
 
           <%= link_to "Edit", edit_goal_path(goal.id) %>
         <%end %>
