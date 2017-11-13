@@ -1,5 +1,9 @@
 class VisionsController < ApplicationController
 
+	def index
+		@visions = current_user.visions.order("timeframe DESC")
+	end
+
 	def new
 		@tags = Tag.all
 	end
