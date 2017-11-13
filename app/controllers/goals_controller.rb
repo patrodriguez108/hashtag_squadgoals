@@ -22,7 +22,7 @@ class GoalsController < ApplicationController
 
 			redirect_to "/users/#{current_user.id}"
 		else
-			@errors = goal.errors.full_messages
+			flash[:notice] = goal.errors.full_messages
 			@goal = Goal.new
 			@tags = Tag.all
 			render 'new'
@@ -60,8 +60,7 @@ class GoalsController < ApplicationController
 		if @goal.save
 			redirect_to "/users/#{current_user.id}"
 		else
-			errors = @goal.errors.full_messages
-			flash[:notice] = errors
+			flash[:notice] = @goal.errors.full_messages
 			@goal = Goal.find(params[:id])
 			@tags = Tag.all
 			render "edit"

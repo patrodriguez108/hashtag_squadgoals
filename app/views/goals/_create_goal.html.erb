@@ -1,7 +1,5 @@
 <h3>How do you want to acheive this?</h3>
 
-<%= render partial: 'shared/errors' %>
-
 <%= form_for :goal, url: '/goals', html: {id: 'new-goal-form'}, method: 'post' do |f| %>
 	<p><%= f.radio_button :category_id, '1' %>
 	<%= label_tag(:personal, "Personal") %></p>
