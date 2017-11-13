@@ -24,11 +24,11 @@ describe User do
   end
 
   describe "user's associations" do
-  	it 'has goals' do
+  	xit 'has goals' do
   		expect(first_user.goals).to eq goals
   	end
 
-  	it 'includes each goal' do
+  	xit 'includes each goal' do
   		expect(first_user.goals.include?(Goal.first)).to be true
   		expect(first_user.goals.include?(Goal.second)).to be true
   		expect(first_user.goals.include?(Goal.third)).to be true
