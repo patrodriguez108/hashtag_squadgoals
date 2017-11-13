@@ -9,7 +9,9 @@ class GoalsController < ApplicationController
 		goal = Goal.new(goal_params)
 		goal.user_id = current_user.id
 
-		params[:tag].each { |tag| goal.tags << Tag.find(tag) }
+		if params[:tag]
+			params[:tag].each { |tag| goal.tags << Tag.find(tag) }
+		end
 
 		if goal.save
 
@@ -20,7 +22,10 @@ class GoalsController < ApplicationController
 
 			redirect_to "/users/#{current_user.id}"
 		else
-
+			@errors = goal.errors.full_messages
+			@goal = Goal.new
+			@tags = Tag.all
+			render 'new'
 		end
 	end
 
