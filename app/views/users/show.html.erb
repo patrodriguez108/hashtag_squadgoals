@@ -97,7 +97,7 @@
   <div class="tab-content" id="projects">
     <h3><%= @user.username %>'s Projects</h3>
     
-    <%= render @user.projects %>
+    <%= render @user.projects.order("created_at ASC") %>
 
   </div>
 
