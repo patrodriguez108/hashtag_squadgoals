@@ -55,4 +55,5 @@ class User < ApplicationRecord
   def full_name
     self.given_name + " " + self.family_name
   end
+
 end

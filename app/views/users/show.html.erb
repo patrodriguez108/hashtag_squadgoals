@@ -22,38 +22,47 @@
 
   <div class="tab-content" id="vision-goals">
     <div class="user-vision">
-      <h3>Your Vision:</h3>
+
+      <h3>Vision</h3>
+
       <% if @user.visions.any? %>
         <p>In <%= @user.visions.last.timeframe.year - DateTime.now.year %> years</p>
         <p><%= @user.visions.last.statement %></p>
-        <p><%= link_to "Update Vision", new_vision_path %></p>
-        <p><%= link_to "Vision History", visions_path %>
+        <% if is_profile_owner?(@user) %>
+          <p><%= link_to "Update Vision", new_vision_path %></p>
+          <p><%= link_to "Vision History", visions_path %>
+        <% end %>
       <% else %>
         <%= link_to "Create new vision", new_vision_path %>
       <% end %>
     </div>
 
     <div class="user-goals-div">
-      <h3>Your Goals</h3>
+
+      <h3>Goals</h3>
       <ul class="user-goals-ul">
         <% @user.goals.each do |goal| %>
           <%= render partial: 'goal', locals: {goal: goal} %>
           <div class="progress-bar-outer progress-user-show" style="width: 90%">
           <div class="progress-bar-inner" style="width:<%= goal.progress %>%"></div>
         </div>
-
+        <% if is_profile_owner?(@user) %>
           <%= link_to "Edit", edit_goal_path(goal.id) %>
+        <% end %>
         <%end %>
       </ul>
     </div>
 
-    <div class="create-new-goal">
-      <%= link_to 'New Goal', new_goal_path %>
-    </div>
+    <% if is_profile_owner?(@user) %>
+      <div class="create-new-goal">
+        <%= link_to 'New Goal', new_goal_path %>
+      </div>
 
-    <div class="connect-calendar-link">
-      <%= link_to "Connect Your Goals To Your Calendar", "https://app.cronofy.com/oauth/authorize?response_type=code&client_id=#{ENV['CRONOFY_CLIENT_ID']}&redirect_uri=http://localhost:3000/users/cronofy&scope=create_event" %>
-    </div>
+
+      <div class="connect-calendar-link">
+        <%= link_to "Connect Your Goals To Your Calendar", "https://app.cronofy.com/oauth/authorize?response_type=code&client_id=#{ENV['CRONOFY_CLIENT_ID']}&redirect_uri=http://localhost:3000/users/cronofy&scope=create_event" %>
+      </div>
+    <% end %>
   </div>
 
 
