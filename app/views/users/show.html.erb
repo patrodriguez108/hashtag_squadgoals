@@ -1,4 +1,4 @@
-<div class="page-wraper">
+<div class="page-wrapper">
 
   <% if @user.id == current_user.id %>
     <h3>Hello <%= @user.given_name %></h3>
@@ -19,15 +19,15 @@
         <li><a href="#squad">Squad</a></li>
     </ul>
 
-
   <div class="tab-content" id="vision-goals">
+    <h3>Vision</h3>
+
     <div class="user-vision">
-
-      <h3>Vision</h3>
-
       <% if @user.visions.any? %>
-        <p>In <%= @user.visions.last.timeframe.year - DateTime.now.year %> years</p>
+        <p>In <%= @user.visions.last.timeframe.year - DateTime.now.year %> years:</p>
+
         <p><%= @user.visions.last.statement %></p>
+
         <% if is_profile_owner?(@user) %>
           <p><%= link_to "Update Vision", new_vision_path %></p>
           <p><%= link_to "Vision History", visions_path %>
@@ -37,18 +37,24 @@
       <% end %>
     </div>
 
-    <div class="user-goals-div">
+    <h3>Goals</h3>
 
-      <h3>Goals</h3>
+    <div class="user-goals-div">
       <ul class="user-goals-ul">
         <% @user.goals.each do |goal| %>
-          <%= render partial: 'goal', locals: {goal: goal} %>
-          <div class="progress-bar-outer progress-user-show" style="width: 90%">
-          <div class="progress-bar-inner" style="width:<%= goal.progress %>%"></div>
-        </div>
-        <% if is_profile_owner?(@user) %>
-          <%= link_to "Edit", edit_goal_path(goal.id) %>
-        <% end %>
+          <div class="goal">
+            <%= render partial: 'goal', locals: {goal: goal} %>
+
+            <p><span class="goal-progress">Goal Progress:</span></p>
+
+            <div class="progress-bar-outer progress-user-show">
+              <div class="progress-bar-inner" style="width:<%= goal.progress %>%"></div>
+            </div>
+
+            <% if is_profile_owner?(@user) %>
+              <li><%= link_to "Edit", edit_goal_path(goal.id) %></li>
+            <% end %>
+          </div>
         <%end %>
       </ul>
     </div>
@@ -58,16 +64,15 @@
         <%= link_to 'New Goal', new_goal_path %>
       </div>
 
-    <!-- <% if current_user.auth_hash == nil %>
-      <div class="connect-calendar-link">
-        <%= link_to "Connect Your Calendar", "https://app.cronofy.com/oauth/authorize?response_type=code&client_id=#{ENV['CRONOFY_CLIENT_ID']}&redirect_uri=http://localhost:3000/connect_cronofy&scope=create_event" %>
-      </div>
-    <% else %>
-      <div class="disconnect-calendar-link">
-        <%= link_to "Disconnect Your Calendar", disconnect_cronofy_path %>
-      </div>
-    <% end %> -->
-
+      <!-- <% if current_user.auth_hash == nil %>
+        <div class="connect-calendar-link">
+          <%= link_to "Connect Your Calendar", "https://app.cronofy.com/oauth/authorize?response_type=code&client_id=#{ENV['CRONOFY_CLIENT_ID']}&redirect_uri=http://localhost:3000/connect_cronofy&scope=create_event" %>
+        </div>
+      <% else %>
+        <div class="disconnect-calendar-link">
+          <%= link_to "Disconnect Your Calendar", disconnect_cronofy_path %>
+        </div>
+      <% end %> -->
     <% end %>
   </div>
 
