@@ -3,6 +3,8 @@
 
 	<p><%= @project.description %></p>
 
+	<%= link_to "edit info", edit_project_path(@project.id) %>
+
 	<p>Collaborators:</p>
 	<ul>
 		<%= render partial: 'projects/collaborator', collection: @project.collaborators %>
