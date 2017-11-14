@@ -1,11 +1,3 @@
 <div class="page-wrapper">
-	<%= button_to 'accept', method: "post", 
-													action: "accept", 
-													data: {confirm: "Confirm acceptance to follow #{find_requester(@connection.champ_id).username}'s goals"} %>
-
-	<%= button_to 'decline', method: "post", 
-													 action: "decline", 
-													 data: {confirm: "Are you sure you want to decline following #{find_requester(@connection.champ_id).username}'s goals?"} %>
-
-
+	<%= render partial: 'connections/response_buttons' %>
 </div>
