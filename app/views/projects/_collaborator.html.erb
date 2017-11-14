@@ -1,1 +1,1 @@
-<li><%= collaborator.username %></li>
+<li><%= link_to "#{collaborator.full_name}", user_path(collaborator.id) %> (<%= link_to "#{'@' + collaborator.username}", user_path(collaborator.id) %>)</li>
