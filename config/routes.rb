@@ -44,5 +44,6 @@ Rails.application.routes.draw do
 
   post '/users/:user_id/collaborations/accept', to: 'collaborations#accept'
 
+  post '/users/:user_id/collaborations/decline', to: 'collaborations#decline'
 
 end

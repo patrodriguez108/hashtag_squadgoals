@@ -32,11 +32,27 @@ class CollaborationsController < ApplicationController
 
 	def accept
 		requested_collaboration = Collaboration.find_by(collaborator_id: params[:user_id], status_id: 1, sent_request: true)
-		current_user_collaboration = Collaboration.find_by(collaborator_id: current_user.id, status_id: 1, project: requested_collaboration.project)
 		requested_collaboration.status_id = 2
 		requested_collaboration.save
+
+		current_user_collaboration = Collaboration.find_by(collaborator_id: current_user.id, status_id: 1, project: requested_collaboration.project)
 		current_user_collaboration.status_id = 2
 		current_user_collaboration.save
+
 		redirect_to projects_path
+	end
+
+	def decline
+		requested_collaboration = Collaboration.find_by(collaborator_id: params[:user_id], status_id: 1, sent_request: true)
+		requested_collaboration.status_id = 3
+		requested_collaboration.save
+
+		current_user_collaboration = Collaboration.find_by(collaborator_id: current_user.id, status_id: 1, project: requested_collaboration.project)
+		current_user_collaboration.status_id = 3
+		current_user_collaboration.save
+
+		requested_collaboration.project.destroy
+
+		redirect_to user_path(current_user.id)
 	end
 end
