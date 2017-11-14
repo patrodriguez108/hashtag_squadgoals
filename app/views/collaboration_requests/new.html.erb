@@ -1,5 +1,5 @@
 <div class="page-wrapper">
-	<p>Confirm your request to collaborate with <%= @user.given_name %></p>
+	<p>Confirm your request to collaborate with <%= link_to @user.given_name, user_path(@user.id) %></p>
 
 	<%= button_to "Send Request", action: "create", method: "post" %>
 	<button><%= link_to "Cancel Request", user_path(current_user.id) %></button>
