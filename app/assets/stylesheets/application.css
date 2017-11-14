@@ -182,8 +182,27 @@ a:visited {
   text-align: center;
   width: 50%;
   margin: 0 auto;
-  border-top: 5px solid #92A8D1;
-  border-bottom: 5px solid #92A8D1;
+  /*border-top: 5px solid #4F6284;*/
+  border-bottom: 5px solid #4F6284;
+}
+
+.user-vision a {
+  font-size: 10px;
+}
+
+/*p.vision-statement {
+  text-align: : left !important;
+}*/
+
+.manage-vision-links {
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+  margin-bottom: 10px;
+}
+
+.manage-vision-links p {
+  margin: 5px;
 }
 
 .user-goals-div {
@@ -208,7 +227,23 @@ a:visited {
 }
 
 .create-new-goal {
+  background-color: #CCDEFF;
+  padding: 10px;
+  width: 10%;
   text-align: center;
+  margin: 0 auto;
+}
+
+.edit-goal {
+  font-size: 10px;
+}
+
+/* ------------------------- */
+/* ---- USER SUB-GOALS ---- */
+/* ------------------------- */
+
+#sub-goals-list ul {
+  padding: 0;
 }
 
 /* ------------------------- */

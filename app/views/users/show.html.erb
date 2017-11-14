@@ -24,14 +24,17 @@
 
     <div class="user-vision">
       <% if @user.visions.any? %>
-        <p>In <%= @user.visions.last.timeframe.year - DateTime.now.year %> years:</p>
+        <p>In <%= @user.visions.last.timeframe.year - DateTime.now.year %> years... </p>
 
-        <p><%= @user.visions.last.statement %></p>
+        <p style="text-align: left"><em><%= @user.visions.last.statement %></em></p>
 
-        <% if is_profile_owner?(@user) %>
-          <p><%= link_to "Update Vision", new_vision_path %></p>
-          <p><%= link_to "Vision History", visions_path %>
-        <% end %>
+        <div class="manage-vision-links">
+          <% if is_profile_owner?(@user) %>
+            <p><%= link_to "Update Vision", new_vision_path %></p>
+            <p><%= link_to "Vision History", visions_path %>
+          <% end %>
+        </div>
+
       <% else %>
         <%= link_to "Create new vision", new_vision_path %>
       <% end %>
@@ -52,7 +55,7 @@
             </div>
 
             <% if is_profile_owner?(@user) %>
-              <li><%= link_to "Edit", edit_goal_path(goal.id) %></li>
+              <li><%= link_to "Edit", edit_goal_path(goal.id), class: "edit-goal" %></li>
             <% end %>
           </div>
         <%end %>

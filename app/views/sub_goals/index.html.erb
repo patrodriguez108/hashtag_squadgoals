@@ -1,17 +1,23 @@
 <div class="page-wrapper">
-  <h2>Goal</h2>
-  <%= @goal.content %>
-  <p>Steps to your goal:</p>
-  <ul>
-    <div id="sub-goals-list">
-      <li><%= render @goal.sub_goals.order("created_at"), locals: { goal: @goal }, remote: true %></li>
-    </div>
-  </ul>
-  <div class="create-new-sub-goal">
-  <%= link_to 'New Sub-Goal', new_goal_sub_goal_path(@goal), id: "new_sub_goal_link", remote: true %>
 
+  <h3>Goal</h3>
+
+  <%= @goal.content %>
+
+  <p>Sub-goals:</p>
+
+  <div id="sub-goals-list">
+    <ul>
+      <li><%= render @goal.sub_goals.order("created_at"), locals: { goal: @goal }, remote: true %></li>
+    </ul>
   </div>
-  <p class="progress-italic">Goal Progress:</p>
+
+  <div class="create-new-sub-goal">
+    <%= link_to 'New Sub-Goal', new_goal_sub_goal_path(@goal), id: "new_sub_goal_link", remote: true %>
+  </div>
+
+  <p><span class="goal-progress">Goal Progress:</span></p>
+
   <div class="progress-bar-outer progress-user-show">
     <div class="progress-bar-inner" style="width:<%= @progress %>%"></div>
   </div>
