@@ -2,7 +2,7 @@
   <% if sub_goal.complete == false %>
     <%= f.label :complete, sub_goal.content, class: "incomplete"%>
     <%= f.button :complete, class: "complete-button"  %>
-    <%= f.button link_to "Edit", edit_goal_sub_goal_path(@goal.id, sub_goal.id)  %>
+    <%= f.button link_to "Edit", edit_goal_sub_goal_path(@goal.id, sub_goal.id), class: "edit-sub-goal-button" %>
   <% else %>
     <%= f.label :complete, sub_goal.content, class: "completed-strike"%>
   <% end %>

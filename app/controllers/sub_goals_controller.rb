@@ -28,7 +28,7 @@ class SubGoalsController < ApplicationController
         @progress = 0
       end
       respond_to do |f|
-        f.html { redirect_to goal_path(@goal) }
+        f.html { redirect_to goal_sub_goals_path(@goal) }
         f.js
       end
     end
@@ -38,8 +38,6 @@ class SubGoalsController < ApplicationController
     @goal = Goal.find(params[:goal_id])
     @sub_goal = SubGoal.find(params[:id])
     if @sub_goal.update(complete: true)
-      p "+++++++++++"
-      p @sub_goal
       if @goal.sub_goals.where(complete: true).count > 0
         @progress = @goal.progress
       else
@@ -52,8 +50,19 @@ class SubGoalsController < ApplicationController
     end
   end
 
-  def update
+  def edit
+    @goal = Goal.find(params[:goal_id])
+    @sub_goal = SubGoal.find(params[:id])
+    p "IM THE EDIT METHOD"
+  end
 
+  def update
+    @goal = Goal.find(params[:goal_id])
+    @sub_goal = SubGoal.find(params[:id])
+    if @sub_goal.update(content: params[:sub_goal][:content])
+      p "SUB_GOOOOOOAAALLLL"
+    end
+    redirect_to goal_sub_goals_path(@goal)
   end
 
   private
