@@ -12,7 +12,11 @@ class User < ApplicationRecord
   has_many :squad_connections, class_name: :Connection, foreign_key: :squad_member_id
   has_many :champs, through: :squad_connections
 
+  has_many :sent_requests, class_name: :CollaborationRequest, foreign_key: :request_sender_id
+  has_many :received_requests, class_name: :CollaborationRequest, foreign_key: :request_receiver_id
+
   has_many :collaborations, foreign_key: :collaborator_id
+
   has_many :projects, through: :collaborations, source: :project
   has_many :project_objectives, through: :projects, source: :project_objectives
 
