@@ -1,0 +1,2 @@
+class CollaborationRequest < ApplicationRecord
+end
