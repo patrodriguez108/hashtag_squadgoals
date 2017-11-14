@@ -77,9 +77,9 @@ class User < ApplicationRecord
     self.collaborations.select { |collaboration| collaboration.status_id == 1 }.length
   end
 
-  def current_projects
-    projects = []
-    self.collaborations.where(status_id: 2).each { |collaboration| projects << Project.find(collaboration.project_id) }
-    projects
-  end
+  # def current_projects
+  #   projects = []
+  #   self.collaborations.where(status_id: 2).each { |collaboration| projects << Project.find(collaboration.project_id) }
+  #   projects
+  # end
 end
