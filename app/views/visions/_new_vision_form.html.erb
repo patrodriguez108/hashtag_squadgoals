@@ -23,8 +23,10 @@
 		</div>
 
 		<h3 class=>Where do you envision your life in <%= text_field_tag :timeframe %> years?</h3>
-		<%= text_area_tag :statement, class: "vision-statement-input" %>
-		<%= f.submit, class: "vision-statement-submit" %>
+		<div class="vision-input">
+			<%= text_area_tag :statement %><br>
+			<span class="vision-button"><%= f.submit %></span>
+		</div>
 	<% end %>
 
 <% end %>
