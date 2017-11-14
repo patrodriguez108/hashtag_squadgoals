@@ -22,6 +22,7 @@ Rails.application.routes.draw do
 
   resources :users do
     resources :connections
+    resources :collaboration_requests
     resources :collaborations
   end
 
