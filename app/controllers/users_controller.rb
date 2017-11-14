@@ -13,7 +13,7 @@ class UsersController < ApplicationController
         f.html { redirect_to new_vision_path }
         f.js
       end
-      
+
     else
       flash[:notice] = @user.errors.full_messages
       respond_to do |f|

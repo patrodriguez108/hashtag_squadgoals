@@ -18,6 +18,11 @@
   margin-bottom: 20%;
 }
 
+.progress-user-show {
+  margin: 3%;
+  margin-left: 0;
+}
+
 .progress-italic {
   font-style: italic;
   font-size: 10px;

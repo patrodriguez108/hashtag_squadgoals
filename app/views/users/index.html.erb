@@ -10,7 +10,7 @@
       <% if user.goals.any? %>
         <p>Recent Goal: <%= user.goals.last.content %></p>
         <p class="progress-italic">Goal Progress:</p>
-        <div class="progress-bar-outer" style="width: 90%">
+        <div class="progress-bar-outer progress-user-show" style="width: 90%">
           <div class="progress-bar-inner" style="width:<%= user.goals.last.progress %>%"></div>
         </div>
       <% end %>
