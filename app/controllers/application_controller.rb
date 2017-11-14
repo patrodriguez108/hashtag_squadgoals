@@ -8,6 +8,8 @@ class ApplicationController < ActionController::Base
   def about
   end
 
+
+
  def find_requester(requester_id)
  		User.find(requester_id)
  end
