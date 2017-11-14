@@ -1,26 +1,30 @@
 <% if current_user.visions.any? %>
 
 	<%= form_for :vision, url: '/visions', html: {id: "new-vision-form"}, authenticity_token: true, method: 'post' do |f| %>
-			<p>So you want to update your vision. Re-evaluation is important. Maybe you want to build your vision in a different timeframe. Maybe you want to rephrase your vision. That's comepletely understandable.</p> 
+			<p>So you want to update your vision. Re-evaluation is important. Maybe you want to build your vision in a different timeframe. Maybe you want to rephrase your vision. That's comepletely understandable.</p>
 			<p>However, let's try to keep the same spirit of your vision. Let's take some time to think about how you want to phrase your vision this time around.</p>
 			<p>in <%= text_field_tag :timeframe, current_user.current_vision_time_frame_in_years_from_now %> years time</p>
 
 			<p><%= text_area_tag :statement, current_user.current_vision_statement %></p>
 		<%= f.submit %>
-
 	<% end %>
 
 <% else %>
 
-
 	<%= form_for :vision, url: '/visions', html: {id: "new-vision-form"}, method: 'post' do |f| %>
-		<p>Now let's take the time to think of a long term vision. What do you see for yourself in the future?</p>
-		<p>In how many years do you expect to find yourself acheiving your vision?</p>
-		<p>in <%= text_field_tag :timeframe %> years time</p>
-		<p>In the simplest terms, state your vision. For example: "I will live in a cottage along a small lake in Wisonsin."</p>
-		<p>Don't worry if you can't find the right words yet. You can always update your vision.</p>
-		<p><%= text_area_tag :statement %></p>
-		<%= f.submit %>
+		<div class="vision-prompts">
+			<p class="vision-prompt" id="prompt-1">Now let's take this time to think of your long-term vision...</p>
+			<p class="vision-prompt" id="prompt-2">What do you see for yourself in the future?</p>
+			<p class="vision-prompt" id="prompt-3">How do you want to feel?</p>
+			<p class="vision-prompt" id="prompt-4">When do you expect to find yourself acheiving your vision?</p>
+			<p class="vision-prompt" id="prompt-5">In the simplest terms, state your vision. For example: "I'm living in a cottage next to a small lake in Wisonsin."</p>
+			<p class="vision-prompt" id="prompt-6">Be as detailed or as minimal as you want to be.</p>
+			<p class="vision-prompt" id="prompt-7">Don't worry if you can't find the right words yet. You can always update your vision.</p>
+		</div>
+
+		<h3 class=>Where do you envision your life in <%= text_field_tag :timeframe %> years?</h3>
+		<%= text_area_tag :statement, class: "vision-statement-input" %>
+		<%= f.submit, class: "vision-statement-submit" %>
 	<% end %>
 
 <% end %>

@@ -411,3 +411,47 @@ li {
 .completed-strike {
   text-decoration: line-through;
 }
+
+/* ------------------------- */
+/* ----- CREATE VISION ----- */
+/* ------------------------- */
+
+@keyframes vision {
+  0% {opacity: 0;}
+  10% {opacity: 1;}
+  90% {opacity: 1;}
+  100% {opacity: 0;}
+}
+
+.vision-prompt {
+  position: absolute;
+  opacity: 0;
+}
+
+#prompt-1 {
+  animation: vision 10s;
+}
+
+#prompt-2 {
+  animation: vision 10s 10s;
+}
+
+#prompt-3 {
+  animation: vision 10s 20s;
+}
+
+#prompt-4 {
+  animation: vision 10s 30s;
+}
+
+#prompt-5 {
+  animation: vision 10s 40s;
+}
+
+#prompt-6 {
+  animation: vision 10s 50s;
+}
+
+#prompt-7 {
+  animation: vision 10s 60s;
+}
