@@ -71,8 +71,8 @@ ActiveRecord::Schema.define(version: 20171114154618) do
   end
 
   create_table "projects", force: :cascade do |t|
-    t.string "name", default: ""
-    t.text "description", default: ""
+    t.string "name", default: "New Project"
+    t.text "description", default: "[enter description here]"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.string "project_pic_file_name"

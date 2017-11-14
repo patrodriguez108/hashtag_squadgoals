@@ -22,6 +22,7 @@ Rails.application.routes.draw do
 
   resources :users do
     resources :connections
+    resources :collaboration_requests
     resources :collaborations
   end
 
@@ -42,9 +43,9 @@ Rails.application.routes.draw do
   post '/login' => 'sessions#create'
   get '/logout' => 'sessions#destroy'
 
-  post '/users/:user_id/collaborations/accept', to: 'collaborations#accept'
+  post '/users/:user_id/collaboration_requests/:id/accept', to: 'collaboration_requests#accept'
 
-  post '/users/:user_id/collaborations/decline', to: 'collaborations#decline'
+  post '/users/:user_id/collaboration_requests/:id/decline', to: 'collaboration_requests#decline'
   # get '/connect_cronofy', to: 'users#connect_cronofy'
   # get '/disconnect_cronofy', to: 'users#disconnect_cronofy'
 
