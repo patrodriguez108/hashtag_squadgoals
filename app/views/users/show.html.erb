@@ -107,11 +107,11 @@
     <% if @user.projects.any? %>
       <%= render @user.projects.order("created_at ASC") %>
     <% else %>
-        <% if is_profile_owner?(@user) %>
-          <p>You currenly have no projects. Start yoself a project yo</p>
-        <% else %>
-          <li>This user currently has no projects.</li>
-        <% end %>
+      <% if is_profile_owner?(@user) %>
+        <p>You currenly have no projects. Start yoself a project yo</p>
+      <% else %>
+        <li>This user currently has no projects.</li>
+      <% end %>
     <% end %>
   </div>
 
