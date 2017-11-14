@@ -4,6 +4,6 @@
   <div class="goal">
     <p><%= goal.content %></p>
     <p>by <%= goal.by_when.strftime("%b %d, %Y") %></p>
-    <p><%= goal.user.username %></p>
+    <p><%= link_to goal.user.username, user_path(goal.user.id) %>  <button class="button"><%= link_to "collaborate", new_user_collaboration_request_path(goal.user.id) %></button></p>
   </div>
 <% end %>
