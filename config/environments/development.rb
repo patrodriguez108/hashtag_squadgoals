@@ -66,8 +66,8 @@ Rails.application.configure do
     path: '/:class/:attachment/:id_partition/:style/:filename'
   }
 
-  cronofy = Cronofy::Client.new(
-    client_id: ENV['CRONOFY_CLIENT_ID'],
-    client_secret: ENV['CRONOFY_CLIENT_SECRET']
-  )
+  # cronofy = Cronofy::Client.new(
+  #   client_id: ENV['CRONOFY_CLIENT_ID'],
+  #   client_secret: ENV['CRONOFY_CLIENT_SECRET']
+  # )
 end
