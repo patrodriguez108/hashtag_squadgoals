@@ -10,15 +10,15 @@ Rails.application.routes.draw do
   get '/visions/new', to: 'visions#new', as: 'new_vision'
   post '/visions', to: 'visions#create'
 
-  patch 'goals/:goal_id/sub_goals/:id', to: 'sub_goals#update'
+  patch 'goals/:goal_id/sub_goals/:id', to: 'sub_goals#completed'
+
+  patch '/goals/:goal_id/sub_goals/:id/edit', to: 'sub_goals#update'
 
   resources :goals do
     resources :sub_goals
+
   end
 
-  # devise_for :users, controllers: {
-  #       sessions: 'users/sessions'
-  #     }
 
   resources :users do
     resources :connections

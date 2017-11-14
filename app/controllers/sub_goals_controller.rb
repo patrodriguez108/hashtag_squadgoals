@@ -34,7 +34,7 @@ class SubGoalsController < ApplicationController
     end
   end
 
-  def update
+  def completed
     @goal = Goal.find(params[:goal_id])
     @sub_goal = SubGoal.find(params[:id])
     if @sub_goal.update(complete: true)
@@ -50,6 +50,10 @@ class SubGoalsController < ApplicationController
         format.html { render 'index'}
       end
     end
+  end
+
+  def update
+
   end
 
   private
