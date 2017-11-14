@@ -12,6 +12,14 @@ class User < ApplicationRecord
   has_many :squad_connections, class_name: :Connection, foreign_key: :squad_member_id
   has_many :champs, through: :squad_connections
 
+  has_many :sent_collab_requests, class_name: :CollaborationRequest, foreign_key: :request_sender_id
+  has_many :received_collab_requests, class_name: :CollaborationRequest, foreign_key: :request_receiver_id
+
+  has_many :collaborations, foreign_key: :collaborator_id
+
+  has_many :projects, through: :collaborations, source: :project
+  has_many :project_objectives, through: :projects, source: :project_objectives
+
   has_attached_file :profile_pic, styles: {
     thumb: '100x100>',
     square: '200x200#',
@@ -53,7 +61,25 @@ class User < ApplicationRecord
   end
 
   def full_name
-    self.given_name + " " + self.family_name
+    self.given_name.capitalize + " " + self.family_name.capitalize
   end
 
+  def profile_pic?
+    self.profile_pic_updated_at != nil
+  end
+
+  def collab_requests?
+    self.received_collab_requests.each { |request| return true if request.status_id == 1 }
+    false
+  end
+
+  def collab_requests_count
+    self.received_collab_requests.where(status_id: 1).count
+  end
+
+  # def current_projects
+  #   projects = []
+  #   self.collaborations.where(status_id: 2).each { |collaboration| projects << Project.find(collaboration.project_id) }
+  #   projects
+  # end
 end

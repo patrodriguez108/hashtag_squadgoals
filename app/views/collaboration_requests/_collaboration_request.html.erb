@@ -1,0 +1,10 @@
+<p>hey</p>
+
+<%= link_to collaboration_request.request_sender.username, user_path(collaboration_request.request_sender.id) %> wants to collaborate on a project
+
+
+	<p>Vision Statement: <%= collaboration_request.request_sender.visions.last.statement %></p>
+
+
+
+<%= link_to 'view confirmation', user_collaboration_request_path(collaboration_request.request_sender.id, collaboration_request.id) %>
