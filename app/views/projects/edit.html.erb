@@ -1,0 +1,15 @@
+<div class="page-wrapper">
+	<h3>Edit Project</h3>
+
+	<%= form_for :project, url: "/projects/#{@project.id}", method: 'patch' do |f| %>
+	  
+	  <p><%= label_tag(:name, "Name") %>
+		<%= f.text_field :name %></p>
+
+		<p><%= label_tag(:description, "Description") %>
+		<%= f.text_field :description %></p>
+
+		<%= f.submit %>
+	<% end %>
+
+</div>

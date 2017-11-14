@@ -29,7 +29,8 @@ Rails.application.routes.draw do
 
   get '/projects', to: 'projects#index', as: 'projects'
   get '/projects/:id', to: 'projects#show', as: 'project'
-
+  get '/projects/:id/edit', to: 'projects#edit', as: 'edit_project'
+  patch '/projects/:id', to: 'projects#update'
 
   post '/users/:user_id/connections/accept', to: 'connections#accept'
 
