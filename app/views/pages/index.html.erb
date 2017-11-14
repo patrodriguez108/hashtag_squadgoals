@@ -7,6 +7,10 @@
       <p><%= link_to "#{goal.user.given_name.capitalize}", user_path("#{goal.user.id}") %></p>
       <p><%= goal.content %></p>
       <p>by <%= goal.by_when.strftime("%b %d, %Y") %></p>
+      <p class="progress-italic">Goal Progress:</p>
+        <div class="progress-bar-outer progress-home" style="width: 90%">
+          <div class="progress-bar-inner" style="width:<%= goal.progress %>%"></div>
+        </div>
       <div class=tags>
         <ul>
           <%= render goal.tags %>
