@@ -37,7 +37,8 @@ Rails.application.routes.draw do
   post '/login' => 'sessions#create'
   get '/logout' => 'sessions#destroy'
 
-  get '/auth/:provider/callback', to: 'users#cronofy'
+  # get '/connect_cronofy', to: 'users#connect_cronofy'
+  # get '/disconnect_cronofy', to: 'users#disconnect_cronofy'
 
 
 end

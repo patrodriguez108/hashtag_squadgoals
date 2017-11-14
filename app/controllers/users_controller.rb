@@ -39,17 +39,15 @@ class UsersController < ApplicationController
     render
   end
 
-  def cronofy
-    @user = User.find_or_create_from_auth_hash(auth_hash)
-    self.current_user = @user
-    redirect_to user_path(@user.id)
-  end
+  # def connect_cronofy
+  #   current_user.update_attributes(auth_hash: params[:code])
+  #   redirect_to user_path(current_user.id)
+  # end
 
-  protected
-
-  def auth_hash
-    request.env['omniauth.auth']
-  end
+  # def disconnect_cronofy
+  #   current_user.update_attributes(auth_hash: nil)
+  #   redirect_to user_path(current_user.id)
+  # end
 
   private
 
