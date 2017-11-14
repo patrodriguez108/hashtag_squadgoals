@@ -27,6 +27,39 @@ describe User do
     users.each { |user| expect(user).to be_instance_of(User) }
   end
 
+  describe "user's attributes" do
+    it 'has a given name' do
+      user.given_name = 'Jarfle'
+      expect(user.given_name).to eq 'Jarfle'
+    end
+
+    it 'has a family name' do
+      user.family_name = 'Menendez'
+      expect(user.family_name).to eq 'Menendez'
+    end
+
+    it 'has a full name' do
+      user.given_name = 'Jarfle'
+      user.family_name = 'Menendez'
+      expect(user.full_name).to eq 'Jarfle Menendez'
+    end
+
+    it 'has a username' do
+      user.username = 'jarflcopter'
+      expect(user.username).to eq 'jarflcopter'
+    end
+
+    it 'has an e-mail address' do
+      user.email = 'jarflcopter@hotmail.com'
+      expect(user.email).to eq 'jarflcopter@hotmail.com'
+    end
+
+    it 'has a password stored' do
+      user.password = 'jarflisdaman'
+      expect(user.password_digest.exist?).to be true
+    end
+  end
+
   describe "user's associations" do
   	it 'has goals' do
   		first_user.goals.each { |goal| expect(goal).to be_instance_of(Goal) }

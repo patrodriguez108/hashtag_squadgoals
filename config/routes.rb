@@ -45,5 +45,8 @@ Rails.application.routes.draw do
   post '/users/:user_id/collaborations/accept', to: 'collaborations#accept'
 
   post '/users/:user_id/collaborations/decline', to: 'collaborations#decline'
+  # get '/connect_cronofy', to: 'users#connect_cronofy'
+  # get '/disconnect_cronofy', to: 'users#disconnect_cronofy'
+
 
 end

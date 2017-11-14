@@ -1,4 +1,4 @@
-<div class="page-wraper">
+<div class="page-wrapper">
 
   <% if @user.id == current_user.id %>
     <h3>Hello <%= @user.given_name %></h3>
@@ -6,49 +6,74 @@
     <h3><%= @user.full_name %></h3>
   <% end %>
 
-  <%= image_tag @user.profile_pic.url %>
+  <% if @user.profile_pic_updated_at != nil %>
+    <%= image_tag @user.profile_pic.url, class: "profile-pic" %>
+  <% end %>
 
   <% unless current_user == @user || current_user.request_made?(@user) %>
-    <%= link_to "Add #{@user.given_name} to Squad", new_user_connection_path(@user.id) %>
+    <%= link_to "Add #{@user.given_name} to Squad", new_user_connection_path(@user.id), class: "connection-link" %>
   <% end %>
 
   <ul class="tabs">
-        <li class="active"><a href="#vision-goals"></a><%= @user.username %></li>
+        <li class="active"><a href="#vision-goals"><%= @user.username %></a></li>
         <li><a href="#squad">Squad</a></li>
     </ul>
 
-
   <div class="tab-content" id="vision-goals">
+    <h3>Vision</h3>
+
     <div class="user-vision">
-      <h3>Your Vision:</h3>
       <% if @user.visions.any? %>
-        <p>In <%= @user.visions.last.timeframe.year - DateTime.now.year %> years</p>
+        <p>In <%= @user.visions.last.timeframe.year - DateTime.now.year %> years:</p>
+
         <p><%= @user.visions.last.statement %></p>
-        <p><%= link_to "Update Vision", new_vision_path %></p>
-        <p><%= link_to "Vision History", visions_path %>
+
+        <% if is_profile_owner?(@user) %>
+          <p><%= link_to "Update Vision", new_vision_path %></p>
+          <p><%= link_to "Vision History", visions_path %>
+        <% end %>
       <% else %>
         <%= link_to "Create new vision", new_vision_path %>
       <% end %>
     </div>
 
+    <h3>Goals</h3>
+
     <div class="user-goals-div">
-      <h3>Your Goals</h3>
       <ul class="user-goals-ul">
         <% @user.goals.each do |goal| %>
-          <%= render partial: 'goal', locals: {goal: goal} %>
+          <div class="goal">
+            <%= render partial: 'goal', locals: {goal: goal} %>
 
-          <%= link_to "Edit", edit_goal_path(goal.id) %>
+            <p><span class="goal-progress">Goal Progress:</span></p>
+
+            <div class="progress-bar-outer progress-user-show">
+              <div class="progress-bar-inner" style="width:<%= goal.progress %>%"></div>
+            </div>
+
+            <% if is_profile_owner?(@user) %>
+              <li><%= link_to "Edit", edit_goal_path(goal.id) %></li>
+            <% end %>
+          </div>
         <%end %>
       </ul>
     </div>
 
-    <div class="create-new-goal">
-      <%= link_to 'New Goal', new_goal_path %>
-    </div>
+    <% if is_profile_owner?(@user) %>
+      <div class="create-new-goal">
+        <%= link_to 'New Goal', new_goal_path %>
+      </div>
 
-    <div class="connect-calendar-link">
-      <%= link_to "Connect Your Goals To Your Calendar", "https://app.cronofy.com/oauth/authorize?response_type=code&client_id={Wj0KpQ2hZIKAxpn8K6oX70M-Ghwnwj6N}&redirect_uri={http://localhost:3000/}&scope={create_event}" %>
-    </div>
+      <!-- <% if current_user.auth_hash == nil %>
+        <div class="connect-calendar-link">
+          <%= link_to "Connect Your Calendar", "https://app.cronofy.com/oauth/authorize?response_type=code&client_id=#{ENV['CRONOFY_CLIENT_ID']}&redirect_uri=http://localhost:3000/connect_cronofy&scope=create_event" %>
+        </div>
+      <% else %>
+        <div class="disconnect-calendar-link">
+          <%= link_to "Disconnect Your Calendar", disconnect_cronofy_path %>
+        </div>
+      <% end %> -->
+    <% end %>
   </div>
 
 

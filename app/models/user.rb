@@ -57,7 +57,11 @@ class User < ApplicationRecord
   end
 
   def full_name
-    self.given_name + " " + self.family_name
+    self.given_name.capitalize + " " + self.family_name.capitalize
+  end
+
+  def profile_pic?
+    self.profile_pic_updated_at != nil
   end
 
   def collab_requests?

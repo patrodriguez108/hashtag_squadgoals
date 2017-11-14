@@ -83,7 +83,7 @@ ActiveRecord::Schema.define(version: 20171113231027) do
   create_table "sub_goals", force: :cascade do |t|
     t.text "content"
     t.integer "goal_id"
-    t.boolean "completed", default: false
+    t.boolean "complete", default: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
@@ -106,6 +106,7 @@ ActiveRecord::Schema.define(version: 20171113231027) do
     t.string "profile_pic_content_type"
     t.integer "profile_pic_file_size"
     t.datetime "profile_pic_updated_at"
+    t.string "auth_hash"
   end
 
   create_table "visions", force: :cascade do |t|

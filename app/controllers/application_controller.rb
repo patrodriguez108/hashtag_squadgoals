@@ -8,6 +8,8 @@ class ApplicationController < ActionController::Base
   def about
   end
 
+
+
  def find_requester(requester_id)
  		User.find(requester_id)
  end
@@ -28,4 +30,9 @@ class ApplicationController < ActionController::Base
     session[:user_id] != nil
   end
   helper_method :logged_in?
+
+  def is_profile_owner?(user)
+    current_user.username == user.username
+  end
+  helper_method :is_profile_owner?
 end

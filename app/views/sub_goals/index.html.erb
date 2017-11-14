@@ -1,4 +1,4 @@
-<div class="page-wraper">
+<div class="page-wrapper">
   <h2>Goal</h2>
   <%= @goal.content %>
   <p>Steps to your goal:</p>
@@ -11,8 +11,8 @@
   <%= link_to 'New Sub-Goal', new_goal_sub_goal_path(@goal), id: "new_sub_goal_link", remote: true %>
 
   </div>
-
-  <div class="progress-bar-outer">
+  <p class="progress-italic">Goal Progress:</p>
+  <div class="progress-bar-outer progress-user-show">
     <div class="progress-bar-inner" style="width:<%= @progress %>%"></div>
   </div>
 

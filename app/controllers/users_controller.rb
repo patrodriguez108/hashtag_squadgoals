@@ -1,5 +1,7 @@
 class UsersController < ApplicationController
 
+  before_action :authorize, only: [:show]
+
   def new
     @user = User.new
   end
@@ -13,7 +15,7 @@ class UsersController < ApplicationController
         f.html { redirect_to new_vision_path }
         f.js
       end
-      
+
     else
       flash[:notice] = @user.errors.full_messages
       respond_to do |f|
@@ -36,6 +38,16 @@ class UsersController < ApplicationController
     end
     render
   end
+
+  # def connect_cronofy
+  #   current_user.update_attributes(auth_hash: params[:code])
+  #   redirect_to user_path(current_user.id)
+  # end
+
+  # def disconnect_cronofy
+  #   current_user.update_attributes(auth_hash: nil)
+  #   redirect_to user_path(current_user.id)
+  # end
 
   private
 

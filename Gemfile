@@ -31,6 +31,7 @@ gem 'figaro'
 gem 'paperclip'
 gem 'aws-sdk', '<3.0'
 gem 'cronofy'
+gem 'omniauth'
 gem 'omniauth-cronofy'
 gem 'faker'
 
