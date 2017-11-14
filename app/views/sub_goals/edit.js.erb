@@ -2,3 +2,16 @@ console.log("i'm edit js file")
 $("#<%=@sub_goal.id%>").append("<%= j render('sub_goals/edit_form') %>");
 $(".edit-sub-goal-button").parent().hide();
 $("#new_sub_goal_link").hide();
+
+$("#<%= @sub_goal.id%>_edit").on("submit", function(e){
+  e.preventDefault();
+  var $form = ($(this))
+
+  $.ajax({
+    url: $form.attr('action'),
+    method: 'put',
+    data: $form.serialize()
+  }).done(function(response){
+  })
+
+});

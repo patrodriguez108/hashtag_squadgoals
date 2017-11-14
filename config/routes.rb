@@ -13,7 +13,7 @@ Rails.application.routes.draw do
   patch 'goals/:goal_id/sub_goals/:id', to: 'sub_goals#complete'
 
 
-  put 'goals/:goal_id/sub_goals/:id/edit', to: 'sub_goals#update'
+  # get 'goals/:goal_id/sub_goals/:id/edit', to: 'sub_goals#update'
 
   resources :goals do
     resources :sub_goals
