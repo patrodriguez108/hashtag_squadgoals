@@ -1,0 +1,5 @@
+$("#<%= @sub_goal.id%>").on("ajax:success", function(){
+  $(this).children("button").hide();
+  $(this).children(".incomplete").css("text-decoration", "line-through");
+  $(".progress-bar-inner").css("width", "<%= @progress %>%")
+});

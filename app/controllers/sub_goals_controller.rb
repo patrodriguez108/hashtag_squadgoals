@@ -28,26 +28,46 @@ class SubGoalsController < ApplicationController
         @progress = 0
       end
       respond_to do |f|
-        f.html { redirect_to goal_path(@goal) }
+        f.html { redirect_to goal_sub_goals_path(@goal) }
         f.js
       end
+    end
+  end
+
+  def complete
+    @goal = Goal.find(params[:goal_id])
+    @sub_goal = SubGoal.find(params[:id])
+    if @sub_goal.update(complete: true)
+      if @goal.sub_goals.where(complete: true).count > 0
+        @progress = @goal.progress
+      else
+        @progress = 0
+      end
+      respond_to do |f|
+        f.js
+        f.html { render 'index'}
+      end
+    end
+  end
+
+  def edit
+    @goal = Goal.find(params[:goal_id])
+    @sub_goal = SubGoal.find(params[:id])
+    p "IM THE EDIT METHOD"
+    respond_to do |f|
+      f.js
+      f.html
     end
   end
 
   def update
     @goal = Goal.find(params[:goal_id])
     @sub_goal = SubGoal.find(params[:id])
-    if @sub_goal.update(complete: true)
-      p "+++++++++++"
-      p @sub_goal
-      if @goal.sub_goals.where(complete: true).count > 0
-        @progress = @goal.progress
-      else
-        @progress = 0
-      end
-      respond_to do |format|
-        format.js
-        format.html { render 'index'}
+    if @sub_goal.update(content: params[:sub_goal][:content])
+      p "SUB_GOOOOOOAAALLLL"
+      respond_to do |f|
+        f.js
+        f.html { redirect_to goal_sub_goals_path(@goal) }
       end
     end
   end
