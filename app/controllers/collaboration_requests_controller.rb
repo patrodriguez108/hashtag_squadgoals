@@ -35,4 +35,12 @@ class CollaborationRequestsController < ApplicationController
 
 		redirect_to user_path(current_user.id)
 	end
+
+	def decline
+		collaboration_request = CollaborationRequest.find_by(id: params[:id], request_receiver_id: current_user.id, request_sender_id: params[:user_id])
+		collaboration_request.status = RequestStatus.find(3)
+		collaboration_request.save
+
+		redirect_to user_path(current_user.id)
+	end
 end
