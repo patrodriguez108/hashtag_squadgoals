@@ -12,8 +12,8 @@ class User < ApplicationRecord
   has_many :squad_connections, class_name: :Connection, foreign_key: :squad_member_id
   has_many :champs, through: :squad_connections
 
-  has_many :sent_requests, class_name: :CollaborationRequest, foreign_key: :request_sender_id
-  has_many :received_requests, class_name: :CollaborationRequest, foreign_key: :request_receiver_id
+  has_many :sent_collab_requests, class_name: :CollaborationRequest, foreign_key: :request_sender_id
+  has_many :received_collab_requests, class_name: :CollaborationRequest, foreign_key: :request_receiver_id
 
   has_many :collaborations, foreign_key: :collaborator_id
 
@@ -69,12 +69,12 @@ class User < ApplicationRecord
   end
 
   def collab_requests?
-    self.collaborations.each { |collaboration| return true if collaboration.status_id == 1 && !collaboration.sent_request }
+    self.received_collab_requests.each { |request| return true if request.status_id == 1 }
     false
   end
 
   def collab_requests_count
-    self.collaborations.select { |collaboration| collaboration.status_id == 1 }.length
+    self.received_collab_requests.where(status_id: 1).count
   end
 
   # def current_projects
