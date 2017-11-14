@@ -28,6 +28,7 @@
   font-size: 10px;
 }
 
+
 * {
   font-family: sans-serif;
 }
@@ -44,6 +45,10 @@ h3 {
 
 .main {
   padding: 20px;
+}
+
+.connection-link {
+  margin: 0 auto;
 }
 
 /* ------------------------- */
@@ -271,6 +276,23 @@ a:visited {
   width: 300px;
   margin: 5px;
   padding: 5px;
+}
+
+/* ------------------------- */
+/* ----- GOAL PROGRESS ----- */
+/* ------------------------- */
+
+.progress-bar-outer {
+  height: 10px;
+  width: 25%;
+  background-color: #CCDEFF;
+  border-radius: 15px;
+}
+
+.progress-bar-inner {
+  height: 10px;
+  background-color: #92A8D1;
+  border-radius: 15px;
 }
 
 /* ------------------------- */
