@@ -1,0 +1,4 @@
+console.log("i'm update js file")
+$("#<%=@sub_goal.id%>").append("<%= j render('sub_goals/edit_form') %>");
+$(".edit-sub-goal-button").parent().show();
+$("#new_sub_goal_link").show();
