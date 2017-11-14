@@ -7,7 +7,7 @@
   <p>Sub-goals:</p>
 
   <div id="sub-goals-list">
-    <ul>
+    <ul class="sub-goals-ul">
       <li><%= render @goal.sub_goals.order("created_at"), locals: { goal: @goal }, remote: true %></li>
     </ul>
   </div>

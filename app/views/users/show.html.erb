@@ -17,6 +17,7 @@
   <ul class="tabs">
         <li class="active"><a href="#vision-goals"><%= @user.username %></a></li>
         <li><a href="#squad">Squad</a></li>
+        <li><a href="#projects">Projects</a></li>
     </ul>
 
   <div class="tab-content" id="vision-goals">
@@ -61,10 +62,11 @@
         <%end %>
 
       </ul>
-        <% if !is_profile_owner?(@user)%>
-          <button class="button"><%= link_to "collaborate with #{@user.username}", new_user_collaboration_request_path(@user.id) %>
-        <% end %>
+    <% if !is_profile_owner?(@user)%>
+     <button class="button"><%= link_to "collaborate with #{@user.given_name}", new_user_collaboration_request_path(@user.id) %></button>
+    <% end %>
     </div>
+    
 
     <% if is_profile_owner?(@user) %>
       <div class="create-new-goal">
@@ -88,8 +90,29 @@
   <div class="tab-content" id="squad">
     <h3>Your Squad</h3>
     <ul class="champ-ul">
-      <%= render partial: 'connections/squad_connections', collection: @user.accepted_squad %>
+      <% if @user.squad_connections.any? %>
+        <%= render partial: 'connections/squad_connections', collection: @user.accepted_squad %>
+      <% else %>
+        <% if is_profile_owner?(@user) %>
+          <li>You currently have no squad members. Find yoself a squad yo.</li>
+        <% else %>
+          <li>This user currently has no squad members.</li>
+        <% end %>
+      <% end %>
     </ul>
+  </div>
+
+  <div class="tab-content" id="projects">
+    <h3><%= @user.given_name %>'s Projects</h3>
+    <% if @user.projects.any? %>
+      <%= render @user.projects.order("created_at ASC") %>
+    <% else %>
+      <% if is_profile_owner?(@user) %>
+        <p>You currenly have no projects. Start yoself a project yo</p>
+      <% else %>
+        <li>This user currently has no projects.</li>
+      <% end %>
+    <% end %>
   </div>
 
 </div>

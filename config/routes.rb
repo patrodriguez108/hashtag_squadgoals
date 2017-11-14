@@ -10,15 +10,16 @@ Rails.application.routes.draw do
   get '/visions/new', to: 'visions#new', as: 'new_vision'
   post '/visions', to: 'visions#create'
 
-  patch 'goals/:goal_id/sub_goals/:id', to: 'sub_goals#update'
+  patch 'goals/:goal_id/sub_goals/:id', to: 'sub_goals#complete'
+
+
+  # get 'goals/:goal_id/sub_goals/:id/edit', to: 'sub_goals#update'
 
   resources :goals do
     resources :sub_goals
+
   end
 
-  # devise_for :users, controllers: {
-  #       sessions: 'users/sessions'
-  #     }
 
   resources :users do
     resources :connections
@@ -28,7 +29,8 @@ Rails.application.routes.draw do
 
   get '/projects', to: 'projects#index', as: 'projects'
   get '/projects/:id', to: 'projects#show', as: 'project'
-
+  get '/projects/:id/edit', to: 'projects#edit', as: 'edit_project'
+  patch '/projects/:id', to: 'projects#update'
 
   post '/users/:user_id/connections/accept', to: 'connections#accept'
 
