@@ -56,7 +56,11 @@
             <% end %>
           </div>
         <%end %>
+
       </ul>
+        <% if !is_profile_owner?(@user)%>
+          <button class="button"><%= link_to "collaborate with #{@user.username}", new_user_collaboration_request_path(@user.id) %>
+        <% end %>
     </div>
 
     <% if is_profile_owner?(@user) %>
