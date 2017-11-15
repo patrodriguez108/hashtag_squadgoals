@@ -8,4 +8,6 @@
 
 <% end %>
 
-<%= link_to 'view connection', user_connection_path(connection.champ_id, connection.id) %>
+<div class="response">
+	<span class="js--respond"><%= link_to 'respond', user_connection_path(connection.champ_id, connection.id), remote: true %></span>
+</div>

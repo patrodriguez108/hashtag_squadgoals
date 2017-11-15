@@ -6,5 +6,6 @@
 	<p>Vision Statement: <%= collaboration_request.request_sender.visions.last.statement %></p>
 
 
-
-<%= link_to 'view confirmation', user_collaboration_request_path(collaboration_request.request_sender.id, collaboration_request.id) %>
+<div class="response">
+	<span class="js--respond"><%= link_to 'respond', user_collaboration_request_path(collaboration_request.request_sender.id, collaboration_request.id), remote: true %></span>
+</div>

@@ -1,7 +1,7 @@
 <div class="page-wrapper">
-	<p>Confirm your request to add <%= @user.given_name %> to your squad:</p>
+	<p>Confirm your request to add <%= link_to @user.given_name, user_path(@user.id) %> to your squad:</p>
 
-	<%= button_to "Send Request", action: "create", method: "post" %>
+	<%= button_to "Send Request", action: "create", method: "post", remote: true %>
 	<button><%= link_to "Cancel Request", user_path(current_user.id) %></button>
 
 </div>
