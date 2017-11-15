@@ -3,7 +3,7 @@
 <%= link_to collaboration_request.request_sender.username, user_path(collaboration_request.request_sender.id) %> wants to collaborate on a project
 
 
-	<p>Vision Statement: <%= collaboration_request.request_sender.visions.last.statement %></p>
+	<p>Proposal: <%= collaboration_request.proposal %></p>
 
 
 <div class="response">
