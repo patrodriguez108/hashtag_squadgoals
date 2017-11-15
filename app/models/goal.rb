@@ -5,7 +5,7 @@ class Goal < ApplicationRecord
   has_many :tags, through: :goal_tags, source: :tag
   has_many :sub_goals
   accepts_nested_attributes_for :sub_goals
-
+  has_many :cheers
   validates :category, presence: {message: ": Which category does your goal fall under?"}
   validates :content, presence: {message: ": Please enter your goal"}
   validates :by_when, presence: {message: ": When do you see yourself accomplishing this goal?"}
@@ -60,5 +60,23 @@ class Goal < ApplicationRecord
     else
       false
     end
+  end
+
+  def cheers_count
+    "#{self.cheers.count} cheers"
+  end
+
+  def users_who_cheered
+    user_ids = []
+    self.cheers.each { |cheer| user_ids << cheer.user_id }
+    user_ids
+  end
+
+  def already_cheered?(user_id)
+    self.users_who_cheered.include?(user_id)
+  end
+
+  def own_goal?(user_id)
+    self.user_id == user_id
   end
 end

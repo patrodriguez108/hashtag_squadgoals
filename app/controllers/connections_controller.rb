@@ -8,6 +8,10 @@ class ConnectionsController < ApplicationController
 		@user = User.find(params[:user_id])
 	end
 
+	def accepted
+		@user = User.find(params[:user_id])
+	end
+
 	def show
 		@connection = Connection.find(params[:id])
 	end
@@ -20,14 +24,16 @@ class ConnectionsController < ApplicationController
 	end
 
 	def accept
-		connection = Connection.where(champ_id: params[:user_id], squad_member_id: current_user.id)
-		connection.update_all(status_id: 2)
-		redirect_to user_path(current_user.id)
+		connection = Connection.find_by(champ_id: params[:user_id], squad_member_id: current_user.id)
+		connection.status = RequestStatus.find(2)
+		connection.save
+		redirect_to accepted_connection_path(params[:user_id], connection.id)
 	end
 
 	def decline
-		connection = Connection.where(champ_id: params[:user_id], squad_member_id: current_user.id)
-		connection.update_all(status_id: 3)
+		connection = Connection.find_by(champ_id: params[:user_id], squad_member_id: current_user.id)
+		connection.status = RequestStatus.find(3)
+		connection.save
 		redirect_to user_path(current_user.id)
 	end
 end

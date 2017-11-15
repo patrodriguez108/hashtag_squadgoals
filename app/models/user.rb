@@ -5,7 +5,7 @@ class User < ApplicationRecord
 
   has_many :goals
   has_many :visions
-
+  has_many :cheers
   has_many :champ_connections, class_name: :Connection, foreign_key: :champ_id
   has_many :squad_members, through: :champ_connections
 
