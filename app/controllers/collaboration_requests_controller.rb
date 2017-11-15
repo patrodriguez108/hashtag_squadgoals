@@ -8,6 +8,11 @@ class CollaborationRequestsController < ApplicationController
 		@user = User.find(params[:user_id])
 	end
 
+	def accepted
+		@user = User.find(params[:user_id])
+		@collaboration_request = CollaborationRequest.find(params[:id])
+	end
+
 	def show
 		@collaboration_request = CollaborationRequest.find_by(id: params[:id], request_sender_id: params[:user_id])
 	end
@@ -33,7 +38,7 @@ class CollaborationRequestsController < ApplicationController
 
 		receiver_collaboration.save && sender_collaboration.save
 
-		redirect_to user_path(current_user.id)
+		redirect_to accepted_collaboration_request_path(collaboration_request.request_sender_id, params[:id])
 	end
 
 	def decline

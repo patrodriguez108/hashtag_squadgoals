@@ -1,0 +1,5 @@
+<div class="page-wrapper">
+	
+	<p>You are now collaborating with <%= link_to @user.given_name, user_path(@user.id) %>. See your project <%= link_to "here", project_path(Collaboration.find_by(request_id: @collaboration_request.id).project.id) %>.</p>
+
+</div>
