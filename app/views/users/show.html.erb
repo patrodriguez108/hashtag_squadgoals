@@ -55,13 +55,15 @@
               <div class="progress-bar-inner" style="width:<%= goal.progress %>%"></div>
             </div>
 
-            <%= goal.cheers_count %>
+            <div id="goal-<%= goal.id %>-cheers">
+            <%= render partial: 'goals/cheer_count', locals: {goal: goal} %>
 
             <% if !is_profile_owner?(@user) && !goal.users_who_cheered.include?(current_user.id) %>
-              <%= form_for :cheer, url: "/goals/#{goal.id}/cheers" do |f| %>
+              <%= form_for :cheer, url: "/goals/#{goal.id}/cheers", html: {id: "goal-#{goal.id}-add-cheer-form"}, remote: true, authenticity_token: true do |f| %>
                 <%= submit_tag "cheer" %>
               <% end %>
             <% end %>
+            </div>
 
             <% if is_profile_owner?(@user) %>
               <li><%= link_to "Edit", edit_goal_path(goal.id), class: "edit-goal" %></li>
