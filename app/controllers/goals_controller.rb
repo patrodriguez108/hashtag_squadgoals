@@ -20,7 +20,7 @@ class GoalsController < ApplicationController
 				goal.save
 			end
 
-			p GoalReminderMailer.goal_reminder(current_user, goal).deliver_later(wait_until: (goal.by_when - 7).to_datetime)
+			GoalReminderMailer.goal_reminder(current_user, goal).deliver_later(wait_until: (goal.by_when - 7).to_datetime)
 
 			redirect_to "/users/#{current_user.id}"
 		else

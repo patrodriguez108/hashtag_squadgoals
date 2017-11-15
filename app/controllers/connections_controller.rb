@@ -28,7 +28,7 @@ class ConnectionsController < ApplicationController
 		connection.status = RequestStatus.find(2)
 		connection.save
 
-		p AcceptedNotificationMailer.accepted_notification(connection.champ, connection.squad_member).deliver
+		AcceptedNotificationMailer.accepted_notification(connection.champ, connection.squad_member).deliver
 
 		redirect_to accepted_connection_path(params[:user_id], connection.id)
 	end
