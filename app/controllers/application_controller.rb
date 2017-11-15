@@ -13,6 +13,11 @@ class ApplicationController < ActionController::Base
   end
   helper_method :find_requester
 
+  def find_follower(follower_id)
+    User.find(follower_id)
+ end
+ helper_method :find_follower
+
   protected
 
   def current_user
@@ -33,4 +38,11 @@ class ApplicationController < ActionController::Base
     current_user.username == user.username
   end
   helper_method :is_profile_owner?
+
+
+  def part_of_squad?(id)
+    user = User.find(id)
+    current_user.squad_members.include?(user)
+  end
+  helper_method :part_of_squad?
 end

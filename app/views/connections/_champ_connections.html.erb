@@ -1,0 +1,7 @@
+<div class="goal">
+  <strong><li class="champ-li-name"><%= link_to find_follower(champ_connections.squad_member_id).username, user_path(champ_connections.squad_member_id) %></li></strong>
+  <% if find_follower(champ_connections.squad_member_id).goals.last != nil %>
+    <li class="champ-li-goal"><%= find_follower(champ_connections.squad_member_id).goals.last.content %>
+    </li><br>
+  <% end %>
+</div>
