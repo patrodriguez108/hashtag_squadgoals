@@ -52,7 +52,7 @@ RequestStatus.create(name: "Accepted")
 RequestStatus.create(name: "Denied")
 
 5.times do
-	Connection.create(champ_id: rand(1..10), squad_member_id: rand(1..10), status_id: rand(1..3))
+	Connection.create(champ_id: rand(1..5), squad_member_id: rand(6..10), status_id: 2)
 end
 
 10.times do
