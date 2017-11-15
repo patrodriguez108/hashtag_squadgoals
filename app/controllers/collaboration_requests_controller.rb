@@ -38,6 +38,8 @@ class CollaborationRequestsController < ApplicationController
 
 		receiver_collaboration.save && sender_collaboration.save
 
+		AcceptedCollabRequestMailer.accepted_collab_request(collaboration_request.request_sender, collaboration_request.request_receiver).deliver
+
 		redirect_to accepted_collaboration_request_path(collaboration_request.request_sender_id, params[:id])
 	end
 
