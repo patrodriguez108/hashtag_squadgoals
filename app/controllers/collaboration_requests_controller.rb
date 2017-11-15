@@ -18,9 +18,9 @@ class CollaborationRequestsController < ApplicationController
 	end
 
 	def create
-		collaboration_request = CollaborationRequest.new(request_receiver_id: params[:user_id], request_sender: current_user)
+		p params
+		collaboration_request = CollaborationRequest.new(request_receiver_id: params[:user_id], request_sender: current_user, proposal: params[:proposal])
 		collaboration_request.status = RequestStatus.find(1)
-
 		collaboration_request.save
 
 		redirect_to user_path(current_user.id)
