@@ -1,3 +1,2 @@
 $('#goal-<%= @goal.id %>-add-cheer-form').remove();
-$('#goal-<%= @goal.id %>-cheer-count').remove();
-$('#goal-<%= @goal.id %>-cheers').append('<%= escape_javascript(render :partial => "goals/cheer_count.html.erb", :locals => {goal: @goal}) %>')
+$('#goal-<%= @goal.id %>-cheer-count').replaceWith('<%= escape_javascript(render :partial => "goals/cheer_count.html.erb", :locals => {goal: @goal}) %>');
