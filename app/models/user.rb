@@ -55,6 +55,10 @@ class User < ApplicationRecord
     self.squad_connections.select { |connection| connection.status_id == 2 }
   end
 
+  def accepted_champs
+    self.champ_connections.select { |connection| connection.status_id == 2 }
+  end
+
   def request_made?(requested_user)
     request = self.champ_connections.find { |connection| connection.squad_member_id == requested_user.id }
     request != nil

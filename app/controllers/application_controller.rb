@@ -15,6 +15,11 @@ class ApplicationController < ActionController::Base
  end
  helper_method :find_requester
 
+  def find_follower(follower_id)
+    User.find(follower_id)
+ end
+ helper_method :find_follower
+
   protected
 
   def current_user

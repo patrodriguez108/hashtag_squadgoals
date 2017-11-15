@@ -6,6 +6,10 @@
       <div class="progress-bar-outer progress-home" style="width: 90%">
         <div class="progress-bar-inner" style="width:<%= find_requester(squad_connections.champ_id).goals.last.progress %>%"></div>
       </div>
+      <% unless current_user.request_made?(squad_connections.champ_id) %>
+        <p>i'm a panda</p>
+        <% end %>
     </li><br>
   <% end %>
 </div>
+

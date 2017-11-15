@@ -88,16 +88,28 @@
 
 
   <div class="tab-content" id="squad">
-    <h3>Your Squad</h3>
+    <h3>Squad Members You Follow</h3>
     <ul class="champ-ul">
       <% if @user.squad_connections.any? %>
+      <section class="goals-sample">
         <%= render partial: 'connections/squad_connections', collection: @user.accepted_squad %>
+        </section>
       <% else %>
         <% if is_profile_owner?(@user) %>
           <li>You currently have no squad members. Find yoself a squad yo.</li>
         <% else %>
           <li>This user currently has no squad members.</li>
         <% end %>
+      <% end %>
+    </ul>
+
+    <h3>Squad Members Following You</h3>
+    <ul>
+      <% if @user.champ_connections.any? %>
+      <section class="goals-sample">
+        <%= render partial: 'connections/champ_connections', collection: @user.accepted_champs %>
+      </section>
+      <% else %>
       <% end %>
     </ul>
   </div>
