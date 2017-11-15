@@ -88,7 +88,11 @@
 
 
   <div class="tab-content" id="squad">
-    <h3>Squad Members You Follow</h3>
+    <% if current_user.id  == @user.id %>
+      <h3>Squad Members You Follow</h3>
+    <% else %>
+      <h3>Squad Members <%= @user.username.capitalize %> Follows </h3>
+    <% end %>
     <ul class="champ-ul">
       <% if @user.squad_connections.any? %>
       <section class="goals-sample">
@@ -103,7 +107,11 @@
       <% end %>
     </ul>
 
-    <h3>Squad Members Following You</h3>
+    <% if current_user.id  == @user.id %>
+      <h3>Squad Members Following You</h3>
+    <% else %>
+      <h3><%= @user.username.capitalize %>'s Squad</h3>
+    <% end %>
     <ul>
       <% if @user.champ_connections.any? %>
       <section class="goals-sample">

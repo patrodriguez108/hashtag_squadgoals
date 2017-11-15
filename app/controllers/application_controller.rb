@@ -40,4 +40,11 @@ class ApplicationController < ActionController::Base
     current_user.username == user.username
   end
   helper_method :is_profile_owner?
+
+
+  def part_of_squad?(id)
+    user = User.find(id)
+    current_user.squad_members.include?(user)
+  end
+  helper_method :part_of_squad?
 end

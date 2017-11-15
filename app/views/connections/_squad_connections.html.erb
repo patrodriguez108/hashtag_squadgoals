@@ -6,9 +6,13 @@
       <div class="progress-bar-outer progress-home" style="width: 90%">
         <div class="progress-bar-inner" style="width:<%= find_requester(squad_connections.champ_id).goals.last.progress %>%"></div>
       </div>
-      <% unless current_user.request_made?(squad_connections.champ_id) %>
-        <p>i'm a panda</p>
+
+      <% if current_user == @user %>
+        <% if !part_of_squad?(squad_connections.champ_id) && (current_user.id != squad_connections.champ_id) %>
+          <%= link_to "Send Squad Request", new_user_connection_path(squad_connections.champ_id) %>
         <% end %>
+      <% end %>
+
     </li><br>
   <% end %>
 </div>
