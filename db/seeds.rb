@@ -1,6 +1,6 @@
 require 'faker'
 
-profile_pic_samples = ["construction-worker_emoji", "female-artist-type-6"]
+profile_pic_samples = ["construction-worker_emoji", "female-artist-type-6", "female-astronaut-type-3", "female-cook-type-3", "female-cook-type-5", "female-factory-worker-type-1-2", "female-judge-type-6", "female-pilot-type-4", "female-scientist-type-5", "female-singer-type-1-2", "female-sleuth-type-3", "male-artist-type-4", "male-astronaut-type-6", "male-factory-worker-type-3", "male-pilot-type-3", "male-scientist-type-1-2", "male-singer-type-5", "prince_emoji-modifier-fitzpatrick", "princess_emoji-modifier-fitzpatrick-type-6", "sleuth-or-spy_emoji-modifier-fitzpatrick-type-5", "woman-mage-medium-skin-tone", "male-teacher-type-1-2", "woman-vampire-medium-skin-tone", "elf_emoji-modifier-fitzpatrick-type-3", "female-farmer-type-1-2_1f469-1f3fb-200d-1f33e"]
 
 10.times do
 	user = User.new(
@@ -13,7 +13,7 @@ profile_pic_samples = ["construction-worker_emoji", "female-artist-type-6"]
 
 	sample = profile_pic_samples.sample
 
-	image_path = File.open("/app/assets/images/seed/#{sample}.png")
+	image_path = File.open(File.join(Rails.root, 'app', "/assets/images/seed/#{sample}.png"))
 
 	user.profile_pic = image_path
 	user.save
@@ -72,7 +72,7 @@ professional_goal_subgoals = ["Make a new contact", "Apply for a course", "Put i
 	goal.save
 
 	rand(1..4).times do
-		g.sub_goals << SubGoal.create(content: health_goal_subgoals.sample, goal_id: g.id, complete: false)
+		goal.sub_goals << SubGoal.create(content: health_goal_subgoals.sample, goal_id: goal.id, complete: false)
 	end
 
 end
@@ -88,7 +88,7 @@ end
 	goal.save
 
 	rand(1..4).times do
-		g.sub_goals << SubGoal.create(content: professional_goal_subgoals.sample, goal_id: g.id, complete: false)
+		goal.sub_goals << SubGoal.create(content: professional_goal_subgoals.sample, goal_id: goal.id, complete: false)
 	end
 
 end
@@ -104,7 +104,7 @@ end
 	goal.save
 
 	rand(1..4).times do
-		g.sub_goals << SubGoal.create(content: personal_goal_subgoals.sample, goal_id: g.id, complete: false)
+		goal.sub_goals << SubGoal.create(content: personal_goal_subgoals.sample, goal_id: goal.id, complete: false)
 	end
 
 end

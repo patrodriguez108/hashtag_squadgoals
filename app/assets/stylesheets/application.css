@@ -20,6 +20,7 @@ h3 {
   margin: 0 auto;
 }
 
+
 /* ------------------------- */
 /* ---------- NAV ---------- */
 /* ------------------------- */
@@ -134,7 +135,8 @@ a:visited {
   min-width: 30%;
   flex: 1;
   margin: 5px;
-  padding: 5px;
+  padding: 2px;
+  padding-left: 9px;
   border: 5px solid #92A8D1;
 }
 
@@ -173,6 +175,10 @@ a:visited {
 
 .tags a:hover {
   color: #92A8D1;
+}
+
+.home-page-date {
+  font-size: 12px;
 }
 
 /* ------------------------- */
@@ -237,6 +243,10 @@ a:visited {
 
 .edit-goal {
   font-size: 10px;
+}
+
+.new-goal {
+  margin: 30px;
 }
 
 /* ------------------------- */
