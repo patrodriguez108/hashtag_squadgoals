@@ -482,3 +482,32 @@ li {
   visibility: hidden;
   animation: show-button 10s 75s forwards;
 }
+
+/*----------------*/
+
+.vision-header {
+  line-height: 0.5;
+  text-align: center;
+}
+.vision-header span {
+  margin-top: 15px;
+  display: inline-block;
+  position: relative;
+}
+.vision-header span:before,
+.vision-header span:after {
+  content: "";
+  position: absolute;
+  height: 5px;
+  border-bottom: 5px solid #4F6284;
+  top: 0;
+  width: 480%;
+}
+.vision-header span:before {
+  right: 100%;
+  margin-right: 15px;
+}
+.vision-header span:after {
+  left: 100%;
+  margin-left: 15px;
+}

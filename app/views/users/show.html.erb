@@ -21,7 +21,7 @@
     </ul>
 
   <div class="tab-content" id="vision-goals">
-    <h3>Vision</h3>
+    <h3 class="vision-header"><span>Vision</span></h3>
 
     <div class="user-vision">
       <% if @user.visions.any? %>
@@ -66,7 +66,7 @@
      <button class="button"><%= link_to "collaborate with #{@user.given_name}", new_user_collaboration_request_path(@user.id) %></button>
     <% end %>
     </div>
-    
+
 
     <% if is_profile_owner?(@user) %>
       <div class="create-new-goal">

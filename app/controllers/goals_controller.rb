@@ -50,13 +50,13 @@ class GoalsController < ApplicationController
 				end
 			end
 		end
-		
+
 		if params[:private].to_i == 1
 			@goal.private = true
 		else
 			@goal.private = false
 		end
-		
+
 		if @goal.save
 			redirect_to "/users/#{current_user.id}"
 		else

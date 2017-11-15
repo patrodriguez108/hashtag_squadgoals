@@ -48,6 +48,10 @@ Rails.application.routes.draw do
   post '/users/:user_id/collaboration_requests/:id/accept', to: 'collaboration_requests#accept'
 
   post '/users/:user_id/collaboration_requests/:id/decline', to: 'collaboration_requests#decline'
+
+  resources :projects, except: [:index, :show, :edit, :update] do
+    resources :project_objectives, only: [:new, :create]
+  end
   # get '/connect_cronofy', to: 'users#connect_cronofy'
   # get '/disconnect_cronofy', to: 'users#disconnect_cronofy'
 
