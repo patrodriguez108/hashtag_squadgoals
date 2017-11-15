@@ -34,6 +34,8 @@ Rails.application.routes.draw do
 
   post '/users/:user_id/connections/accept', to: 'connections#accept'
 
+  get '/users/:user_id/connections/:id/accepted', to: 'connections#accepted', as: 'accepted_connection'
+
   post '/users/:user_id/connections/decline', to: 'connections#decline'
 
   resources :tags
