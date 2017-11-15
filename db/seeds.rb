@@ -37,6 +37,23 @@ Tag.create(name: "mindfulness")
 Tag.create(name: "dance")
 Tag.create(name: "volunteering")
 
+personal_goal_content = ["Travel to Spain","Climb on a glacier in Alaska","Learn to windsurf","Learn to Scubadive","Build an art collection","Publish a Short Story","Master 5 magic tricks"]
+
+personal_goal_subgoals = ["Write for a full 12 hours", "Buy a how-to book", "Take a class", "Meet new people who do what I enjoy", "Create a performance for my family", "Visit the museum", "Ignore mom's advice"]
+
+
+health_goal_content = ["Run a 10K","Run a mile in under 8 minutes","Attend yoga three times a week","Develop a nutrition plan","Learn to box","Try new vegetables","Learn to cook 20 new dishes"]
+
+health_goal_subgoals = ["Sign up for a race", "Learn to make more salads", "Take a cooking class", "Buy a cook book", "Get tips from Aunt Tilda", ""]
+
+
+professional_goal_content = ["Apply to new jobs","Complete a leadership training course","Publish in a professional journal","Mentor a junior developer","Start a management position in 4 years","Start my MBA","Start a new business"]
+
+professional_goal_subgoals = ["Make a new contact", "Apply for a course", "Put in an application", "Get a loan", "Attend a networking event", "Build a resume", "Buy a how to book", "Make an awkward phone call", "Ignore dad's advice"]
+
+
+
+
 20.times do
 	goal = Goal.new(content: Faker::HarryPotter.quote, by_when: Faker::Date.between(Date.today, 10.years.from_now), private: false, user_id: rand(1..10), category_id: rand(1..3))
 
@@ -62,7 +79,7 @@ end
 	request = CollaborationRequest.create(request_sender: collaborator_one, request_receiver: collaborator_two, status_id: 2)
 
 	project = Project.create(name: Faker::GameOfThrones.house, description: Faker::Hipster.sentence)
-	
+
 	5.times do
 		ProjectObjective.create(content: Faker::TheFreshPrinceOfBelAir.quote, by_when: Faker::Date.between(Date.today, 5.months.from_now), project: project)
 	end
