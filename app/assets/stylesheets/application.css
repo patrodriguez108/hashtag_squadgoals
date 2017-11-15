@@ -131,7 +131,8 @@ a:visited {
 }
 
 .goal {
-  width: 25%;
+  min-width: 30%;
+  flex: 1;
   margin: 5px;
   padding: 5px;
   border: 5px solid #92A8D1;
@@ -165,13 +166,13 @@ a:visited {
 
 .tags li {
   border-radius: 5px;
-  background-color: #92A8D1;
+  background-color: #CCDEFF;
   margin: 5px;
   padding: 5px;
 }
 
 .tags a:hover {
-  color: #CCDEFF;
+  color: #92A8D1;
 }
 
 /* ------------------------- */
