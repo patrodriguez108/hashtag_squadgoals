@@ -6,8 +6,8 @@
 		<p>Proposal: <%= collaboration_request.proposal %></p>
 
 
-	<div class="response">
-		<span class="js--respond"><%= link_to 'respond', user_collaboration_request_path(collaboration_request.request_sender.id, collaboration_request.id), remote: true %></span>
+	<div id="request-<%= collaboration_request.id %>-response">
+		<span id="js--<%= collaboration_request.id %>-respond"><%= link_to 'respond', user_collaboration_request_path(collaboration_request.request_sender.id, collaboration_request.id), remote: true, locals: {collaboration_request: @collaboration_request} %></span>
 	</div>
 
 </div>
