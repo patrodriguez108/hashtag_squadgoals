@@ -18,12 +18,11 @@ class CollaborationRequestsController < ApplicationController
 	end
 
 	def create
-		collaboration_request = CollaborationRequest.new(request_receiver_id: params[:user_id], request_sender: current_user)
+		collaboration_request = CollaborationRequest.new(request_receiver_id: params[:user_id], request_sender: current_user, proposal: params[:proposal])
 		collaboration_request.status = RequestStatus.find(1)
-
 		collaboration_request.save
 
-		redirect_to user_path(current_user.id)
+		redirect_to user_path(collaboration_request.request_receiver_id)
 	end
 
 	def accept
@@ -31,7 +30,7 @@ class CollaborationRequestsController < ApplicationController
 		collaboration_request.status = RequestStatus.find(2)
 		collaboration_request.save
 
-		project = Project.new
+		project = Project.create
 
 		receiver_collaboration = Collaboration.new(project: project, collaborator: collaboration_request.request_receiver, request: collaboration_request)
 		sender_collaboration = Collaboration.new(project: project, collaborator: collaboration_request.request_sender, request: collaboration_request)
@@ -40,7 +39,7 @@ class CollaborationRequestsController < ApplicationController
 
 		AcceptedCollabRequestMailer.accepted_collab_request(collaboration_request.request_sender, collaboration_request.request_receiver).deliver
 
-		redirect_to accepted_collaboration_request_path(collaboration_request.request_sender_id, params[:id])
+		redirect_to edit_project_path(project.id)
 	end
 
 	def decline

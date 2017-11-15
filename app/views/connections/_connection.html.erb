@@ -1,5 +1,3 @@
-<p>hey</p>
-
 <%= link_to find_requester(connection.champ_id).username, user_path(connection.champ_id) %> is a champ who wants you to be in their squad
 
 <% if find_requester(connection.champ_id).goals.any? %>

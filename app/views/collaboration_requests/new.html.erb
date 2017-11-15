@@ -1,7 +1,11 @@
 <div class="page-wrapper">
-	<p>Confirm your request to collaborate with <%= link_to @user.given_name, user_path(@user.id) %></p>
+	<p>Add a proposal in order to request a collaboration with <%= link_to @user.given_name, user_path(@user.id) %></p>
 
-	<%= button_to "Send Request", action: "create", method: "post" %>
-	<button><%= link_to "Cancel Request", user_path(current_user.id) %></button>
+	<%= form_for :collaboration_request, url: "/users/#{@user.id}/collaboration_requests", method: 'post' do |f| %>
+		<%= text_field_tag :proposal %><br>
+
+		<%= submit_tag "Send Request" %>
+		<button><%= link_to "Cancel Request", user_path(current_user.id) %></button>
+	<% end %>
 
 </div>
