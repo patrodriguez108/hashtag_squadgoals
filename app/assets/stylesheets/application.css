@@ -20,6 +20,15 @@ h3 {
   margin: 0 auto;
 }
 
+.connection-request {
+  padding: 15px;
+  margin-left: 450px;
+}
+
+.connection-request-notification {
+  padding: 10px;
+  margin-left: 50px;
+}
 
 /* ------------------------- */
 /* ---------- NAV ---------- */

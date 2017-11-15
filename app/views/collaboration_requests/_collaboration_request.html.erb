@@ -1,9 +1,13 @@
-<%= link_to collaboration_request.request_sender.username, user_path(collaboration_request.request_sender.id) %> wants to collaborate on a project
+<div class="connection-request">
+
+	<%= link_to collaboration_request.request_sender.username, user_path(collaboration_request.request_sender.id) %> wants to collaborate on a project
 
 
-	<p>Proposal: <%= collaboration_request.proposal %></p>
+		<p>Proposal: <%= collaboration_request.proposal %></p>
 
 
-<div class="response">
-	<span class="js--respond"><%= link_to 'respond', user_collaboration_request_path(collaboration_request.request_sender.id, collaboration_request.id), remote: true %></span>
+	<div class="response">
+		<span class="js--respond"><%= link_to 'respond', user_collaboration_request_path(collaboration_request.request_sender.id, collaboration_request.id), remote: true %></span>
+	</div>
+
 </div>
