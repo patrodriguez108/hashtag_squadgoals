@@ -1,0 +1,11 @@
+<h3>Create a New Objective</h3>
+
+<%= form_for [@project, @project.project_objectives.build] do |f| %>
+  <p><%= f.text_area :content %></p>
+  <p><%= label_tag(:by_when, "By when?") %>
+  <%= f.date_field :by_when %></p>
+  <p><%= check_box_tag(:private) %>
+  <%= label_tag(:private, "Make this a private objective?") %></p>
+
+  <%= f.submit "Save Objective" %>
+<% end %>
