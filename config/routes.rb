@@ -49,6 +49,8 @@ Rails.application.routes.draw do
 
   post '/users/:user_id/collaboration_requests/:id/accept', to: 'collaboration_requests#accept'
 
+  get '/users/:user_id/collaboration_requests/:id/accepted', to: 'collaboration_requests#accepted', as: 'accepted_collaboration_request'
+
   post '/users/:user_id/collaboration_requests/:id/decline', to: 'collaboration_requests#decline'
   # get '/connect_cronofy', to: 'users#connect_cronofy'
   # get '/disconnect_cronofy', to: 'users#disconnect_cronofy'
