@@ -61,4 +61,8 @@ class Goal < ApplicationRecord
       false
     end
   end
+
+  def cheers_count
+    "#{self.cheers.count} cheers"
+  end
 end
