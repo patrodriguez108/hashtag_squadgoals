@@ -1,2 +1,2 @@
 $("#js--<%= @connection.id %>-respond").remove();
-$("#<%= @connection.id %>-response").append('<%= j render("connections/response_buttons") %>');
+$("#connection-<%= @connection.id %>-response").append('<%= j render("connections/response_buttons") %>');

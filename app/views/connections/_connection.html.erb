@@ -7,7 +7,7 @@
 
 <% end %>
 
-<div id="<%= connection.id %>-response">
+<div id="connection-<%= connection.id %>-response">
 	<span id="js--<%= connection.id %>-respond"><%= link_to 'respond', user_connection_path(connection.champ_id, connection.id), remote: true, locals: {connection: @connection} %></span>
 </div>
 
