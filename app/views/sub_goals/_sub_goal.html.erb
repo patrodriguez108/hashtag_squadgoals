@@ -1,11 +1,16 @@
+<div class="sub-goals-li">
 <%= form_for :sub_goal, url: "/goals/#{@goal.id}/sub_goals/#{sub_goal.id}", html: {method: 'patch', id: "#{sub_goal.id}", class: "updated-form"}, remote: true do |f| %>
   <% if sub_goal.complete == false %>
     <%= f.label :complete, sub_goal.content, class: "incomplete"%>
-    <%= f.button :complete, class: "complete-button"  %>
-
-    <%= f.button link_to "Edit", edit_goal_sub_goal_path(@goal.id, sub_goal.id), class: "edit-sub-goal-button", remote: true %>
+    <% if is_profile_owner?(@goal.user) %>
+      <%= f.button :complete, class: "complete-button"  %>
+    <% end %>
+    <% if is_profile_owner?(@goal.user) %>
+      <%= f.button link_to "Edit", edit_goal_sub_goal_path(@goal.id, sub_goal.id), class: "edit-sub-goal-button", remote: true %>
+    <% end %>
   <% else %>
     <%= f.label :complete, sub_goal.content, class: "completed-strike"%>
   <% end %>
 
 <% end %>
+</div>

@@ -20,6 +20,7 @@ h3 {
   margin: 0 auto;
 }
 
+
 /* ------------------------- */
 /* ---------- NAV ---------- */
 /* ------------------------- */
@@ -134,7 +135,8 @@ a:visited {
   min-width: 30%;
   flex: 1;
   margin: 5px;
-  padding: 5px;
+  padding: 2px;
+  padding-left: 9px;
   border: 5px solid #92A8D1;
 }
 
@@ -173,6 +175,10 @@ a:visited {
 
 .tags a:hover {
   color: #92A8D1;
+}
+
+.home-page-date {
+  font-size: 12px;
 }
 
 /* ------------------------- */
@@ -239,15 +245,51 @@ a:visited {
   font-size: 10px;
 }
 
+.new-goal {
+  margin: 30px;
+}
+
+
+
 /* ------------------------- */
 /* ---- USER SUB-GOALS ---- */
 /* ------------------------- */
 
-#sub-goals-list ul {
-  padding-left: 0;
-  margin-bottom: 5px;
+
+.user-goal-tags {
+  display: inline-block;
+  padding-top: 30px;
+  padding-right: 20px;
 }
 
+.goal-tag-collection {
+  margin-bottom: 10px;
+}
+
+#sub-goals-list ul {
+  padding-left: 0;
+  margin-bottom: 1px;
+}
+
+.sub-goals-li {
+  padding-top: 5px;
+  font-size: 14px;
+}
+
+.create-new-sub-goal {
+  margin-top: 20px;
+}
+
+.goal-content {
+  text-align: center;
+}
+
+.goal-progress-display {
+  border-top: 5px solid #4F6284;
+  /*border-bottom: 5px solid #4F6284;*/
+  padding: 5px 0;
+  margin: 10px 0;
+}
 
 
 /* ------------------------- */
