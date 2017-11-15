@@ -70,3 +70,7 @@ end
 	collab_one = Collaboration.create(request: request, project: project, collaborator: collaborator_one)
 	collab_two = Collaboration.create(request: request, project: project, collaborator: collaborator_two)
 end
+
+50.times do
+	Cheer.create(goal_id: rand(1..20), user_id: rand(1..10))
+end

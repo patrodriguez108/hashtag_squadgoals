@@ -55,5 +55,5 @@ Rails.application.routes.draw do
   # get '/connect_cronofy', to: 'users#connect_cronofy'
   # get '/disconnect_cronofy', to: 'users#disconnect_cronofy'
 
-
+  post '/goals/:goal_id/cheers', to: 'cheers#create'
 end
