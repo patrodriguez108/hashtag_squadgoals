@@ -65,4 +65,18 @@ class Goal < ApplicationRecord
   def cheers_count
     "#{self.cheers.count} cheers"
   end
+
+  def users_who_cheered
+    user_ids = []
+    self.cheers.each { |cheer| user_ids << cheer.user_id }
+    user_ids
+  end
+
+  def already_cheered?(user_id)
+    self.users_who_cheered.include?(user_id)
+  end
+
+  def own_goal?(user_id)
+    self.user_id == user_id
+  end
 end

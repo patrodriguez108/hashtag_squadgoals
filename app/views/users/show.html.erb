@@ -57,8 +57,10 @@
 
             <%= goal.cheers_count %>
 
-            <%= form_for :cheer, url: "/goals/#{goal.id}/cheers" do |f| %>
-              <%= submit_tag "cheer" %>
+            <% if !is_profile_owner?(@user) && !goal.users_who_cheered.include?(current_user.id) %>
+              <%= form_for :cheer, url: "/goals/#{goal.id}/cheers" do |f| %>
+                <%= submit_tag "cheer" %>
+              <% end %>
             <% end %>
 
             <% if is_profile_owner?(@user) %>
