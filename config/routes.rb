@@ -34,6 +34,8 @@ Rails.application.routes.draw do
 
   post '/users/:user_id/connections/accept', to: 'connections#accept'
 
+  get '/users/:user_id/connections/:id/accepted', to: 'connections#accepted', as: 'accepted_connection'
+
   post '/users/:user_id/connections/decline', to: 'connections#decline'
 
   resources :tags
@@ -46,6 +48,8 @@ Rails.application.routes.draw do
   get '/logout' => 'sessions#destroy'
 
   post '/users/:user_id/collaboration_requests/:id/accept', to: 'collaboration_requests#accept'
+
+  get '/users/:user_id/collaboration_requests/:id/accepted', to: 'collaboration_requests#accepted', as: 'accepted_collaboration_request'
 
   post '/users/:user_id/collaboration_requests/:id/decline', to: 'collaboration_requests#decline'
 
