@@ -20,13 +20,16 @@ class ConnectionsController < ApplicationController
 		connection = Connection.new(squad_member_id: params[:user_id], champ_id: current_user.id)
 		connection.status = RequestStatus.find(1)
 		connection.save
-		redirect_to "/users/#{current_user.id}"
+		redirect_to user_path(connection.squad_member_id)
 	end
 
 	def accept
 		connection = Connection.find_by(champ_id: params[:user_id], squad_member_id: current_user.id)
 		connection.status = RequestStatus.find(2)
 		connection.save
+
+		AcceptedNotificationMailer.accepted_notification(connection.champ, connection.squad_member).deliver
+
 		redirect_to accepted_connection_path(params[:user_id], connection.id)
 	end
 
