@@ -1,14 +1,14 @@
 <div class="connection-request">
-	<%= link_to find_requester(connection.champ_id).username, user_path(connection.champ_id) %> is a champ who wants you to be in their squad
+<%= link_to find_requester(connection.champ_id).username, user_path(connection.champ_id) %> is a champ who wants you to be in their squad
 
-	<% if find_requester(connection.champ_id).goals.any? %>
+<% if find_requester(connection.champ_id).goals.any? %>
 
-		<p>Most recent goal: <%= find_requester(connection.champ_id).goals.last.content %></p>
+	<p>Most recent goal: <%= find_requester(connection.champ_id).goals.last.content %></p>
 
-	<% end %>
+<% end %>
 
-	<div class="response">
-		<span class="js--respond"><%= link_to 'respond', user_connection_path(connection.champ_id, connection.id), remote: true %></span>
-	</div>
+<div id="<%= connection.id %>-response">
+	<span id="js--<%= connection.id %>-respond"><%= link_to 'respond', user_connection_path(connection.champ_id, connection.id), remote: true, locals: {connection: @connection} %></span>
+</div>
 
 </div>
