@@ -55,6 +55,14 @@
               <div class="progress-bar-inner" style="width:<%= goal.progress %>%"></div>
             </div>
 
+            <%= goal.cheers_count %>
+
+            <% if !is_profile_owner?(@user) && !goal.users_who_cheered.include?(current_user.id) %>
+              <%= form_for :cheer, url: "/goals/#{goal.id}/cheers" do |f| %>
+                <%= submit_tag "cheer" %>
+              <% end %>
+            <% end %>
+
             <% if is_profile_owner?(@user) %>
               <li><%= link_to "Edit", edit_goal_path(goal.id), class: "edit-goal" %></li>
             <% end %>

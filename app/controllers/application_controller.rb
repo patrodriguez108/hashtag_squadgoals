@@ -8,12 +8,10 @@ class ApplicationController < ActionController::Base
   def about
   end
 
-
-
- def find_requester(requester_id)
- 		User.find(requester_id)
- end
- helper_method :find_requester
+  def find_requester(requester_id)
+    User.find(requester_id)
+  end
+  helper_method :find_requester
 
   protected
 

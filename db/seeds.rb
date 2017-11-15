@@ -52,7 +52,7 @@ RequestStatus.create(name: "Accepted")
 RequestStatus.create(name: "Denied")
 
 5.times do
-	Connection.create(champ_id: rand(1..10), squad_member_id: rand(1..10), status_id: rand(1..3))
+	Connection.create(champ_id: rand(1..5), squad_member_id: rand(6..10), status_id: 2)
 end
 
 10.times do
@@ -69,4 +69,8 @@ end
 
 	collab_one = Collaboration.create(request: request, project: project, collaborator: collaborator_one)
 	collab_two = Collaboration.create(request: request, project: project, collaborator: collaborator_two)
+end
+
+50.times do
+	Cheer.create(goal_id: rand(1..20), user_id: rand(1..10))
 end
