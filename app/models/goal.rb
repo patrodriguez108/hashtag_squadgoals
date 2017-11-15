@@ -5,7 +5,7 @@ class Goal < ApplicationRecord
   has_many :tags, through: :goal_tags, source: :tag
   has_many :sub_goals
   accepts_nested_attributes_for :sub_goals
-
+  has_many :cheers
   validates :category, presence: {message: ": Which category does your goal fall under?"}
   validates :content, presence: {message: ": Please enter your goal"}
   validates :by_when, presence: {message: ": When do you see yourself accomplishing this goal?"}
