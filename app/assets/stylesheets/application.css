@@ -30,7 +30,7 @@ nav {
   align-items: center;
   justify-content: space-between;
   margin-bottom: 10px;
-  padding: 10px;
+  padding: 25px 15px;
   background-color: #CCDEFF;
 }
 
@@ -140,9 +140,18 @@ a:visited {
   border: 5px solid #92A8D1;
 }
 
-.profile-pic {
+.user-profile-pic {
+  width: 10%;
   display: block;
-  margin: 0 auto;
+  margin: 10px auto 0 auto;
+  border: 5px solid #92A8D1;
+  border-radius: 100%;
+}
+
+.profile-pic {
+  width: 20%;
+  display: block;
+  margin: 10px auto 0 auto;
   border: 5px solid #92A8D1;
   border-radius: 100%;
 }
