@@ -7,7 +7,7 @@
   <% end %>
 
   <% if @user.profile_pic_updated_at != nil %>
-    <%= image_tag @user.profile_pic.url, class: "profile-pic" %>
+    <%= image_tag @user.profile_pic.url, class: "user-profile-pic" %>
   <% end %>
 
   <% unless current_user == @user || current_user.request_made?(@user) %>
