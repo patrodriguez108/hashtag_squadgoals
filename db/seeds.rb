@@ -47,32 +47,38 @@ Tag.create(name: "mindfulness")
 Tag.create(name: "dance")
 Tag.create(name: "volunteering")
 
-personal_goal_content = ["Travel to Spain","Climb on a glacier in Alaska","Learn to windsurf","Learn to Scubadive","Build an art collection","Publish a Short Story","Master 5 magic tricks"]
-
-personal_goal_subgoals = ["Write for a full 12 hours", "Buy a how-to book", "Take a class", "Meet new people who do what I enjoy", "Create a performance for my family", "Visit the museum", "Ignore mom's advice", "Stop buying lottery tickets", ]
 
 
-health_goal_content = ["Run a 10K","Run a mile in under 8 minutes","Attend yoga three times a week","Develop a nutrition plan","Learn to box","Try new vegetables","Learn to cook 20 new dishes"]
+health_goal_content = ["Run a 10K","Run a mile in under 8 minutes","Attend yoga three times a week","Develop a nutrition plan","Learn to box","Try new vegetables","Learn to cook 20 new dishes", "Eat more fish", "Learn to skydive", "Learn soccer", "Coach my kids volleyball team"]
 
-health_goal_subgoals = ["Sign up for a race", "Learn to make more salads", "Take a cooking class", "Buy a cook book", "Get tips from Aunt Tilda", "Throw out all the candy"]
+health_goal_subgoals = ["Sign up for a race", "Learn to make more salads", "Take a cooking class", "Buy a cook book", "Get tips from Aunt Tilda", "Throw out all the candy", "Buy a new spatula", "Throw out Paula Dean's cookbooks", "Join a soccer team", "Buy more cheese", "Find a yoga studio", "Buy new running shoes", "Find a trainer"]
 
 
-professional_goal_content = ["Apply to new jobs","Complete a leadership training course","Publish in a professional journal","Mentor a junior developer","Start a management position in 4 years","Start my MBA","Start a new business"]
+professional_goal_content = ["Apply to new jobs","Complete a leadership training course","Publish in a professional journal","Mentor a junior developer","Start a management position in 4 years","Start my MBA","Start a new business", "Design my first website", "Learn Python", "Learn React"]
 
-professional_goal_subgoals = ["Make a new contact", "Apply for a course", "Put in an application", "Get a loan", "Attend a networking event", "Build a resume", "Buy a how to book", "Make an awkward phone call", "Ignore dad's advice"]
+professional_goal_subgoals = ["Make a new contact", "Apply for a course", "Put in an application", "Get a loan", "Attend a networking event", "Build a resume", "Buy a how to book", "Make an awkward phone call", "Ignore dad's advice", "Go to a Rails meetup", "Attend a Python meet-up", "Edit my resume", "Have my resume reviewed"]
+
+
+personal_goal_content = ["Travel to Spain","Climb on a glacier in Alaska","Learn to windsurf","Learn to Scubadive","Build an art collection","Publish a Short Story","Master 5 magic tricks", "Watch only quality television", "Try a new cheese every week", "Try 52 new beers this year", "Start journaling and get my kids journaling", "Volunteer more with Big Brothers, Big Sisters" ]
+
+personal_goal_subgoals = ["Write for a full 12 hours", "Buy a how-to book", "Take a class", "Meet new people who do what I enjoy", "Create a performance for my family", "Visit the museum", "Ignore mom's advice", "Stop buying lottery tickets", "Throw out useless anti-aging skin creams", "Find TV shows I like", "Select an animal shelter to volunteer for"]
 
 # HEALTH GOALS
 10.times do
 	goal = Goal.new(content: health_goal_content.sample, by_when: Faker::Date.between(Date.today, 10.years.from_now), private: false, user_id: rand(1..10), category_id: 1)
 
-	5.times do
+	rand(1..5).times do
 		goal.tags << Tag.find(rand(1..15))
 	end
 
 	goal.save
 
-	rand(1..4).times do
+	rand(1..3).times do
 		goal.sub_goals << SubGoal.create(content: health_goal_subgoals.sample, goal_id: goal.id, complete: false)
+	end
+
+	rand(1..3).times do
+		goal.sub_goals << SubGoal.create(content: health_goal_subgoals.sample, goal_id: goal.id, complete: true)
 	end
 
 end
@@ -81,7 +87,7 @@ end
 10.times do
 	goal = Goal.new(content: professional_goal_content.sample, by_when: Faker::Date.between(Date.today, 10.years.from_now), private: false, user_id: rand(1..10), category_id: 2)
 
-	5.times do
+	rand(1..5).times do
 		goal.tags << Tag.find(rand(1..15))
 	end
 
@@ -91,13 +97,17 @@ end
 		goal.sub_goals << SubGoal.create(content: professional_goal_subgoals.sample, goal_id: goal.id, complete: false)
 	end
 
+	rand(1..4).times do
+		goal.sub_goals << SubGoal.create(content: professional_goal_subgoals.sample, goal_id: goal.id, complete: true)
+	end
+
 end
 
 #PERSONAL GOALS
 10.times do
 	goal = Goal.new(content: personal_goal_content.sample, by_when: Faker::Date.between(Date.today, 10.years.from_now), private: false, user_id: rand(1..10), category_id: 3)
 
-	5.times do
+	rand(1..5).times do
 		goal.tags << Tag.find(rand(1..15))
 	end
 
@@ -107,6 +117,9 @@ end
 		goal.sub_goals << SubGoal.create(content: personal_goal_subgoals.sample, goal_id: goal.id, complete: false)
 	end
 
+	rand(1..4).times do
+		goal.sub_goals << SubGoal.create(content: personal_goal_subgoals.sample, goal_id: goal.id, complete: true)
+	end
 end
 
 
