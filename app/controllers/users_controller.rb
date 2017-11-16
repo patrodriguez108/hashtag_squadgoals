@@ -17,10 +17,10 @@ class UsersController < ApplicationController
       end
 
     else
-      flash[:notice] = @user.errors.full_messages
+      @errors = @user.errors.full_messages
       respond_to do |f|
         f.html { render 'new' }
-        f.json { render json: flash[:notice] }
+        f.json { render json: @errors }
       end
     end
   end
@@ -34,7 +34,7 @@ class UsersController < ApplicationController
       @search = params[:search]
       @found_users = User.search(@search)
     else
-      flash[:notice] = "There are no users matching your search."
+      @errors = ["There are no users matching your search."]
     end
     render
   end
