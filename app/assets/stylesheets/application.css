@@ -32,7 +32,10 @@ h3 {
 
 .connection-request {
   padding: 15px;
-  margin-left: 450px;
+  margin-left: 350px;
+  max-width: 500px;
+  border: solid #4F6284;
+  margin-bottom: 10px;
 }
 
 .connection-request-notification {
