@@ -30,6 +30,12 @@ h3 {
   margin-left: 50px;
 }
 
+textarea {
+  outline: none;
+  resize: none;
+  border: solid 2px #91a8cd;
+}
+
 /* ------------------------- */
 /* ---------- NAV ---------- */
 /* ------------------------- */

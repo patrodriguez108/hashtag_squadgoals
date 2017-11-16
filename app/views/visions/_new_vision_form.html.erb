@@ -5,7 +5,7 @@
 			<p>However, let's try to keep the same spirit of your vision. Let's take some time to think about how you want to phrase your vision this time around.</p>
 			<p>in <%= text_field_tag :timeframe, current_user.current_vision_time_frame_in_years_from_now %> years time</p>
 
-			<p><%= text_area_tag :statement, current_user.current_vision_statement %></p>
+			<p><%= text_area_tag :statement, current_user.current_vision_statement, size: '70x15' %></p>
 		<%= f.submit %>
 	<% end %>
 

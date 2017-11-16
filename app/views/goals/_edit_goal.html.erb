@@ -6,7 +6,7 @@
   <p><%= f.radio_button :category_id, '3' %>
   <%= label_tag(:health, "Health") %></p>
 
-  <p><%= f.text_area :content %></p>
+  <p><%= f.text_area :content, size: '50x10' %></p>
   <p><%= label_tag(:by_when, "By when?") %>
   <%= f.date_field :by_when %></p>
   <% if goal.private %>
