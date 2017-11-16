@@ -60,12 +60,11 @@
 
     <div class="main">
 
-      <p class="alert"><%= alert %></p>
-      <% if notice %>
-        <% notice.each do |message| %>
-          <p class="notice"><%= message %></p>
+      <div class="errors">
+        <% if @errors %>
+          <%= render partial: 'shared/errors' %>
         <% end %>
-      <% end %>
+      </div>
 
       <%= yield %>
     </div>
