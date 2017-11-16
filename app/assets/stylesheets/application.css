@@ -16,6 +16,16 @@ h3 {
   padding: 20px;
 }
 
+.collab-request-form {
+  padding: 10px;
+}
+
+.collab-request-form textarea {
+  margin-bottom: 10px;
+  width: 300px;
+  height: 40px;
+}
+
 .connection-link {
   margin: 0 auto;
 }
