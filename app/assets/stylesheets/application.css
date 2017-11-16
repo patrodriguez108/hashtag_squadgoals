@@ -541,7 +541,7 @@ li {
 
 .vision-button {
   visibility: hidden;
-  animation: show-button 10s 75s forwards;
+  animation: show-button 10s 60s forwards;
 }
 
 /*----------------*/
@@ -572,3 +572,12 @@ li {
   left: 100%;
   margin-left: 15px;
 }
+
+/*----------------*/
+
+/*.vision-animation {
+  display: block;
+  position: absolute;
+  transition: transform 1s;
+  background-color: white;
+}*/

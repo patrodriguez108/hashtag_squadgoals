@@ -52,7 +52,7 @@
           <% else %>
             <p>You have <%= current_user.collab_requests_count %> collaboration requests</p>
           <% end %>
-          
+
           <%= link_to "View Requests", user_collaboration_requests_path(current_user.id) %>
         <% end %>
       </div>
