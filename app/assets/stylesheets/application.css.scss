@@ -1,3 +1,5 @@
+$visionWidth: 50%;
+
 * {
   font-family: sans-serif;
 }
@@ -217,7 +219,7 @@ input[type=submit]:hover {
 
 .user-vision {
   text-align: center;
-  width: 50%;
+  width: $visionWidth;
   margin: 0 auto;
   /*border-top: 5px solid #4F6284;*/
   border-bottom: 5px solid #4F6284;
@@ -565,12 +567,13 @@ li {
 .vision-header {
   line-height: 0.5;
   text-align: center;
+  span {
+    margin-top: 15px;
+    display: inline-block;
+    position: relative;
+  }
 }
-.vision-header span {
-  margin-top: 15px;
-  display: inline-block;
-  position: relative;
-}
+
 .vision-header span:before,
 .vision-header span:after {
   content: "";
@@ -591,9 +594,11 @@ li {
 
 /*----------------*/
 
-/*.vision-animation {
+.vision-animation {
   display: block;
   position: absolute;
   transition: transform 1s;
   background-color: white;
-}*/
+  left: 50%;
+  margin-left: -$visionWidth/2;
+}

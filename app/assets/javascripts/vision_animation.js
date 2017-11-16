@@ -1,10 +1,11 @@
 $(document).ready(function() {
-  setTimeout(function() {
+ // setTimeout(function() {
+    console.log($(".vision-animation"))
     $(".vision-animation").each(function(index, element){
       $(element).css({
         "z-index": -1 * index,
-        "transform": "translateY(" + i * 100 + "%)"
+        "transform": "translateY(" + index * 100 + "%)"
       })
-    }, 1000)
+//    }, 1000)
   })
 })
