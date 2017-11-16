@@ -1,7 +1,7 @@
 class ConnectionsController < ApplicationController
 
 	def index
-		@squad_connections = current_user.squad_connections.where(status_id: 1)
+		@connections = current_user.squad_connections.where(status_id: 1)
 	end
 
 	def new
