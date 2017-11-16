@@ -38,6 +38,10 @@ h3 {
   margin-bottom: 10px;
 }
 
+.response-buttons .response-button {
+  display: inline-block;
+}
+
 .connection-request-notification {
   padding: 10px;
   margin-left: 50px;
