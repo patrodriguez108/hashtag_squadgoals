@@ -36,6 +36,12 @@ textarea {
   border: solid 2px #91a8cd;
 }
 
+input[type=text] {
+  outline: none;
+  resize: none;
+  border: solid 2px #91a8cd;
+}
+
 /* ------------------------- */
 /* ---------- NAV ---------- */
 /* ------------------------- */
