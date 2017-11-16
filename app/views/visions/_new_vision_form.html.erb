@@ -3,9 +3,9 @@
 	<%= form_for :vision, url: '/visions', html: {id: "new-vision-form"}, authenticity_token: true, method: 'post' do |f| %>
 			<p>So you want to update your vision. Re-evaluation is important. Maybe you want to build your vision in a different timeframe. Maybe you want to rephrase your vision. That's comepletely understandable.</p>
 			<p>However, let's try to keep the same spirit of your vision. Let's take some time to think about how you want to phrase your vision this time around.</p>
-			<p>in <%= text_field_tag :timeframe, current_user.current_vision_time_frame_in_years_from_now %> years time</p>
+			<p>in <%= text_field_tag :timeframe, current_user.current_vision_time_frame_in_years_from_now, autofocus: true %> years time</p>
 
-			<p><%= text_area_tag :statement, current_user.current_vision_statement %></p>
+			<p><%= text_area_tag :statement, current_user.current_vision_statement, size: '70x15' %></p>
 		<%= f.submit %>
 	<% end %>
 
@@ -22,7 +22,7 @@
 			<p class="vision-prompt" id="prompt-7">Don't worry if you can't find the right words yet. You can always update your vision.</p>
 		</div>
 
-		<h3 class=>Where do you envision your life in <%= text_field_tag :timeframe %> years?</h3>
+		<h3 class=>Where do you envision your life in <%= text_field_tag :timeframe, autofocus: true %> years?</h3>
 		<div class="vision-input">
 			<%= text_area_tag :statement, nil, size: '70x15' %><br>
 			<span class="vision-button"><%= f.submit %></span>
