@@ -1,11 +1,13 @@
 <div class="page-wrapper">
 	<p>Add a proposal in order to request a collaboration with <%= link_to @user.given_name, user_path(@user.id) %></p>
 
-	<%= form_for :collaboration_request, url: "/users/#{@user.id}/collaboration_requests", method: 'post' do |f| %>
-		<%= text_field_tag :proposal %><br>
+	<div class="collab-request-form">
+		<%= form_for :collaboration_request, url: "/users/#{@user.id}/collaboration_requests", method: 'post' do |f| %>
+			<%= text_area_tag :proposal %><br>
 
-		<%= submit_tag "Send Request" %>
-		<button><%= link_to "Cancel Request", user_path(current_user.id) %></button>
-	<% end %>
+			<%= submit_tag "Send Request" %>
+			<button><%= link_to "Cancel Request", user_path(current_user.id) %></button>
+		<% end %>
+	</div>
 
 </div>

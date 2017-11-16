@@ -20,6 +20,7 @@ class ConnectionsController < ApplicationController
 		connection = Connection.new(squad_member_id: params[:user_id], champ_id: current_user.id)
 		connection.status = RequestStatus.find(1)
 		connection.save
+		ConnectionRequestMailer.connection_request(connection.champ, connection.squad_member).deliver
 		redirect_to user_path(connection.squad_member_id)
 	end
 

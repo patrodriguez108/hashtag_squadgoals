@@ -16,18 +16,47 @@ h3 {
   padding: 20px;
 }
 
+.collab-request-form {
+  padding: 10px;
+}
+
+.collab-request-form textarea {
+  margin-bottom: 10px;
+  width: 300px;
+  height: 40px;
+}
+
 .connection-link {
   margin: 0 auto;
 }
 
 .connection-request {
   padding: 15px;
-  margin-left: 450px;
+  margin-left: 350px;
+  max-width: 500px;
+  border: solid #4F6284;
+  margin-bottom: 10px;
+}
+
+.response-buttons .response-button {
+  display: inline-block;
 }
 
 .connection-request-notification {
   padding: 10px;
   margin-left: 50px;
+}
+
+textarea {
+  outline: none;
+  resize: none;
+  border: solid 2px #91a8cd;
+}
+
+input[type=text] {
+  outline: none;
+  resize: none;
+  border: solid 2px #91a8cd;
 }
 
 /* ------------------------- */
