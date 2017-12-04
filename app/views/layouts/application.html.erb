@@ -40,20 +40,22 @@
         <% if current_user.squad_connections.any? && current_user.requests? %>
           <% if current_user.requests_count <= 1 %>
             <p>You have <%= current_user.requests_count %> squad member request</p>
+            <%= link_to "View Request", user_connections_path(current_user.id) %>
           <% else %>
             <p>You have <%= current_user.requests_count %> squad member requests</p>
+            <%= link_to "View Requests", user_connections_path(current_user.id) %>
           <% end %>
-          <%= link_to "View Requests", user_connections_path(current_user.id) %>
         <% end %>
 
         <% if current_user.received_collab_requests.any? && current_user.collab_requests? %>
           <% if current_user.collab_requests_count <= 1 %>
             <p>You have <%= current_user.collab_requests_count %> collaboration request</p>
+            <%= link_to "View Request", user_collaboration_requests_path(current_user.id) %>
           <% else %>
             <p>You have <%= current_user.collab_requests_count %> collaboration requests</p>
+            <%= link_to "View Requests", user_collaboration_requests_path(current_user.id) %>
           <% end %>
 
-          <%= link_to "View Requests", user_collaboration_requests_path(current_user.id) %>
         <% end %>
       </div>
     <% end %>
