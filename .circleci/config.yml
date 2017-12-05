@@ -4,7 +4,7 @@ jobs:
     parallelism: 3
     working_directory: ~/circleci-demo-ruby-rails
     docker:
-      - image: circleci/ruby:2.4-node
+      - image: circleci/ruby:2.3@sha256:b7c0bf563de65c69c5e8fcc7495d2ac24c08b3e94e9ed3228a4a89883f57f7d7
         environment:
           PGHOST: 127.0.0.1
           PGUSER: circleci-demo-ruby
