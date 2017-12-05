@@ -34,7 +34,7 @@ jobs:
 
       - run:
           name: Bundle Install
-          command: bundle install --path vendor/bundle
+          command: bundle install
 
       # Store bundle cache
       - type: cache-save
