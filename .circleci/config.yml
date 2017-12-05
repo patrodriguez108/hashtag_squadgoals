@@ -4,7 +4,7 @@ jobs:
     parallelism: 3
     working_directory: ~/circleci-demo-ruby-rails
     docker:
-      - image: circleci/ruby:2.4-node
+      - image: circleci/ruby@sha256:dedb861c23130258afedb98e4d9a657be99cc87f6412bd0b1198567f88832eed
         environment:
           PGHOST: 127.0.0.1
           PGUSER: circleci-demo-ruby
@@ -34,7 +34,7 @@ jobs:
 
       - run:
           name: Bundle Install
-          command: bundle install --path vendor/bundle
+          command: bundle install
 
       # Store bundle cache
       - type: cache-save
